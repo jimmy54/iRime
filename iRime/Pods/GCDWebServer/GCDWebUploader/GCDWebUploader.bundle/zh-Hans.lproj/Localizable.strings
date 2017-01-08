@@ -1,0 +1,4 @@
+"PROLOGUE" = "<p>拖文件到这上传</p>";
+"EPILOGUE" = "";
+"FOOTER_FORMAT" = "%@ %@";
+"UploadFiles" = "上传"

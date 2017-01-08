@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3ABB13A3ACDE21FC6C124DB09BE7C419D76BBE1D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3ABB13A3ACDE21FC6C124DB09BE7C419D76BBE1D" : 9223372036854775807,
+    "82C91FAFEE7089CE3A02C7A2060FC9668C795B5E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A3177455-ECAB-4E89-BAB6-DCBA2D0222FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3ABB13A3ACDE21FC6C124DB09BE7C419D76BBE1D" : "iRIME\/",
+    "82C91FAFEE7089CE3A02C7A2060FC9668C795B5E" : "OpenCC\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iRime",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iRime\/iRime.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/jimmy54%2540126.com@git.oschina.net\/jimmy54\/iRime.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3ABB13A3ACDE21FC6C124DB09BE7C419D76BBE1D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gelosie\/OpenCC",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "82C91FAFEE7089CE3A02C7A2060FC9668C795B5E"
+    }
+  ]
+}

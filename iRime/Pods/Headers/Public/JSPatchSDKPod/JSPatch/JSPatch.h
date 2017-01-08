@@ -1,0 +1,1 @@
+../../../../JSPatchSDKPod/JSPatch.framework/Headers/JSPatch.h

@@ -1,0 +1,19 @@
+More thorough testing of date parsing, inc. better testing of time zones.
+
+
+NSKeyed(Un)Archiver Features:
+
+Conditional objects.
+NSKeyedArchiverDelegate equivalent.
+setClass:forClassName:
+classForClassName:
+
+
+Ideas:
+
+Generate anchors for strings etc. only if the anchor would take up less space
+than referring to the string directly.  Make this the default mode for scalars.
+
+Match and parse scalars (especially dates) using a 'proper' parser rather than
+regexes (advantage of regexes is that it's easy to verify that they match
+the specs exactly).

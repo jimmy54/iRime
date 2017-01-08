@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Xcode是一款非常优秀的IDE,但是在日志打印上貌似没有那么多高级的特性，比如分级打印，显示颜色。本博客就介绍下两个开源组件结合使用达到如下效果：</string>
+		</dict>
+	</array>
+</dict>
+</plist>
