@@ -17,6 +17,13 @@
 - [daaiwusheng](https://github.com/daaiwusheng)
 - [bingFly](https://github.com/bingFly)
 
+
+
+## iOS平臺RIME框架底层：
+
+- [iRimeLib] (https://github.com/jimmy54/iRimeLib)
+
+
 ## 第三方庫/3rd Party Library
 - [OpenCC](https://github.com/BYVoid/OpenCC) (Apache License 2.0)
 - [neolee/SCU](https://github.com/BYVoid/OpenCC) (Apache License 2.0)
