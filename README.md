@@ -6,14 +6,15 @@
 音碼形碼通用輸入法平臺。
 
 
-主要開發者和代碼貢獻：
+
+
+
+
+## 主要開發者和代碼貢獻：
 
 - [Mrdongyueyue](https://github.com/Mrdongyueyue)
 - [daaiwusheng](https://github.com/daaiwusheng)
 
-## 歷史/History
-## 許可協議/License
-[Apache License 2.0](COPYING)
 
 ## 第三方庫/3rd Party Library
 - [OpenCC](https://github.com/BYVoid/OpenCC) (Apache License 2.0)
