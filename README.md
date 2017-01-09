@@ -10,6 +10,7 @@
 
 
 
+
 ## 主要開發者和代碼貢獻：
 
 - [Mrdongyueyue](https://github.com/Mrdongyueyue)
@@ -34,8 +35,8 @@
 
 ## 鳴謝/Credits
 - [Rime]: [佛振](https://github.com/lotem)
-- [維基](https://github.com/osfans/trime/wiki)、圖文教程：[xiaoqun2016](https://github.com/xiaoqun2016)
-- 在[Issues](https://github.com/osfans/trime/issues)、貼吧、QQ羣中反饋意見的網友
+- 圖文教程：[xiaoqun2016](https://github.com/xiaoqun2016)
+- 在[Issues](https://github.com/jimmy54/iRime/issues)、貼吧(http://tieba.baidu.com/f?kw=rime)、QQ羣中反饋意見的網友
 - 依賴的第三方庫等開源項目
 
 [Rime]: http://rime.im
