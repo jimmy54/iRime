@@ -11,15 +11,16 @@
 
 
 
-## 主要開發者和代碼貢獻：
+## 主要開發者和代碼貢獻者：
 
 - [Mrdongyueyue](https://github.com/Mrdongyueyue)
 - [daaiwusheng](https://github.com/daaiwusheng)
 - [bingFly](https://github.com/bingFly)
+- [Bighit](https://github.com/Bighit)
 
 
 
-## iOS平臺RIME框架底层：
+## iOS平臺RIME框架底层庫：
 
 - [iRimeLib] (https://github.com/jimmy54/iRimeLib)
 
@@ -41,7 +42,9 @@
 ## 編譯/Build
 
 使用resilio同步软件把庫（LibAndResource）同步下來，并放到iRime的目錄下麵。
+
 同步KEY: B7Q4HQWXWHRHBWHZMHSXXOKBLKQ4D4UTG
+
 resilio软件下载地址：[https://www.resilio.com/]
 
 ## 鳴謝/Credits
