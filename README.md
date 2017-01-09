@@ -15,7 +15,7 @@
 
 - [Mrdongyueyue](https://github.com/Mrdongyueyue)
 - [daaiwusheng](https://github.com/daaiwusheng)
-
+- [bingFly](https://github.com/bingFly)
 
 ## 第三方庫/3rd Party Library
 - [OpenCC](https://github.com/BYVoid/OpenCC) (Apache License 2.0)
@@ -32,6 +32,10 @@
    - [snappy](https://google.github.io/snappy/)(BSD License)
 
 ## 編譯/Build
+
+使用resilio同步软件把庫（LibAndResource）同步下來，并放到iRime的目錄下麵。
+同步KEY: B7Q4HQWXWHRHBWHZMHSXXOKBLKQ4D4UTG
+resilio软件下载地址：[https://www.resilio.com/]
 
 ## 鳴謝/Credits
 - [Rime]: [佛振](https://github.com/lotem)
