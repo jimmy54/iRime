@@ -45,12 +45,12 @@
 
 同步KEY: B7Q4HQWXWHRHBWHZMHSXXOKBLKQ4D4UTG
 
-resilio软件下载地址：[https://www.resilio.com/]
+resilio软件下载地址：[點擊去下载](https://www.resilio.com/)
 
 ## 鳴謝/Credits
 - [Rime]: [佛振](https://github.com/lotem)
 - 圖文教程：[xiaoqun2016](https://github.com/xiaoqun2016)
-- 在[Issues](https://github.com/jimmy54/iRime/issues)、貼吧(http://tieba.baidu.com/f?kw=rime)、QQ羣中反饋意見的網友
+- 在[Issues](https://github.com/jimmy54/iRime/issues)、[貼吧](http://tieba.baidu.com/f?kw=rime)、QQ羣中反饋意見的網友
 - 依賴的第三方庫等開源項目
 
 [Rime]: http://rime.im
