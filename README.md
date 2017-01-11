@@ -47,6 +47,8 @@
 
 resilio软件下载地址：[點擊去下载](https://www.resilio.com/)
 
+注：目前不支持模拟器環境，請在真機環境上編譯。
+
 ## 鳴謝/Credits
 - [Rime]: [佛振](https://github.com/lotem)
 - 圖文教程：[xiaoqun2016](https://github.com/xiaoqun2016)
