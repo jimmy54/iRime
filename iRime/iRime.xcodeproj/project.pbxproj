@@ -422,6 +422,10 @@
 		0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF87F551D70B16200874F4D /* SVProgressHUD.m */; };
 		0CF87F5C1D70B1B200874F4D /* FileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDAE3861D70809E00A4FA2E /* FileManger.m */; };
 		775A35029697D51047EB3762 /* libPods-iRime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EBDACB9071F9501674482 /* libPods-iRime.a */; };
+		88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */; };
+		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
+		886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */; };
+		886EAAC51E6C633200DC722C /* iRNumberBoardCentreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */; };
 		F4F9CCB5297369477E6CA790 /* libPods-Keyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */; };
 /* End PBXBuildFile section */
 
@@ -969,6 +973,10 @@
 		673F602EBB10A5F0E0AA3390 /* Pods-iRime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.release.xcconfig"; sourceTree = "<group>"; };
 		6F7EBDACB9071F9501674482 /* libPods-iRime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iRime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70431FB22C54860E6E7E0364 /* Pods-iRime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.debug.xcconfig"; sourceTree = "<group>"; };
+		88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardFatherView.swift; sourceTree = "<group>"; };
+		886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardLeftKeysView.swift; sourceTree = "<group>"; };
+		886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardRightKeysView.swift; sourceTree = "<group>"; };
+		886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardCentreKeysView.swift; sourceTree = "<group>"; };
 		E195E134834BA41048E6E55A /* Pods-Keyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1420,6 +1428,7 @@
 		0CAD846C1D119B1E00DA88DB /* main */ = {
 			isa = PBXGroup;
 			children = (
+				88410AE51E6481730042DD06 /* iRNumberBoard */,
 				0CC1D1E41D86B2210070524B /* DeployView.swift */,
 				0CEC30A71D586B1F00C21949 /* EmojiView.swift */,
 				0CE4F3771D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift */,
@@ -1933,6 +1942,33 @@
 				4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88410AE51E6481730042DD06 /* iRNumberBoard */ = {
+			isa = PBXGroup;
+			children = (
+				88410AE91E6482000042DD06 /* Model */,
+				88410AE81E6481F30042DD06 /* View */,
+			);
+			path = iRNumberBoard;
+			sourceTree = "<group>";
+		};
+		88410AE81E6481F30042DD06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */,
+				886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */,
+				886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */,
+				886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88410AE91E6482000042DD06 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8E3CE179E22DF6FC151C7083 /* Pods */ = {
@@ -2695,7 +2731,9 @@
 				0CAD848A1D119B1E00DA88DB /* ExtraView.swift in Sources */,
 				0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */,
 				0CAD84881D119B1E00DA88DB /* DefaultSettings.swift in Sources */,
+				886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */,
 				0CAD84871D119B1E00DA88DB /* Utilities.swift in Sources */,
+				886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */,
 				0CEC30EF1D5980B800C21949 /* UINavigationBar+BackgroundImage.m in Sources */,
 				0CAD84821D119B1E00DA88DB /* Catboard.swift in Sources */,
 				0CAD848D1D119B1E00DA88DB /* KeyboardKey.swift in Sources */,
@@ -2705,6 +2743,7 @@
 				0CAD848B1D119B1E00DA88DB /* ImageKey.swift in Sources */,
 				0CAD84E11D11A3E900DA88DB /* NSString+UTF8Utils.m in Sources */,
 				0CB1CE411D22225B00678571 /* CandidateCell.swift in Sources */,
+				88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */,
 				0CB1CE431D22236700678571 /* TypingLabel.swift in Sources */,
 				0CAD848F1D119B1E00DA88DB /* Shapes.swift in Sources */,
 				0CE4F37A1D255A7A00E6DDB2 /* CandidateModel.swift in Sources */,
@@ -2718,6 +2757,7 @@
 				0C165C611D585C8400E61F6E /* AGEmojiKeyBoardView.m in Sources */,
 				0CAD848C1D119B1E00DA88DB /* KeyboardConnector.swift in Sources */,
 				0CB1CE451D2223D500678571 /* Logger.swift in Sources */,
+				886EAAC51E6C633200DC722C /* iRNumberBoardCentreKeysView.swift in Sources */,
 				0CAD847F1D119B1E00DA88DB /* KeyboardInputTraits.swift in Sources */,
 				0CAD848E1D119B1E00DA88DB /* KeyboardKeyBackground.swift in Sources */,
 				0CB1CE3D1D22208800678571 /* CandidatesBanner.swift in Sources */,

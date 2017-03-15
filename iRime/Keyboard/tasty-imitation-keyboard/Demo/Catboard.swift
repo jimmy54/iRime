@@ -61,7 +61,24 @@ var startTime: NSDate?
 
 let kCatTypeEnabled = "kCatTypeEnabled"
 
-class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDelegate{
+class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDelegate,iRNumberBoardFatherViewProtocol{
+    
+    lazy var viewNumberBoardView:iRNumberBoardFatherView = {
+        let viewNumberBoard = iRNumberBoardFatherView.init(frame: CGRectNull)
+        self.view.addSubview(viewNumberBoard)
+        //--属性设置
+        viewNumberBoard.delegateAction = self
+        //--约束布局
+        viewNumberBoard.mas_makeConstraints { (make:MASConstraintMaker!) in
+            
+            make.left.equalTo()(self.view)
+            make.right.equalTo()(self.view)
+            make.bottom.equalTo()(self.view)
+            make.top.equalTo()(self.view).setOffset(self.bannerView!.frame.size.height)
+        }
+        return viewNumberBoard
+
+    }()
     
     var rimeSessionId_ : RimeSessionId = 0
     var isChineseInput: Bool = true
@@ -73,7 +90,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     var openCCServer: OpenCCService?
     
     var isShowEmojiView: Bool = false
-    
+
     var candidateList:[CandidateModel]! = Array<CandidateModel>(){
     
         
@@ -137,8 +154,20 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         
     }
+
     
+    func presentTextFromNumberPad(text:String) -> Void
+    {
+        self.textDocumentProxy.insertText(text);
+    }
     
+    func deleteBackwardOfiRNumberBoardFatherView() -> Void
+    {
+        self.textDocumentProxy.deleteBackward()
+    }
+    func getReturnKeyTitle() -> String {
+        return self.getReturnKeyTitleString()
+    }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         print("------------------viewDidAppear---------------------")
@@ -247,7 +276,14 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         if toMode == -1 {
             self.modelPop()
-        }else{
+        }
+        else if(toMode == 1)
+        {
+           print("我要切换到数字键盘喽")
+           self.viewNumberBoardView.hidden = false
+           self.view.bringSubviewToFront(self.viewNumberBoardView)
+        }
+        else{
             self.modePush(toMode!)
         }
         

@@ -905,7 +905,8 @@ class KeyboardViewController: UIInputViewController {
     }
     
     
-    func updateReturnType() {
+    func getReturnKeyTitleString() -> String {
+        
         //    case Default
         //    case Go
         //    case Google
@@ -919,7 +920,7 @@ class KeyboardViewController: UIInputViewController {
         //    case EmergencyCall
         //    @available(iOS 9.0, *)
         //    case Continue
-        
+
         
         var returnString:String = "返回"
         
@@ -949,9 +950,12 @@ class KeyboardViewController: UIInputViewController {
                 if (self.textDocumentProxy.returnKeyType == UIReturnKeyType.Continue) {
                     returnString = "继续"
                 }
-            }   
+            }
         }
-        
+        return returnString
+    }
+    
+    func updateReturnType() {
         
         
         //find the return key
@@ -960,7 +964,7 @@ class KeyboardViewController: UIInputViewController {
                 
                 for k in row {
                     if k.type == .Return {
-                        k.uppercaseKeyCap = returnString
+                        k.uppercaseKeyCap = self.getReturnKeyTitleString()
                         k.uppercaseOutput = "\n"
                         k.lowercaseOutput = "\n"
                     }
