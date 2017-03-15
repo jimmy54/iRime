@@ -28,7 +28,7 @@ class ToolsView: UIView {
     
     let iRimeItem: UIButton = UIButton(type: .Custom)
     let emojiItem: UIButton = UIButton(type: .Custom)
-    
+    let typeItem: UIButton = UIButton(type: .Custom);
     var tapToolsItem: tapToolsItemBock?
     
     
@@ -39,15 +39,18 @@ class ToolsView: UIView {
         
         self.addSubview(iRimeItem)
         self.addSubview(emojiItem)
+        self.addSubview(typeItem)
         
         iRimeItem.translatesAutoresizingMaskIntoConstraints = false
         emojiItem.translatesAutoresizingMaskIntoConstraints = false
+        typeItem.translatesAutoresizingMaskIntoConstraints = false
         
         iRimeItem.setImage(UIImage(named: "KBSkinToolbar_icon_logo"), forState: .Normal)
         
         emojiItem.setImage(UIImage(named: "emoji_tab1"), forState: .Normal)
         
-        
+        typeItem.setTitle("九宫格", forState: .Normal)
+        typeItem.setTitleColor(UIColor.redColor(), forState: .Normal)
   
         iRimeItem.mas_makeConstraints { (make :MASConstraintMaker! ) in
          
@@ -66,6 +69,14 @@ class ToolsView: UIView {
             make.width.equalTo()(self.mas_width).dividedBy()(4)
             
         }
+        
+        self.typeItem.mas_makeConstraints { (make) in
+            make.left.equalTo()(self.emojiItem.mas_right);
+            make.top.equalTo()(self);
+            make.bottom.equalTo()(self);
+            make.width.equalTo()(self.mas_width).dividedBy()(4);
+        }
+        
         
         
 //        iRimeItem.snp_makeConstraints { (make) in
@@ -87,7 +98,7 @@ class ToolsView: UIView {
         //add event
         iRimeItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), forControlEvents: .TouchUpInside)
         emojiItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), forControlEvents: .TouchUpInside)
-
+        typeItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), forControlEvents: .TouchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -108,8 +119,10 @@ class ToolsView: UIView {
         var index = 0
         if btn == iRimeItem {
             index = 1
-        }else if btn == emojiItem{
+        }else if btn == emojiItem {
             index = 2
+        }else if btn == typeItem {
+            index = 3
         }
         
         

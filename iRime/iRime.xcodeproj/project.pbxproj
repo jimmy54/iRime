@@ -290,6 +290,8 @@
 		0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF87F551D70B16200874F4D /* SVProgressHUD.m */; };
 		0CF87F5C1D70B1B200874F4D /* FileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDAE3861D70809E00A4FA2E /* FileManger.m */; };
 		775A35029697D51047EB3762 /* libPods-iRime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EBDACB9071F9501674482 /* libPods-iRime.a */; };
+		A83163BE1E799842009B9B69 /* DiamondKeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83163BD1E799842009B9B69 /* DiamondKeyboardModel.swift */; };
+		A83163C21E799F14009B9B69 /* DiamondKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83163C11E799F14009B9B69 /* DiamondKeyboardView.swift */; };
 		F4F9CCB5297369477E6CA790 /* libPods-Keyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */; };
 /* End PBXBuildFile section */
 
@@ -698,6 +700,8 @@
 		673F602EBB10A5F0E0AA3390 /* Pods-iRime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.release.xcconfig"; sourceTree = "<group>"; };
 		6F7EBDACB9071F9501674482 /* libPods-iRime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iRime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70431FB22C54860E6E7E0364 /* Pods-iRime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.debug.xcconfig"; sourceTree = "<group>"; };
+		A83163BD1E799842009B9B69 /* DiamondKeyboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiamondKeyboardModel.swift; sourceTree = "<group>"; };
+		A83163C11E799F14009B9B69 /* DiamondKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiamondKeyboardView.swift; sourceTree = "<group>"; };
 		E195E134834BA41048E6E55A /* Pods-Keyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -911,6 +915,7 @@
 		0CAD84311D119ABF00DA88DB /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				A83163B71E79975A009B9B69 /* DiamondKeyboard */,
 				0CF87F501D70B16200874F4D /* SVProgressHUD */,
 				0C1A9CF41D70A26700B95D70 /* Keyboard.entitlements */,
 				0CB1CE481D226B4700678571 /* Res */,
@@ -1459,6 +1464,15 @@
 				E195E134834BA41048E6E55A /* Pods-Keyboard.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A83163B71E79975A009B9B69 /* DiamondKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A83163BD1E799842009B9B69 /* DiamondKeyboardModel.swift */,
+				A83163C11E799F14009B9B69 /* DiamondKeyboardView.swift */,
+			);
+			path = DiamondKeyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2062,12 +2076,14 @@
 				0CB1CE411D22225B00678571 /* CandidateCell.swift in Sources */,
 				0CB1CE431D22236700678571 /* TypingLabel.swift in Sources */,
 				0CAD848F1D119B1E00DA88DB /* Shapes.swift in Sources */,
+				A83163C21E799F14009B9B69 /* DiamondKeyboardView.swift in Sources */,
 				0CE4F37A1D255A7A00E6DDB2 /* CandidateModel.swift in Sources */,
 				0C68A76C1D7D490B001BFC24 /* OpenCCService.mm in Sources */,
 				0C70B9761D7F13A9005B7640 /* ToolsView.swift in Sources */,
 				0CAD84801D119B1E00DA88DB /* KeyboardLayout.swift in Sources */,
 				0CF87F561D70B16200874F4D /* SVIndefiniteAnimatedView.m in Sources */,
 				0CAD84841D119B1E00DA88DB /* DefaultKeyboard.swift in Sources */,
+				A83163BE1E799842009B9B69 /* DiamondKeyboardModel.swift in Sources */,
 				0C165C631D585C8400E61F6E /* AGEmojiPageView.m in Sources */,
 				0CE4F3781D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift in Sources */,
 				0C165C611D585C8400E61F6E /* AGEmojiKeyBoardView.m in Sources */,

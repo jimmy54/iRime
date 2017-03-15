@@ -513,12 +513,19 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
                     btn.setImage(UIImage(named: "emoji_tab1Press"), forState: .Normal)
 
                 }
+            } else if index == 3 {
+                self.showDiamondKeyboardView()
             }
             
         }
         return candidatesBanner
     }
     
+    func showDiamondKeyboardView() {
+        let r = CGRect(x: view.frame.origin.x, y: view.frame.origin.y + getBannerHeight(), width: view.frame.width, height: view.frame.height - getBannerHeight())
+        var diamondkeyboardView:DiamondKeyboardView = DiamondKeyboardView(frame: r)
+        self.view.addSubview(diamondkeyboardView)
+    }
     
     func openURL(url: String) {
         var responder: UIResponder = self
@@ -651,7 +658,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesBanner!.changeArrowDown()
         candidatesTable.removeFromSuperview()
     }
-    
+    //------------diamond view
+    var diamondView : UIView?
     
     //------------emoji view
     var emojiView : AGEmojiKeyboardView!
