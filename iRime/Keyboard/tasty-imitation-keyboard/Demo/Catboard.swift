@@ -536,8 +536,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             
             if index == 1 {
                 //open iRime
-                let iRimeURL = "iRime://";
-                self.openURL(iRimeURL)
+                //let iRimeURL = "iRime://";
+                //self.openURL(iRimeURL)
             }else if index == 2{
                 if self.isShowEmojiView {
                     self.exitEmojiView()
