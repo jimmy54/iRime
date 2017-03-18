@@ -19,18 +19,16 @@ import UIKit
 //
 //@end
 
-func createTableView(fatherView:protocol<UITableViewDataSource, UITableViewDelegate>) -> UITableView {
-    let tableView: UITableView = UITableView.init(frame: CGRectZero, style: .Plain);
-    tableView.delegate = fatherView
-    tableView.dataSource = fatherView
-    tableView.backgroundColor = UIColor.blueColor()
-    return tableView
-}
+
+let bannerWidth: CGFloat = 50
+
 
 class DiamondKeyboardView: UIView,UITableViewDataSource,UITableViewDelegate {
 
     var tableView: UITableView? = nil
     var collectionView: UICollectionView? = nil
+    var bottomView: DiamondBottomView? = nil
+    var bottomTableView: UITableView? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,7 +41,34 @@ class DiamondKeyboardView: UIView,UITableViewDataSource,UITableViewDelegate {
     }
     
     func configUI() {
+        
         self.tableView = createTableView(self)
+        self.addSubview(self.tableView!)
+        
+        let layout: UICollectionViewLayout = UICollectionViewLayout.init()
+
+        self.collectionView = UICollectionView.init(frame: CGRectZero, collectionViewLayout: layout)
+        self.addSubview(self.collectionView!)
+        
+        self.bottomTableView = createTableView(self)
+        self.addSubview(self.bottomTableView!)
+//        self.bottomView = DiamondBottomView.init(frame: CGRectZero)
+//        self.addSubview(self.bottomView!)
+        
+        let myFrame: CGRect = self.frame
+        let myHeight: CGFloat = myFrame.size.height
+        let myWidth: CGFloat = myFrame.size.width
+        let viewHeight: CGFloat = myHeight-bannerWidth
+        
+        self.tableView!.frame = CGRectMake(0, 0, bannerWidth, viewHeight)
+        
+        let collcetionFrame: CGRect = CGRectMake(bannerWidth, 0, myWidth-bannerWidth, viewHeight)
+        self.collectionView!.frame = collcetionFrame
+        
+        let bottomFrame: CGRect = CGRectMake(0, viewHeight, myWidth, bannerWidth)
+        self.bottomTableView!.frame = bottomFrame
+        let rot: CGFloat = CGFloat(-M_PI / 2)
+        self.bottomTableView!.transform = CGAffineTransformMakeRotation(rot)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +86,7 @@ class DiamondBottomView: UIView,UITableViewDataSource,UITableViewDelegate {
     var tableView: UITableView? = nil
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.blueColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,7 +94,14 @@ class DiamondBottomView: UIView,UITableViewDataSource,UITableViewDelegate {
     }
     
     func configUI() {
-        self.tableView = createTableView(self)
+        self.tableView! = createTableView(self)
+        let rot: CGFloat = CGFloat(-M_PI / 2)
+        self.tableView!.transform = CGAffineTransformMakeRotation(rot)
+        self.addSubview(self.tableView!)
+        
+        self.tableView!.mas_makeConstraints( { (make: MASConstraintMaker!) in
+            make.edges.mas_equalTo()(self)
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,6 +110,14 @@ class DiamondBottomView: UIView,UITableViewDataSource,UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return UITableViewCell.init()
-        
     }
+
+}
+
+func createTableView(fatherView:protocol<UITableViewDataSource, UITableViewDelegate>) -> UITableView {
+    let tableView: UITableView = UITableView.init(frame: CGRectZero, style: .Plain);
+    tableView.delegate = fatherView
+    tableView.dataSource = fatherView
+    tableView.backgroundColor = UIColor.brownColor()
+    return tableView
 }

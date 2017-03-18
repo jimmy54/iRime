@@ -523,7 +523,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     func showDiamondKeyboardView() {
         let r = CGRect(x: view.frame.origin.x, y: view.frame.origin.y + getBannerHeight(), width: view.frame.width, height: view.frame.height - getBannerHeight())
-        var diamondkeyboardView:DiamondKeyboardView = DiamondKeyboardView(frame: r)
+        let diamondkeyboardView:DiamondKeyboardView = DiamondKeyboardView(frame: r)
         self.view.addSubview(diamondkeyboardView)
     }
     
