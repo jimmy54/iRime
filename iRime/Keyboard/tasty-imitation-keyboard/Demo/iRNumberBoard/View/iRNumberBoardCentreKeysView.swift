@@ -26,6 +26,23 @@ extension UIImage{
     
 }
 
+extension NSObject{
+
+   class  func getFitFontForNumberBoard() -> CGFloat {
+        
+        let width:CGFloat = min(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        
+        if width > 320.0{
+            return CGFloat(22.0)
+        }
+        else
+        {
+            return CGFloat(20.0)
+        }
+    }
+   
+}
+
 public protocol iRNumberBoardCentreKeysViewvProtocol: NSObjectProtocol {
     func callBackOfCentreToPassText(text:String) -> Void
     func callBackOfCentreToHiddenNumberKeyBoard() -> Void
@@ -40,6 +57,7 @@ class iRNumberBoardCentreKeysBtn: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         let backColor = UIColor.whiteColor();//UIColor.init(red: 204.0/255.0, green: 210.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+        self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody), size: NSObject.getFitFontForNumberBoard())
         self.backgroundColor = backColor;
         self.setTitleColor(UIColor.blackColor(), forState: .Normal)
         self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGrayColor()), forState: .Highlighted)

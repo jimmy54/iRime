@@ -23,6 +23,7 @@ class iRNumberBoardRightKeysBtn: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         let backColor = UIColor.init(red: 204.0/255.0, green: 210.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+         self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody), size: NSObject.getFitFontForNumberBoard())
         self.backgroundColor = backColor;
         self.setTitleColor(UIColor.blackColor(), forState: .Normal)
         self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGrayColor()), forState: .Highlighted)
