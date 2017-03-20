@@ -55,6 +55,8 @@ class iRNumberBoardRightKeysView: UIView {
     var btnThree:iRNumberBoardLeftKeysBtn? = nil
     var btnFour:iRNumberBoardLeftKeysBtn? = nil
     var delegateAction:iRNumberBoardRightKeysViewProtocol? = nil
+    var timer:NSTimer? = nil
+    let timeRepeat:NSTimeInterval = 0.2
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,7 +73,10 @@ class iRNumberBoardRightKeysView: UIView {
         btnOne = iRNumberBoardLeftKeysBtn.init(frame: CGRectNull)
         self.addSubview(btnOne!)
         //--属性设置
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnOneAction(_:)) , forControlEvents: .TouchUpInside)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnOneStartAction(_:)), forControlEvents: .TouchDown)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpInside)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpOutside)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchCancel)
         btnOne?.setTitle("退格", forState: .Normal)
         //--约束布局
         btnOne?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
@@ -84,7 +89,10 @@ class iRNumberBoardRightKeysView: UIView {
         btnTwo = iRNumberBoardLeftKeysBtn.init(frame: CGRectNull)
         self.addSubview(btnTwo!)
         //--属性设置
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnTwoAction(_:)) , forControlEvents: .TouchUpInside)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnTwoStartAction(_:)), forControlEvents: .TouchDown)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpInside)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpOutside)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchCancel)
         btnTwo?.setTitle("空格", forState: .Normal)
         //--约束布局
         btnTwo?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
@@ -120,17 +128,38 @@ class iRNumberBoardRightKeysView: UIView {
             maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
         })
     }
-
-    func btnOneAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+    
+    func btnOneStartAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeRepeat, target: self, selector: #selector(iRNumberBoardRightKeysView.repeatBtnOneAction), userInfo: nil, repeats: true)
+        self.timer?.fire()
+    }
+    func btnEndAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    func repeatBtnOneAction() -> Void {
+        
         if self.delegateAction != nil {
             self.delegateAction?.deleteOneOfIRNumberBoardRightKeysView()
         }
+        
     }
-    func btnTwoAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+    func btnTwoStartAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeRepeat, target: self, selector: #selector(iRNumberBoardRightKeysView.repeatBtnTwoAction), userInfo: nil, repeats: true)
+        self.timer?.fire()
+    }
+    func repeatBtnTwoAction() -> Void {
+        
         if self.delegateAction != nil {
-           self.delegateAction?.passTextOfIRNumberBoardRightKeysView(" ")
+            self.delegateAction?.passTextOfIRNumberBoardRightKeysView(" ")
         }
+        
     }
+//    func btnTwoAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+//        if self.delegateAction != nil {
+//           self.delegateAction?.passTextOfIRNumberBoardRightKeysView(" ")
+//        }
+//    }
     func btnThreeAction(btn:iRNumberBoardRightKeysBtn) -> Void {
         if self.delegateAction != nil {
             self.delegateAction?.passTextOfIRNumberBoardRightKeysView("@")
