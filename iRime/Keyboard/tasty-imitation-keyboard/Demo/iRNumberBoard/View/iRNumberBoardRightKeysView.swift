@@ -23,7 +23,7 @@ class iRNumberBoardRightKeysBtn: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         let backColor = UIColor.init(red: 204.0/255.0, green: 210.0/255.0, blue: 217.0/255.0, alpha: 1.0)
-         self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody), size: NSObject.getFitFontForNumberBoard())
+        self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody), size: NSObject.getFitFontForNumberBoard())
         self.backgroundColor = backColor;
         self.setTitleColor(UIColor.blackColor(), forState: .Normal)
         self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGrayColor()), forState: .Highlighted)
@@ -76,9 +76,15 @@ class iRNumberBoardRightKeysView: UIView {
         //--属性设置
         btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnOneStartAction(_:)), forControlEvents: .TouchDown)
         btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpInside)
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpOutside)
         btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchCancel)
-        btnOne?.setTitle("退格", forState: .Normal)
+        
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragExit)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragEnter)
+        
+//        btnOne?.setTitle("退格", forState: .Normal)
+        //expression_delete_pressed  filter_delete
+        btnOne?.setImage(UIImage.init(named: "expression_delete"), forState: .Normal)
+        btnOne?.setImage(UIImage.init(named: "filter_delete"), forState: .Highlighted)
         //--约束布局
         btnOne?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
             maker.left.equalTo()(self)
@@ -92,8 +98,11 @@ class iRNumberBoardRightKeysView: UIView {
         //--属性设置
         btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnTwoStartAction(_:)), forControlEvents: .TouchDown)
         btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpInside)
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpOutside)
         btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchCancel)
+        
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragExit)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragEnter)
+
         btnTwo?.setTitle("空格", forState: .Normal)
         //--约束布局
         btnTwo?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
