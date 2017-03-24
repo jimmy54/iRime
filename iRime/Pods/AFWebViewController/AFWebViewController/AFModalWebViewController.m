@@ -48,7 +48,13 @@
 }
 
 - (instancetype)initWithURLRequest:(NSURLRequest *)request {
-    self.webViewController = [[AFWebViewController alloc] initWithURLRequest:request];
+    return [self initWithURLRequest:request configuration:nil];
+}
+
+- (instancetype)initWithURLRequest:(NSURLRequest *)request
+                     configuration:(WKWebViewConfiguration *)configuration
+{
+    self.webViewController = [[AFWebViewController alloc] initWithURLRequest:request configuration:configuration];
     if (self = [super initWithRootViewController:self.webViewController]) {
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self.webViewController action:@selector(doneButtonTapped:)];
         

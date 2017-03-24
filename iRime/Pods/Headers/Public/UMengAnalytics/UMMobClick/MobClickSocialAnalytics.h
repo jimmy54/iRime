@@ -1,1 +1,1 @@
-../../../../UMengAnalytics/umsdk_IOS_analyics_idfa_v4.1.2/UMMobClick.framework/Versions/A/Headers/MobClickSocialAnalytics.h
+../../../../UMengAnalytics/umsdk_IOS_analyics_idfa_v4.1.10/UMMobClick.framework/Versions/A/Headers/MobClickSocialAnalytics.h

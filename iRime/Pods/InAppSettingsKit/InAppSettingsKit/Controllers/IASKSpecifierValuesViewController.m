@@ -62,6 +62,7 @@
     
     if (_tableView) {
         [_tableView reloadData];
+		_selection.tableView = _tableView;
     }
 	self.didFirstLayout = NO;
 	[super viewWillAppear:animated];
@@ -125,9 +126,7 @@
     @try {
 		[[cell textLabel] setText:[self.settingsReader titleForId:[titles objectAtIndex:indexPath.row]]];
 	}
-	@catch (NSException * e) {
-        NSLog(@"iask exception:%@", e);
-    }
+	@catch (NSException * e) {}
     return cell;
 }
 
@@ -135,7 +134,7 @@
     [_selection selectRowAtIndexPath:indexPath];
 }
 
-- (CGSize)contentSizeForViewInPopover {
+- (CGSize)preferredContentSize {
     return [[self view] sizeThatFits:CGSizeMake(320, 2000)];
 }
 

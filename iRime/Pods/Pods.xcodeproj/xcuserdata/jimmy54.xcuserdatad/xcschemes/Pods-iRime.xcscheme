@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '34B18C3EA2AFE94F683C03FCE32935E1'
+               BlueprintIdentifier = '0A5454887585E002BF0CB228D13B6D41'
                BlueprintName = 'Pods-iRime'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-iRime.a'>

@@ -45,10 +45,3 @@ webViewController.toolbarTintColor = [UIColor orangeColor]; // Does not work on 
 
 - [AFAddressBookManager](https://github.com/Fogh/AFAddressBookManager)
 - [AFMobilePayRequestHandler](https://github.com/Fogh/AFMobilePayRequestHandler)
-
----
-<a href="http://Fogh.tip.me">
-  <img
-    alt="Tip Me With ChangeTip"
-    src="https://cdn.changetip.com/img/logos/tipme_square.png?1"/>
-</a>
