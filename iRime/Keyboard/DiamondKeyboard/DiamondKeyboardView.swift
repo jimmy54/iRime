@@ -65,10 +65,10 @@ class DiamondKeyboardView: UIView,UITableViewDataSource,UITableViewDelegate {
         let collcetionFrame: CGRect = CGRectMake(bannerWidth, 0, myWidth-bannerWidth, viewHeight)
         self.collectionView!.frame = collcetionFrame
         
-        let bottomFrame: CGRect = CGRectMake(0, viewHeight, myWidth, bannerWidth)
-        self.bottomTableView!.frame = bottomFrame
         let rot: CGFloat = CGFloat(-M_PI / 2)
         self.bottomTableView!.transform = CGAffineTransformMakeRotation(rot)
+        let bottomFrame: CGRect = CGRectMake(0, viewHeight, myWidth, bannerWidth)
+        self.bottomTableView!.frame = bottomFrame
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
