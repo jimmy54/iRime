@@ -7,7 +7,7 @@
 
 
 
-
+- [点击到AppStore下载](https://itunes.apple.com/cn/app/irime输入法/id1142623977?mt=8)
 
 
 
