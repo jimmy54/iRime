@@ -14,7 +14,7 @@ class EmojiView: ExtraView, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDe
     
     required init(globalColors: GlobalColors.Type?, darkMode: Bool, solidColorMode: Bool) {
         super.init(globalColors: globalColors, darkMode: darkMode, solidColorMode: solidColorMode)
-        let keyboardRect = CGRectMake(0, 0, self.frame.size.width, getBannerHeight())
+        let keyboardRect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: getBannerHeight())
         emoji = AGEmojiKeyboardView(frame: keyboardRect, dataSource: self)
         //        emojiKeyboardView.autoresizingMask = UIViewAutoresizing.UIViewAutoresizingFlexibleHeight
         emoji!.delegate = self
@@ -41,7 +41,7 @@ class EmojiView: ExtraView, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDe
     
     
     
-    func emojiKeyboardView(emojiKeyboardView:AGEmojiKeyboardView, imageForSelectedCategory category:AGEmojiKeyboardViewCategoryImage) -> UIImage {
+    func emojiKeyboardView(_ emojiKeyboardView:AGEmojiKeyboardView, imageForSelectedCategory category:AGEmojiKeyboardViewCategoryImage) -> UIImage {
         
         return UIImage(named: "arrow-up-black")!
     }
@@ -50,12 +50,12 @@ class EmojiView: ExtraView, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDe
     
     
     
-    func emojiKeyboardView(emojiKeyboardView:AGEmojiKeyboardView, imageForNonSelectedCategory category:AGEmojiKeyboardViewCategoryImage) -> UIImage {
+    func emojiKeyboardView(_ emojiKeyboardView:AGEmojiKeyboardView, imageForNonSelectedCategory category:AGEmojiKeyboardViewCategoryImage) -> UIImage {
         
         return UIImage(named: "arrow-up-black")!
     }
     
-    func backSpaceButtonImageForEmojiKeyboardView(emojiKeyboardView:AGEmojiKeyboardView) -> UIImage {
+    func backSpaceButtonImage(for emojiKeyboardView:AGEmojiKeyboardView) -> UIImage {
         
         return UIImage(named: "arrow-up-black")!
     }
@@ -69,11 +69,11 @@ class EmojiView: ExtraView, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDe
     //
     //    - (void)emojiKeyBoardViewDidPressBackSpace:(AGEmojiKeyboardView *)emojiKeyBoardView;
     
-    func emojiKeyBoardView(emojiKeyBoardView: AGEmojiKeyboardView!, didUseEmoji emoji: String!) {
+    func emojiKeyBoardView(_ emojiKeyBoardView: AGEmojiKeyboardView!, didUseEmoji emoji: String!) {
         
     }
     
-    func emojiKeyBoardViewDidPressBackSpace(emojiKeyBoardView:AGEmojiKeyboardView) {
+    func emojiKeyBoardViewDidPressBackSpace(_ emojiKeyBoardView:AGEmojiKeyboardView) {
         
     }
 

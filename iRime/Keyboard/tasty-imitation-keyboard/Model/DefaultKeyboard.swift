@@ -17,42 +17,42 @@ func defaultKeyboard() -> Keyboard {
      */
     
     for key in ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"] {
-        let keyModel = Key(.Character)
+        let keyModel = Key(.character)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 0, page: 0)
     }
     
     for key in ["A", "S", "D", "F", "G", "H", "J", "K", "L"] {
-        let keyModel = Key(.Character)
+        let keyModel = Key(.character)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 1, page: 0)
     }
     
-    var keyModel = Key(.ModeChange)
+    var keyModel = Key(.modeChange)
     keyModel.setLetter("符")
     keyModel.toMode = 3
     defaultKeyboard.addKey(keyModel, row: 2, page: 0)
     
     for key in ["Z", "X", "C", "V", "B", "N", "M"] {
-        let keyModel = Key(.Character)
+        let keyModel = Key(.character)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 2, page: 0)
     }
     
-    var backspace = Key(.Backspace)
+    var backspace = Key(.backspace)
     defaultKeyboard.addKey(backspace, row: 2, page: 0)
     
-    var keyModeChangeNumbers = Key(.ModeChange)
+    var keyModeChangeNumbers = Key(.modeChange)
     keyModeChangeNumbers.uppercaseKeyCap = "123"
     keyModeChangeNumbers.toMode = 1
     defaultKeyboard.addKey(keyModeChangeNumbers, row: 3, page: 0)
     
-    var keyboardChange = Key(.KeyboardChange)
+    var keyboardChange = Key(.keyboardChange)
     defaultKeyboard.addKey(keyboardChange, row: 3, page: 0)
     
-    var settings = Key(.Settings)
+    var settings = Key(.settings)
     
-    var enInput = Key(.ModeChange)
+    var enInput = Key(.modeChange)
     enInput.uppercaseKeyCap = "英"
     enInput.uppercaseOutput = "英"
     enInput.lowercaseKeyCap = "英"
@@ -60,27 +60,27 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(enInput, row: 3, page: 0)
     
     
-    let chineseInput = Key(.ModeChange)
+    let chineseInput = Key(.modeChange)
     chineseInput.uppercaseKeyCap = "中"
     chineseInput.uppercaseOutput = "中"
     chineseInput.lowercaseKeyCap = "中"
     chineseInput.toMode = 0
     
     var spaceTitle = "中文键盘";
-    if let schemaId = df.objectForKey(CURRENT_SCHEMA_NAME) {
+    if let schemaId = df?.object(forKey: CURRENT_SCHEMA_NAME) {
         spaceTitle = schemaId as! String;
     }
     
-    spaceTitle = spaceTitle.stringByAppendingString("(⇌)")
+    spaceTitle = spaceTitle + "(⇌)"
     
-    var space = Key(.Space)
+    var space = Key(.space)
     space.uppercaseKeyCap = spaceTitle
     space.lowercaseKeyCap = spaceTitle
     space.uppercaseOutput = " "
     space.lowercaseOutput = " "
     defaultKeyboard.addKey(space, row: 3, page: 0)
     
-    var returnKey = Key(.Return)
+    var returnKey = Key(.return)
     returnKey.uppercaseKeyCap = "return"
     returnKey.uppercaseOutput = "\n"
     returnKey.lowercaseOutput = "\n"
@@ -90,14 +90,14 @@ func defaultKeyboard() -> Keyboard {
     //-------------中文符号------------------------
     
     for key in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 0, page: 3)
     }
     
     let row = cornerBracketEnabled ? ["-", "/", "：", "；", "（", "）", "$", "@", "「", "」"] : ["-", "/", "：", "；", "（", "）", "$", "@", "“", "”"]
     for key in row {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         
         keyModel.toMode = -1
@@ -105,12 +105,12 @@ func defaultKeyboard() -> Keyboard {
         defaultKeyboard.addKey(keyModel, row: 1, page: 3)
     }
     
-    var keyModeChangeSpecialCharacters = Key(.ModeChange)
+    var keyModeChangeSpecialCharacters = Key(.modeChange)
     keyModeChangeSpecialCharacters.uppercaseKeyCap = "#+="
     keyModeChangeSpecialCharacters.toMode = 2
     
     for key in ["。", ",", "+", "_", "、", "？", "！", ".", "，"] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         
         
@@ -122,7 +122,7 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(backspace), row: 2, page: 3)
     
     
-    var back = Key(.ModeChange)
+    var back = Key(.modeChange)
     back.setLetter("返回")
     back.toMode = -1
     defaultKeyboard.addKey(back, row: 3, page: 3)
@@ -132,7 +132,7 @@ func defaultKeyboard() -> Keyboard {
     
     
     
-    space = Key(.Space)
+    space = Key(.space)
     space.uppercaseKeyCap = "中文符号"
     space.lowercaseKeyCap = "中文符号"
     space.uppercaseOutput = " "
@@ -150,46 +150,46 @@ func defaultKeyboard() -> Keyboard {
     
     
     for key in ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"] {
-        let keyModel = Key(.Character)
+        let keyModel = Key(.character)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 0, page: 4)
     }
     
     for key in ["A", "S", "D", "F", "G", "H", "J", "K", "L"] {
-        let keyModel = Key(.Character)
+        let keyModel = Key(.character)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 1, page: 4)
     }
     
-    keyModel = Key(.Shift)
+    keyModel = Key(.shift)
     defaultKeyboard.addKey(keyModel, row: 2, page: 4)
     
     for key in ["Z", "X", "C", "V", "B", "N", "M"] {
-        let keyModel = Key(.Character)
+        let keyModel = Key(.character)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 2, page: 4)
     }
     
-    backspace = Key(.Backspace)
+    backspace = Key(.backspace)
     defaultKeyboard.addKey(backspace, row: 2, page: 4)
     
     
-    back = Key(.ModeChange)
+    back = Key(.modeChange)
     back.setLetter("返回")
     back.toMode = -1
     defaultKeyboard.addKey(back, row: 3, page: 4)
     
-    keyModeChangeNumbers = Key(.ModeChange)
+    keyModeChangeNumbers = Key(.modeChange)
     keyModeChangeNumbers.uppercaseKeyCap = "123"
     keyModeChangeNumbers.toMode = 1
     defaultKeyboard.addKey(keyModeChangeNumbers, row: 3, page: 4)
     
-    keyModeChangeSpecialCharacters = Key(.ModeChange)
+    keyModeChangeSpecialCharacters = Key(.modeChange)
     keyModeChangeSpecialCharacters.uppercaseKeyCap = "#+="
     keyModeChangeSpecialCharacters.toMode = 2
     defaultKeyboard.addKey(keyModeChangeSpecialCharacters, row: 3, page: 4)
     
-    let dot = Key(.SpecialCharacter)
+    let dot = Key(.specialCharacter)
     dot.uppercaseKeyCap = "."
     dot.uppercaseOutput = "."
     dot.lowercaseKeyCap = "."
@@ -200,7 +200,7 @@ func defaultKeyboard() -> Keyboard {
 //    defaultKeyboard.addKey(keyboardChange, row: 3, page: 4)
     
 //    settings = Key(.Settings)
-    space = Key(.Space)
+    space = Key(.space)
     space.uppercaseKeyCap = "英文键盘"
     space.lowercaseKeyCap = "英文键盘"
     space.uppercaseOutput = " "
@@ -210,7 +210,7 @@ func defaultKeyboard() -> Keyboard {
     
 
     
-    returnKey = Key(.Return)
+    returnKey = Key(.return)
     returnKey.uppercaseKeyCap = "return"
     returnKey.uppercaseOutput = "\n"
     returnKey.lowercaseOutput = "\n"
@@ -221,13 +221,13 @@ func defaultKeyboard() -> Keyboard {
     //数字键盘
     
     for key in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         defaultKeyboard.addKey(keyModel, row: 0, page: 1)
     }
     
     for key in ["-", "/", ":", ";", "(", ")", "$", "&", "@", "\""] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         
         keyModel.toMode = -1
@@ -237,7 +237,7 @@ func defaultKeyboard() -> Keyboard {
     
     
     for key in [".", ",",  "。", "'", "…", "?", "!", "'", "."] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         
         keyModel.toMode = -1
@@ -253,19 +253,19 @@ func defaultKeyboard() -> Keyboard {
 //    defaultKeyboard.addKey(keyModeChangeLetters, row: 3, page: 1)
     
 //    defaultKeyboard.addKey(Key(chineseInput), row: 3, page: 1)
-    back = Key(.ModeChange)
+    back = Key(.modeChange)
     back.setLetter("返回")
     back.toMode = -1
     defaultKeyboard.addKey(back, row: 3, page: 1)
 //    defaultKeyboard.addKey(Key(enInput), row: 3, page: 1)
     
     
-    keyModeChangeSpecialCharacters = Key(.ModeChange)
+    keyModeChangeSpecialCharacters = Key(.modeChange)
     keyModeChangeSpecialCharacters.uppercaseKeyCap = "#+="
     keyModeChangeSpecialCharacters.toMode = 2
     defaultKeyboard.addKey(keyModeChangeSpecialCharacters, row: 3, page: 1)
     
-    space = Key(.Space)
+    space = Key(.space)
     space.uppercaseKeyCap = "数字键盘"
     space.lowercaseKeyCap = "数字键盘"
     space.uppercaseOutput = " "
@@ -283,14 +283,14 @@ func defaultKeyboard() -> Keyboard {
      */
     
     for key in ["[", "]", "{", "}", "#", "%", "^", "*", "+", "="] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         keyModel.toMode = -1
         defaultKeyboard.addKey(keyModel, row: 0, page: 2)
     }
     
     for key in ["_", "\\", "|", "~", "<", ">", "€", "£", "¥", "•"] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         keyModel.toMode = -1
         defaultKeyboard.addKey(keyModel, row: 1, page: 2)
@@ -299,7 +299,7 @@ func defaultKeyboard() -> Keyboard {
 //    defaultKeyboard.addKey(Key(keyModeChangeNumbers), row: 2, page: 2)
     
     for key in [".", ",", "?", "!", "'", "……", "《", "》", "~"] {
-        let keyModel = Key(.SpecialCharacter)
+        let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         keyModel.toMode = -1
         defaultKeyboard.addKey(keyModel, row: 2, page: 2)
@@ -312,7 +312,7 @@ func defaultKeyboard() -> Keyboard {
 //    defaultKeyboard.addKey(Key(chineseInput), row: 3, page: 2)
 //    defaultKeyboard.addKey(Key(enInput), row: 3, page: 2)
     
-    back = Key(.ModeChange)
+    back = Key(.modeChange)
     back.setLetter("返回")
     back.toMode = -1
     defaultKeyboard.addKey(Key(back), row: 3, page: 2)
@@ -320,7 +320,7 @@ func defaultKeyboard() -> Keyboard {
     
     
     
-    space = Key(.Space)
+    space = Key(.space)
     space.uppercaseKeyCap = "英文符号"
     space.lowercaseKeyCap = "英文符号"
     space.uppercaseOutput = " "

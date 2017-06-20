@@ -2081,6 +2081,7 @@
 					0CAD83C31D11619200DA88DB = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = XU7TRD55DH;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -2098,6 +2099,7 @@
 					0CAD842F1D119ABF00DA88DB = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = XU7TRD55DH;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -2946,6 +2948,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2993,6 +2996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy54.iRime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -3078,7 +3082,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -3117,7 +3121,7 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Header.h;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

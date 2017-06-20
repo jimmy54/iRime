@@ -10,7 +10,7 @@ import UIKit
 
 protocol iRNumberBoardFatherViewProtocol:NSObjectProtocol {
     
-    func presentTextFromNumberPad(text:String) -> Void
+    func presentTextFromNumberPad(_ text:String) -> Void
     func deleteBackwardOfiRNumberBoardFatherView() -> Void
     func getReturnKeyTitle() -> String
     
@@ -27,7 +27,7 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.redColor()
+        self.backgroundColor = UIColor.red
         self.createSubViews()
     }
     
@@ -38,7 +38,7 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
     func createSubViews() -> Void
     {
        //1.左侧的标点符号view
-        viewLeftKeys = iRNumberBoardLeftKeysView.init(frame: CGRectNull)
+        viewLeftKeys = iRNumberBoardLeftKeysView.init(frame: CGRect.null)
         self.addSubview(viewLeftKeys!)
         //--属性设置
         viewLeftKeys?.delegateToCallBack = self
@@ -47,10 +47,10 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
             maker.left.equalTo()(self)
             maker.top.equalTo()(self)
             maker.bottom.equalTo()(self)
-            maker.width.equalTo()(self.mas_width).multipliedBy()(1.0/6.0).offset()(-5)
+            maker.width.equalTo()(self.mas_width)?.multipliedBy()(1.0/6.0)?.offset()(-5)
         })
        //2.右侧的标点符号view
-       viewRightKeys = iRNumberBoardRightKeysView.init(frame: CGRectNull)
+       viewRightKeys = iRNumberBoardRightKeysView.init(frame: CGRect.null)
        self.addSubview(viewRightKeys!)
         //--属性设置
         viewRightKeys?.delegateAction = self
@@ -59,14 +59,14 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
             maker.right.equalTo()(self)
             maker.top.equalTo()(self)
             maker.bottom.equalTo()(self)
-            maker.width.equalTo()(self.mas_width).multipliedBy()(1.0/6.0).offset()(-5)
+            maker.width.equalTo()(self.mas_width)?.multipliedBy()(1.0/6.0)?.offset()(-5)
         })
         //3.中间的view
-        viewCentreKeys = iRNumberBoardCentreKeysView.init(frame: CGRectNull)
+        viewCentreKeys = iRNumberBoardCentreKeysView.init(frame: CGRect.null)
         self.addSubview(viewCentreKeys!)
         //--属性设置
         viewCentreKeys?.delegateAction = self
-        viewCentreKeys?.backgroundColor = UIColor.whiteColor()
+        viewCentreKeys?.backgroundColor = UIColor.white
         //--约束布局
         viewCentreKeys?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
             maker.top.equalTo()(self)
@@ -76,7 +76,7 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
         })
     }
     
-    func callBackOfCentreToPassText(text:String) -> Void
+    func callBackOfCentreToPassText(_ text:String) -> Void
     {
         if self.delegateAction != nil {
             self.delegateAction?.presentTextFromNumberPad(text)
@@ -85,17 +85,17 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
     
     func callBackOfCentreToHiddenNumberKeyBoard() -> Void
     {
-        self.hidden = true
+        self.isHidden = true
     }
     
-    func iRNumberBoardLeftKeysViewPassText(text:String) -> Void
+    func iRNumberBoardLeftKeysViewPassText(_ text:String) -> Void
     {
         if self.delegateAction != nil {
             self.delegateAction?.presentTextFromNumberPad(text)
         }
     }
     
-    func passTextOfIRNumberBoardRightKeysView(text:String) -> Void
+    func passTextOfIRNumberBoardRightKeysView(_ text:String) -> Void
     {
         if self.delegateAction != nil {
             self.delegateAction?.presentTextFromNumberPad(text)
@@ -108,12 +108,12 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
         }
     }
     
-    override var hidden: Bool {
+    override var isHidden: Bool {
         get {
-            return super.hidden
+            return super.isHidden
         }
         set(v) {
-            super.hidden = v
+            super.isHidden = v
             self.updateReturnKeyTitleWhenShow()
         }
     }
@@ -122,7 +122,7 @@ class iRNumberBoardFatherView: UIView,iRNumberBoardCentreKeysViewvProtocol,iRNum
         if self.delegateAction != nil {
             let stringTitle:String =  (self.delegateAction?.getReturnKeyTitle())!
             if stringTitle != "返回" {
-                viewRightKeys!.btnFour?.setTitle(stringTitle, forState: .Normal)
+                viewRightKeys!.btnFour?.setTitle(stringTitle, for: UIControlState())
 
             }
             
