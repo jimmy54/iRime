@@ -86,11 +86,11 @@ class Logger {
         let flavor = task_flavor_t(MACH_TASK_BASIC_INFO)
         var size   = mach_msg_type_number_t(MACH_TASK_BASIC_INFO_COUNT)
         
+    
         // allocate pointer to mach_task_basic_info
         let infoPointer = UnsafeMutablePointer<mach_task_basic_info>.allocate(capacity: 1)
-        
         // call task_info - note extra UnsafeMutablePointer(...) call
-        let kerr = task_info(name, flavor, UnsafeMutablePointer(infoPointer), &size)
+        let kerr = task_info(name, flavor, UnsafeMutablePointer<integer_t>.allocate(capacity: 1), &size)
         
         // get mach_task_basic_info struct out of pointer
         let info = infoPointer.move()
@@ -107,7 +107,7 @@ class Logger {
             let usageStr = numberFormatter.string(from: NSNumber(value: info.resident_size as UInt64)) ?? "not available"
             return ("Memory in use (in bytes): \(usageStr)")
         } else {
-            let errorString = String(CString: mach_error_string(kerr), encoding: String.Encoding.ascii)
+            let errorString = String.init(cString: mach_error_string(kerr), encoding: String.Encoding.ascii)
             return (errorString ?? "Error: couldn't parse error string")
         }
     }
