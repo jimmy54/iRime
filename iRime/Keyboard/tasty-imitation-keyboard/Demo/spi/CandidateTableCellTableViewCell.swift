@@ -42,8 +42,9 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         
         //test
         
-//        txtLabel.backgroundColor = UIColor.redColor()
-//        self.contentView.backgroundColor = UIColor.greenColor()
+//        txtLabel.backgroundColor = UIColor.red
+//        txtLabel.textColor = UIColor.blue
+//        self.contentView.backgroundColor = UIColor.blue
         
         
         
@@ -58,7 +59,7 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         let c = NSLayoutConstraint(item: txtLabel, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
         self.contentView.addConstraint(c)
         
-        let rot: CGFloat = CGFloat(M_PI / 2)
+        let rot: CGFloat = CGFloat(Double.pi / 2)
         txtLabel.transform = CGAffineTransform(rotationAngle: rot)
     }
     

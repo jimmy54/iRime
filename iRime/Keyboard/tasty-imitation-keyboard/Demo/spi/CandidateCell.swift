@@ -5,7 +5,7 @@ func getCandidateCellHeight() -> CGFloat {
     return showTypingCellInExtraLine ? typingAndCandidatesViewHeightWhenShowTypingCellInExtraLineIsTrue : typingAndCandidatesViewHeightWhenShowTypingCellInExtraLineIsFalse
 }
 
-var candidateTextFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body), size: 20)
+var candidateTextFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body), size: 24)
 
 let oneChineseGlyphWidth = ("镜" as NSString).boundingRect(with: CGSize(width: CGFloat.infinity, height: candidatesTableCellHeight), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: candidateTextFont], context: nil).width
 

@@ -604,8 +604,10 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     // KeyboardViewController
     override func updateAppearances(_ appearanceIsDark: Bool) {
+        return
         candidatesBannerAppearanceIsDark = appearanceIsDark
-        super.updateAppearances(appearanceIsDark)
+        candidatesBannerAppearanceIsDark = false
+        super.updateAppearances(candidatesBannerAppearanceIsDark)
         candidatesBanner?.updateAppearance()
     }
     
@@ -863,6 +865,12 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         let c: CandidateTableCellTableViewCell = cell as! CandidateTableCellTableViewCell
         let candidate = self.candidateList[indexPath.row]
         c.txtLabel?.text = candidate.text
+        
+        if indexPath.row == 0 {
+            c.txtLabel?.textColor = UIColor.init(red: 0, green: 128.0 / 255.0, blue: 248.0 / 255, alpha: 1.0);
+        }else{
+            c.txtLabel?.textColor = UIColor.black
+        }
         
         return cell!
         

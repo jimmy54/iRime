@@ -34,7 +34,7 @@ func getBannerHeight() -> CGFloat {
 class CandidatesBanner: ExtraView {
     
     var typingLabel: TypingLabel?
-    var collectionViewLayout: MyCollectionViewFlowLayout
+//    var collectionViewLayout: MyCollectionViewFlowLayout
     var collectionView: UITableView
     var moreCandidatesButton: UIButton
     var preeLable:UILabel
@@ -61,11 +61,11 @@ class CandidatesBanner: ExtraView {
             typingLabel = nil
         }
         
-        collectionViewLayout = MyCollectionViewFlowLayout()
+//        collectionViewLayout = MyCollectionViewFlowLayout()
 
         collectionView = UITableView(frame: CGRect.zero, style: .plain)
 //        collectionView.backgroundColor = UIColor.blueColor()
-        let rot: CGFloat = CGFloat(-M_PI / 2)
+        let rot: CGFloat = CGFloat(-Double.pi / 2)
         collectionView.transform = CGAffineTransform(rotationAngle: rot)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -108,11 +108,11 @@ class CandidatesBanner: ExtraView {
             typingLabel = nil
         }
         
-        collectionViewLayout = MyCollectionViewFlowLayout()
+//        collectionViewLayout = MyCollectionViewFlowLayout()
         
         collectionView = UITableView(frame: CGRect.zero, style: .plain)
         collectionView.backgroundColor = UIColor.clear
-        let rot: CGFloat = CGFloat(-M_PI / 2)
+        let rot: CGFloat = CGFloat(-Double.pi / 2)
         collectionView.transform = CGAffineTransform(rotationAngle: rot)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -307,11 +307,11 @@ class CandidatesBanner: ExtraView {
    }
     
     func resetLayoutWithAllCellSize(_ sizes: [CGSize]) {
-        collectionViewLayout.resetLayoutWithAllCellSize(sizes)
+//        collectionViewLayout.resetLayoutWithAllCellSize(sizes)
     }
     
     func updateCellAt(_ cellIndex: IndexPath, withCellSize size: CGSize) {
-        collectionViewLayout.updateLayoutRaisedByCellAt(cellIndex, withCellSize: size)
+//        collectionViewLayout.updateLayoutRaisedByCellAt(cellIndex, withCellSize: size)
 //        collectionView.reloadItemsAtIndexPaths([cellIndex])
     }
     
@@ -397,6 +397,7 @@ class CandidatesBanner: ExtraView {
         typingLabel?.updateAppearance()
         
         collectionView.separatorColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor : lightModeBannerBorderColor
+        collectionView.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerColor : UIColor.white
         self.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerColor : UIColor.white
 
         moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-down-white") : UIImage(named: "arrow-down-black"), for: UIControlState())
