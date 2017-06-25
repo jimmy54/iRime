@@ -14,7 +14,6 @@
 #import <UMMobClick/MobClick.h>
 #import "NSString+Path.h"
 
-#import <JSPatch/JSPatch.h>
 
 
 #import <SVProgressHUD.h>
@@ -60,12 +59,7 @@
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
-    /**
-     *  jspatch sdk
-     */
-    
-    [JSPatch startWithAppKey:JSPATCH_KEY];
-    [JSPatch sync];
+
     
 //
 //#ifdef DEBUG

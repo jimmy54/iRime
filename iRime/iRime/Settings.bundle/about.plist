@@ -14,17 +14,18 @@
 			<key>Key</key>
 			<string>version</string>
 			<key>DefaultValue</key>
-			<string>1.3.5</string>
+			<string>1.4.1</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>作者</string>
-			<key>DefaultValue</key>
-			<string>jimmy54</string>
-			<key>Key</key>
-			<string>copyright</string>
+			<string>主要开发者：
+                    @jimmy54
+                    @Mrdongyueyue
+                    @daaiwusheng
+                    @bingFly
+                    @Bighit</string>
 		</dict>
 	</array>
 </dict>

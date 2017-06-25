@@ -17,6 +17,7 @@
 // Bar buttons
 @property (nonatomic, strong) UIBarButtonItem *backBarButtonItem, *forwardBarButtonItem, *refreshBarButtonItem, *stopBarButtonItem, *actionBarButtonItem;
 @property (nonatomic, strong) NSURLRequest *request;
+@property (nonatomic, strong, nullable) WKWebViewConfiguration *configuration;
 @property (nonatomic, strong) UIProgressView *progressView;
 @end
 
@@ -51,15 +52,22 @@
 }
 
 - (instancetype)initWithURLRequest:(NSURLRequest *)request {
-    if (self = [super init]) {
+    return [self initWithURLRequest:request configuration:nil];
+}
+
+- (instancetype)initWithURLRequest:(NSURLRequest *)request
+                     configuration:(nullable WKWebViewConfiguration *)configuration
+{
+    if (self = [super initWithNibName:nil bundle:nil]) {
         self.request = request;
+        self.configuration = configuration;
     }
     return self;
 }
 
 - (instancetype)initWithHTMLString:(NSString *)HTMLString andBaseURL:(NSURL *)baseURL {
     
-    if (self = [super init]) {
+    if (self = [super initWithNibName:nil bundle:nil]) {
         [self.webView loadHTMLString:HTMLString baseURL:baseURL];
     }
     return self;
@@ -135,7 +143,11 @@
 
 - (WKWebView *)webView {
     if (!_webView) {
-        _webView = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        if (_configuration) {
+            _webView = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds configuration:_configuration];
+        } else {
+            _webView = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        }
         _webView.navigationDelegate = self;
     }
     return _webView;

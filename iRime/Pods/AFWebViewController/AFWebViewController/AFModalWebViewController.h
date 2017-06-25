@@ -7,6 +7,9 @@
 //
 
 @import UIKit;
+@class WKWebViewConfiguration;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface AFModalWebViewController : UINavigationController
 
@@ -75,6 +78,16 @@
 - (instancetype)initWithURLRequest:(NSURLRequest *)request;
 
 /**
+ *  Instantiate a modal WebViewController with URL request.
+ *
+ *  @param request        NSURLRequest to show in web view.
+ *  @param configuration  a collection of properties used to initialize a web view.
+ *
+ *  @return Instance of `AFModalWebViewController`.
+ */
+- (instancetype)initWithURLRequest:(NSURLRequest *)request configuration:(nullable WKWebViewConfiguration *)configuration;
+
+/**
  *  Instantiate a modal WebViewController with HTML string and base URL.
  *
  *  @param HTMLString HTML string to show in web view.
@@ -95,3 +108,5 @@
 @property (nonatomic, strong) UIColor *toolbarTintColor;
 
 @end
+
+NS_ASSUME_NONNULL_END
