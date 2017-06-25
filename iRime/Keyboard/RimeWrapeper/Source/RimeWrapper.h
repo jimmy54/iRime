@@ -105,6 +105,8 @@ typedef enum {
 /// Get option state for a session
 + (BOOL)getOptionStateForSession:(RimeSessionId)sessionId optionName:(NSString *)optionName;
 
++(NSArray*)getCandidateListForSession:(RimeSessionId)sessionId andIndex:(NSInteger)index andCount:(NSInteger)count;
+
 + (NSArray *)getCandidateListForSession:(RimeSessionId)sessionId;
 
 + (BOOL)selectCandidateForSession:(RimeSessionId)seesionId inIndex:(size_t)index;

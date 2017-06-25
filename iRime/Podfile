@@ -14,13 +14,13 @@ target 'iRime' do
     pod 'UIAlertView+Blocks', '~> 0.9'
     pod 'Reachability', '~> 3.2'
     pod 'AFWebViewController', '~> 1.0'
-    pod 'JSPatchSDKPod', '~> 1.6'
     pod 'AGEmojiKeyboard', '~> 0.2.0'
 end
 
 target 'Keyboard' do
     pod 'ZipArchive', '~> 1.4.0'
     pod 'Masonry', '~> 1.0.1'
+    pod 'MJRefresh', '~> 3.1.12'
 end
 
 post_install do |installer|

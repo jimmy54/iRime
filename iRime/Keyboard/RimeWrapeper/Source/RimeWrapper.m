@@ -443,6 +443,36 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     return candidates;
 }
 
++(NSArray*)getCandidateListForSession:(RimeSessionId)sessionId andIndex:(NSInteger)index andCount:(NSInteger)count
+{
+    
+    //candidate
+    RimeCandidateListIterator ite;
+    bool res = RimeCandidateListBeginWithIndex(index, sessionId, &ite);
+    if (res == false) {
+        return nil;
+    }
+    
+    NSMutableArray *candidates = [NSMutableArray new];
+    
+    NSString *s = nil;
+    while (RimeCandidateListNext(&ite)) {
+        
+        if (ite.index > count) {
+            break;
+        }
+        s = [NSString stringWithUTF8String:ite.candidate.text];
+        [candidates addObject:s];
+    }
+    
+    RimeCandidateListEnd(&ite);
+    
+    return candidates;
+    
+}
+
+
+
 + (BOOL)selectCandidateForSession:(RimeSessionId)seesionId inIndex:(size_t)index
 {
     return rime_get_api()->select_candidate(seesionId, index);
