@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F7B328AF77377159381532DAD0A6785F'
+               BlueprintIdentifier = 'ACB41D3AFEA86BCE5B0F7F1DCBE708CF'
                BlueprintName = 'AGEmojiKeyboard'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libAGEmojiKeyboard.a'>
