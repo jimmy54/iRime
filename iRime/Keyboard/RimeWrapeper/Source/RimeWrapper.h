@@ -12,7 +12,7 @@
 // Import necessary key codes
 #include "keysymdef.h"
 //#import <Carbon/Carbon.h>
-
+#define kMaxCandidateListCount 50
 // Typedef from Rime API
 typedef uintptr_t RimeSessionId;
 typedef enum {

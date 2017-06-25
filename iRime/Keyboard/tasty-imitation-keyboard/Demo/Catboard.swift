@@ -125,8 +125,11 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     var openCCServer: OpenCCService?
     
     var isShowEmojiView: Bool = false
-
+    
+    var candidateIndex : NSInteger = -1;
+    let candidateCount : NSInteger = 50;
     var candidateList:[CandidateModel]! = Array<CandidateModel>(){
+
     
         
         
@@ -446,7 +449,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             return;
         }
         
-        
+        self.candidateList.removeAll()
         let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
         
         if (cl == nil) {
@@ -458,6 +461,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         
         self.candidatesBanner?.reloadData()
+        self.candidateIndex = self.candidateCount
         
         return;
         
@@ -465,7 +469,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     func addCandidates(_ strings:[String]) {
         
-        self.candidateList.removeAll()
+//        self.candidateList.removeAll()
         for s in strings {
             let candidate = CandidateModel()
             candidate.text = self.openCC(s)
@@ -639,7 +643,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         let count = self.candidateList?.count
-        print(count)
+        //print(count)
         return count!
     }
     
@@ -714,6 +718,20 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesTable.register(CandidateCell.self, forCellWithReuseIdentifier: "Cell")
         candidatesTable.delegate = self
         candidatesTable.dataSource = self
+        
+        //add mjrefresh
+//        self.candidatesTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            //Call this Block When enter the refresh status automatically
+//            }];
+        self.candidatesTable.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            
+            self.candidatesTable.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: { 
+                self.loadMoreCandidate()
+            })
+           
+        });
+        
+        
         self.view.addSubview(candidatesTable)
     }
     
@@ -723,6 +741,23 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesBanner!.unhideTypingAndCandidatesView()
         candidatesBanner!.changeArrowDown()
         candidatesTable.removeFromSuperview()
+    }
+    
+    func loadMoreCandidate() {
+//        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
+        
+        if (cl != nil) {
+            self.addCandidates(cl!)
+        }else{
+            self.candidatesTable.mj_footer.endRefreshingWithNoMoreData()
+            return;
+        }
+        
+        self.candidatesTable.reloadData()
+        
+        self.candidateIndex += self.candidateCount
+        self.candidatesTable.mj_footer.endRefreshing();
     }
     
     

@@ -18,7 +18,7 @@
 #define kXIMECandidateWindowPositionVerticalOffset 5
 
 
-#define kMaxCandidateListCount 50
+
 
 
 /* keycodes for keys that are independent of keyboard layout*/
@@ -435,6 +435,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
             break;
         }
         s = [NSString stringWithUTF8String:ite.candidate.text];
+        NSLog(@"%@", s);
         [candidates addObject:s];
     }
     
@@ -448,20 +449,22 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     
     //candidate
     RimeCandidateListIterator ite;
-    bool res = RimeCandidateListBeginWithIndex(index, sessionId, &ite);
+    bool res = RimeCandidateListBeginWithIndex((int)index, sessionId, &ite);
     if (res == false) {
         return nil;
     }
+    NSInteger candidateMax = index + kMaxCandidateListCount;
     
     NSMutableArray *candidates = [NSMutableArray new];
     
     NSString *s = nil;
     while (RimeCandidateListNext(&ite)) {
         
-        if (ite.index > count) {
+        if (ite.index > candidateMax) {
             break;
         }
         s = [NSString stringWithUTF8String:ite.candidate.text];
+        NSLog(@"%@", s);
         [candidates addObject:s];
     }
     
