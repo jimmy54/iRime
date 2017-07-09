@@ -245,11 +245,6 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             }
             
             
-            
-
-//            self.needDeploy()
-            
-            
         }else{
             
             print("start service error");
@@ -265,8 +260,6 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         openCCServer = nil
         RimeWrapper.stopService()
-//        RimeWrapper.RimeDeployWorkspace();
-//        RimeWrapper.redeployWithFastMode(false)
     }
     
     deinit{
@@ -570,6 +563,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesBanner = CandidatesBanner(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
         candidatesBanner!.delegate = self
         
+
         candidatesBanner?.toolsView.tapToolsItem = {
             (btn:UIButton, index:Int) in
             
@@ -723,13 +717,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
 //        self.candidatesTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             //Call this Block When enter the refresh status automatically
 //            }];
-        self.candidatesTable.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+        
+        weak var weakSelf = self
+        let footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
             
-            self.candidatesTable.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: { 
-                self.loadMoreCandidate()
-            })
-           
+            weakSelf?.loadMoreCandidate(scrollView: (weakSelf?.candidatesTable)!)
+            
         });
+        (footer!).stateLabel.isHidden = true
+        self.candidatesTable.mj_footer = footer
+        
+        
         
         
         self.view.addSubview(candidatesTable)
@@ -743,21 +741,21 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesTable.removeFromSuperview()
     }
     
-    func loadMoreCandidate() {
+    func loadMoreCandidate(scrollView: UIScrollView) {
 //        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
         let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
         
         if (cl != nil) {
             self.addCandidates(cl!)
         }else{
-            self.candidatesTable.mj_footer.endRefreshingWithNoMoreData()
+            scrollView.mj_footer.endRefreshingWithNoMoreData()
             return;
         }
         
         self.candidatesTable.reloadData()
         
         self.candidateIndex += self.candidateCount
-        self.candidatesTable.mj_footer.endRefreshing();
+        scrollView.mj_footer.endRefreshing();
     }
     
     

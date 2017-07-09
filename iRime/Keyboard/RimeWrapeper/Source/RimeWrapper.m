@@ -421,54 +421,65 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
 {
     //candidate
     RimeCandidateListIterator ite;
-    bool res = RimeCandidateListBegin(sessionId, &ite);
-    if (res == false) {
-        return nil;
-    }
-    
     NSMutableArray *candidates = [NSMutableArray new];
     
-    NSString *s = nil;
-    while (RimeCandidateListNext(&ite)) {
+    @autoreleasepool {
         
-        if (ite.index > kMaxCandidateListCount) {
-            break;
+    
+        bool res = RimeCandidateListBegin(sessionId, &ite);
+        if (res == false) {
+            return nil;
         }
-        s = [NSString stringWithUTF8String:ite.candidate.text];
-        NSLog(@"%@", s);
-        [candidates addObject:s];
+        
+        NSString *s = nil;
+        while (RimeCandidateListNext(&ite)) {
+            
+            if (ite.index > kMaxCandidateListCount) {
+                break;
+            }
+            s = [NSString stringWithUTF8String:ite.candidate.text];
+            NSLog(@"%@", s);
+            [candidates addObject:s];
+        }
+        
+        RimeCandidateListEnd(&ite);
     }
-    
-    RimeCandidateListEnd(&ite);
-    
     return candidates;
 }
 
 +(NSArray*)getCandidateListForSession:(RimeSessionId)sessionId andIndex:(NSInteger)index andCount:(NSInteger)count
 {
+     NSMutableArray *candidates = [NSMutableArray new];
+    if (index > kMaxCandidateListCount) {
+        return candidates;
+    }
     
     //candidate
     RimeCandidateListIterator ite;
-    bool res = RimeCandidateListBeginWithIndex((int)index, sessionId, &ite);
-    if (res == false) {
-        return nil;
-    }
-    NSInteger candidateMax = index + kMaxCandidateListCount;
     
-    NSMutableArray *candidates = [NSMutableArray new];
-    
-    NSString *s = nil;
-    while (RimeCandidateListNext(&ite)) {
+    @autoreleasepool {
         
-        if (ite.index > candidateMax) {
-            break;
+        bool res = RimeCandidateListBeginWithIndex((int)index, sessionId, &ite);
+        if (res == false) {
+            return nil;
         }
-        s = [NSString stringWithUTF8String:ite.candidate.text];
-        NSLog(@"%@", s);
-        [candidates addObject:s];
+        NSInteger candidateMax = index + count;
+        
+        
+        
+        NSString *s = nil;
+        while (RimeCandidateListNext(&ite)) {
+            
+            if (ite.index > candidateMax) {
+                break;
+            }
+            s = [NSString stringWithUTF8String:ite.candidate.text];
+            NSLog(@"%@", s);
+            [candidates addObject:s];
+        }
+        
+        RimeCandidateListEnd(&ite);
     }
-    
-    RimeCandidateListEnd(&ite);
     
     return candidates;
     
