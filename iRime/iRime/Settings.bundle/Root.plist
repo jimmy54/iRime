@@ -16,6 +16,12 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
+			<string>开启用户输入习惯需要在（设置-&gt;通用-&gt;键盘-&gt;键盘-&gt;iRime输入法-&gt;允许完全访问）设为打开状态</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
 			<string></string>
 		</dict>
 		<dict>

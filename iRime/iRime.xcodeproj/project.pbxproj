@@ -27,6 +27,7 @@
 		0C0C94931D7534C1004D29D9 /* NSObject+DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30DC1D5980B800C21949 /* NSObject+DeepMutableCopy.m */; };
 		0C0C94941D7534C1004D29D9 /* NSString+SHExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30DE1D5980B800C21949 /* NSString+SHExtensions.m */; };
 		0C0C94951D7534C1004D29D9 /* SHFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30E11D5980B800C21949 /* SHFoundation.m */; };
+		0C1239CC1F1CF1C600AC1503 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D5A1E2F56070028C711 /* liblibrime.a */; };
 		0C165C611D585C8400E61F6E /* AGEmojiKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C165C5C1D585C8400E61F6E /* AGEmojiKeyBoardView.m */; };
 		0C165C631D585C8400E61F6E /* AGEmojiPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C165C5E1D585C8400E61F6E /* AGEmojiPageView.m */; };
 		0C165C641D585C8400E61F6E /* EmojisList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C165C5F1D585C8400E61F6E /* EmojisList.plist */; };
@@ -195,7 +196,6 @@
 		0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEC1E078F150012F008 /* libleveldb.a */; };
 		0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */; };
 		0C5E31451E0790140012F008 /* liblibopencc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEE1E078F150012F008 /* liblibopencc.a */; };
-		0C5E31461E0790140012F008 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEF1E078F150012F008 /* liblibrime.a */; };
 		0C5E31471E0790140012F008 /* liblibyaml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FF01E078F150012F008 /* liblibyaml.a */; };
 		0C5E31481E0790140012F008 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FF11E078F150012F008 /* libmemenv.a */; };
 		0C6507871D59DAAB0089A6B9 /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6507861D59DAAB0089A6B9 /* NSString+Path.m */; };
@@ -515,7 +515,6 @@
 		0C5E2FEC1E078F150012F008 /* libleveldb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libleveldb.a; path = LibAndResource/lib/libleveldb.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liblibmarisa-trie.a"; path = "LibAndResource/lib/liblibmarisa-trie.a"; sourceTree = SOURCE_ROOT; };
 		0C5E2FEE1E078F150012F008 /* liblibopencc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibopencc.a; path = LibAndResource/lib/liblibopencc.a; sourceTree = SOURCE_ROOT; };
-		0C5E2FEF1E078F150012F008 /* liblibrime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibrime.a; path = LibAndResource/lib/liblibrime.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FF01E078F150012F008 /* liblibyaml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibyaml.a; path = LibAndResource/lib/liblibyaml.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FF11E078F150012F008 /* libmemenv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmemenv.a; path = LibAndResource/lib/libmemenv.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FFA1E078F650012F008 /* hk2s.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hk2s.json; sourceTree = "<group>"; };
@@ -968,6 +967,7 @@
 		0CF87F531D70B16200874F4D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0CF87F541D70B16200874F4D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		0CF87F551D70B16200874F4D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		0CF9BF841F1754BE00AA7770 /* liblibrime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibrime.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/iRime-dsmqjyidxcywgrhezynvhhingnpe/Build/Products/Debug-iphoneos/liblibrime.a"; sourceTree = "<group>"; };
 		4087E3C8972DF281B9AF0344 /* Pods-Keyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keyboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673F602EBB10A5F0E0AA3390 /* Pods-iRime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.release.xcconfig"; sourceTree = "<group>"; };
@@ -1011,10 +1011,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5E31421E0790140012F008 /* boost.framework in Frameworks */,
+				0C1239CC1F1CF1C600AC1503 /* liblibrime.a in Frameworks */,
 				0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */,
 				0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */,
 				0C5E31451E0790140012F008 /* liblibopencc.a in Frameworks */,
-				0C5E31461E0790140012F008 /* liblibrime.a in Frameworks */,
 				0C5E31471E0790140012F008 /* liblibyaml.a in Frameworks */,
 				0C5E31481E0790140012F008 /* libmemenv.a in Frameworks */,
 				0CAD84F61D11A68D00DA88DB /* libc++.tbd in Frameworks */,
@@ -1379,7 +1379,6 @@
 				0C5E2FEC1E078F150012F008 /* libleveldb.a */,
 				0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */,
 				0C5E2FEE1E078F150012F008 /* liblibopencc.a */,
-				0C5E2FEF1E078F150012F008 /* liblibrime.a */,
 				0C5E2FF01E078F150012F008 /* liblibyaml.a */,
 				0C5E2FF11E078F150012F008 /* libmemenv.a */,
 				0C68A74B1D7D3963001BFC24 /* OpendCC */,
@@ -1938,6 +1937,7 @@
 		83FBF8C154094323355A7879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CF9BF841F1754BE00AA7770 /* liblibrime.a */,
 				6F7EBDACB9071F9501674482 /* libPods-iRime.a */,
 				4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */,
 			);
@@ -2562,7 +2562,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A4EEDD27B577CC091CA77883 /* [CP] Copy Pods Resources */ = {
@@ -2622,7 +2622,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

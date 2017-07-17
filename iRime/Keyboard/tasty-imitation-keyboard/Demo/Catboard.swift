@@ -125,8 +125,11 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     var openCCServer: OpenCCService?
     
     var isShowEmojiView: Bool = false
-
+    
+    var candidateIndex : NSInteger = -1;
+    let candidateCount : NSInteger = 50;
     var candidateList:[CandidateModel]! = Array<CandidateModel>(){
+
     
         
         
@@ -161,6 +164,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     }
     
     override func viewDidLoad() {
+        print("----------------------------viewDidLoad--------------------");
         super.viewDidLoad()
         print("input viewDidLoad");
         fm.startBlock = {
@@ -184,9 +188,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         self.modePush(self.currentMode)
         
         
-        
-
-        
+      print("----------------------------viewDidLoad--------------------");
         
     }
 
@@ -200,9 +202,13 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     {
         self.textDocumentProxy.deleteBackward()
     }
+    
+    
     func getReturnKeyTitle() -> String {
         return self.getReturnKeyTitleString()
     }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("------------------viewDidAppear---------------------")
@@ -242,16 +248,12 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             }
             
             
-            
-
-//            self.needDeploy()
-            
-            
         }else{
             
             print("start service error");
             
         }
+        print("------------------viewDidAppear---------------------")
         
     }
     
@@ -262,8 +264,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         openCCServer = nil
         RimeWrapper.stopService()
-//        RimeWrapper.RimeDeployWorkspace();
-//        RimeWrapper.redeployWithFastMode(false)
+        print("------------------viewDidDidAppear---------------------")
     }
     
     deinit{
@@ -446,8 +447,9 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             return;
         }
         
-        
-        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
+        self.candidateList.removeAll()
+//        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: -1, andCount: 50) as? [String]
         
         if (cl == nil) {
             self.candidateList.removeAll()
@@ -458,6 +460,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         
         self.candidatesBanner?.reloadData()
+        self.candidateIndex = self.candidateCount
         
         return;
         
@@ -465,7 +468,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     func addCandidates(_ strings:[String]) {
         
-        self.candidateList.removeAll()
+//        self.candidateList.removeAll()
         for s in strings {
             let candidate = CandidateModel()
             candidate.text = self.openCC(s)
@@ -566,6 +569,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesBanner = CandidatesBanner(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
         candidatesBanner!.delegate = self
         
+
         candidatesBanner?.toolsView.tapToolsItem = {
             (btn:UIButton, index:Int) in
             
@@ -639,7 +643,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         let count = self.candidateList?.count
-        print(count)
+        //print(count)
         return count!
     }
     
@@ -714,6 +718,24 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesTable.register(CandidateCell.self, forCellWithReuseIdentifier: "Cell")
         candidatesTable.delegate = self
         candidatesTable.dataSource = self
+        
+        //add mjrefresh
+//        self.candidatesTable.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            //Call this Block When enter the refresh status automatically
+//            }];
+        
+        weak var weakSelf = self
+        let footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            
+            weakSelf?.loadMoreCandidate(scrollView: (weakSelf?.candidatesTable)!)
+            
+        });
+        (footer!).stateLabel.isHidden = true
+        self.candidatesTable.mj_footer = footer
+        
+        
+        
+        
         self.view.addSubview(candidatesTable)
     }
     
@@ -723,6 +745,23 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesBanner!.unhideTypingAndCandidatesView()
         candidatesBanner!.changeArrowDown()
         candidatesTable.removeFromSuperview()
+    }
+    
+    func loadMoreCandidate(scrollView: UIScrollView) {
+//        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
+        
+        if (cl != nil) {
+            self.addCandidates(cl!)
+        }else{
+            scrollView.mj_footer.endRefreshingWithNoMoreData()
+            return;
+        }
+        
+        self.candidatesTable.reloadData()
+        
+        self.candidateIndex += self.candidateCount
+        scrollView.mj_footer.endRefreshing();
     }
     
     
@@ -911,6 +950,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             return nil;
         }
         
+        
         let comitText = RimeWrapper.consumeComposedText(forSession: self.rimeSessionId_)
         if (comitText != nil) {
 //            self.textDocumentProxy.insertText(comitText)
@@ -920,14 +960,14 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             return comitText;
         }
         
-        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_) as? [String]
-        
+//        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: -1, andCount: 50) as? [String]
         if (cl == nil) {
             
             self.candidateList.removeAll()
             
         }else{
-            
+            self.candidateList.removeAll()
             self.addCandidates(cl!)
             
         }
@@ -1004,6 +1044,11 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
 //            let uf = NSString.userDefaultsInGroup()
 //            uf.setObject(NOT_NEED_DEPOLY, forKey: IS_NEED_DEPOLY)
 //            self.exitDeployView()
+            
+            //中文输入
+            if !RimeWrapper.isSessionAlive(self.rimeSessionId_) {
+                self.rimeSessionId_ = RimeWrapper.createSession()
+            }
         };
         
        

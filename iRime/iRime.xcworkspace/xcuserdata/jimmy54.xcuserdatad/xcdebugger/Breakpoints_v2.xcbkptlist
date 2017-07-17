@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Keyboard/tasty-imitation-keyboard/Demo/Catboard.swift"
-            timestampString = "501344799.425404"
+            timestampString = "520059915.205011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "keyPressed(key:)"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "viewDidDisappear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Keyboard/tasty-imitation-keyboard/Controller/ForwardingView.swift"
-            timestampString = "501344903.257072"
+            filePath = "Keyboard/tasty-imitation-keyboard/Demo/Catboard.swift"
+            timestampString = "520060589.75838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "touchesEnded(touches:withEvent:)"
+            startingLineNumber = "748"
+            endingLineNumber = "748"
+            landmarkName = "loadMoreCandidate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,29 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Keyboard/tasty-imitation-keyboard/Controller/ForwardingView.swift"
-            timestampString = "501344905.749034"
+            filePath = "Keyboard/RimeWrapeper/Source/RimeWrapper.m"
+            timestampString = "520061286.977238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "touchesMoved(touches:withEvent:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Keyboard/tasty-imitation-keyboard/Controller/ForwardingView.swift"
-            timestampString = "501344907.797988"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "touchesBegan(touches:withEvent:)"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
+            landmarkName = "+getCandidateListForSession:andIndex:andCount:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

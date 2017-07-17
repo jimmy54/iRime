@@ -259,7 +259,8 @@ RIME_API Bool RimeGetStatus(RimeSessionId session_id, RimeStatus* status);
 RIME_API Bool RimeFreeStatus(RimeStatus* status);
 
 // Accessing candidate list
-
+RIME_API Bool RimeCandidateListBeginWithIndex(int index, RimeSessionId session_id,
+                                                  RimeCandidateListIterator* iterator);
 RIME_API Bool RimeCandidateListBegin(RimeSessionId session_id, RimeCandidateListIterator* iterator);
 RIME_API Bool RimeCandidateListNext(RimeCandidateListIterator* iterator);
 RIME_API void RimeCandidateListEnd(RimeCandidateListIterator* iterator);
