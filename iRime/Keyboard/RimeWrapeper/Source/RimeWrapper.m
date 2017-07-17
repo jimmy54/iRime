@@ -184,6 +184,24 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     RIME_STRUCT(RimeTraits, vXIMETraits);
     vXIMETraits.shared_data_dir = [shareSupportPath UTF8String];
     vXIMETraits.user_data_dir = [rimePath UTF8String];
+    /*test
+
+
+    BOOL res = NO;
+    NSString *dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"testDir"];
+    NSFileManager * f = [NSFileManager defaultManager];
+    NSURL * url = [f containerURLForSecurityApplicationGroupIdentifier:GROUP_ID];
+    
+    res = [f createDirectoryAtPath:[url absoluteString] withIntermediateDirectories:YES attributes:NULL error:&err];
+    
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"test", @"test----", nil];
+    dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"test.txt"];
+     res = [dic writeToFile:dir atomically:YES];
+    if (res == NO) {
+        NSLog(@"create the file error!");
+    }
+    */
     vXIMETraits.distribution_name = "iRime";
     vXIMETraits.distribution_code_name = "iRime";
     vXIMETraits.distribution_version = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String];
@@ -214,7 +232,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         // If default.yaml config_version is changed, schedule a maintenance
         RimeStartMaintenance(False); // full_check = False to check config_version first, return True if a maintenance is triggered
     } else {
-        // Maintenance with full check
+        // Maintenance with full checkz
         RimeStartMaintenance(True);
     }
 }
@@ -438,7 +456,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
                 break;
             }
             s = [NSString stringWithUTF8String:ite.candidate.text];
-            NSLog(@"%@", s);
+//            NSLog(@"%@", s);
             [candidates addObject:s];
         }
         
@@ -474,7 +492,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
                 break;
             }
             s = [NSString stringWithUTF8String:ite.candidate.text];
-            NSLog(@"%@", s);
+//            NSLog(@"%@", s);
             [candidates addObject:s];
         }
         

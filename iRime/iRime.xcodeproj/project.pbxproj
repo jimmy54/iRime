@@ -195,7 +195,6 @@
 		0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEC1E078F150012F008 /* libleveldb.a */; };
 		0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */; };
 		0C5E31451E0790140012F008 /* liblibopencc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEE1E078F150012F008 /* liblibopencc.a */; };
-		0C5E31461E0790140012F008 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEF1E078F150012F008 /* liblibrime.a */; };
 		0C5E31471E0790140012F008 /* liblibyaml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FF01E078F150012F008 /* liblibyaml.a */; };
 		0C5E31481E0790140012F008 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FF11E078F150012F008 /* libmemenv.a */; };
 		0C6507871D59DAAB0089A6B9 /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6507861D59DAAB0089A6B9 /* NSString+Path.m */; };
@@ -254,6 +253,7 @@
 		0CDAE3871D70809E00A4FA2E /* FileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDAE3861D70809E00A4FA2E /* FileManger.m */; };
 		0CE4F3781D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4F3771D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift */; };
 		0CE4F37A1D255A7A00E6DDB2 /* CandidateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4F3791D255A7A00E6DDB2 /* CandidateModel.swift */; };
+		0CE5683E1F1CC93C00780B14 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3E82D81F176592004AA2BB /* liblibrime.a */; };
 		0CEC30A81D586B1F00C21949 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30A71D586B1F00C21949 /* EmojiView.swift */; };
 		0CEC30EF1D5980B800C21949 /* UINavigationBar+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30CD1D5980B800C21949 /* UINavigationBar+BackgroundImage.m */; };
 		0CF55E151E2F56070028C711 /* iRime.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55D5E1E2F56070028C711 /* iRime.zip */; };
@@ -437,6 +437,13 @@
 			remoteGlobalIDString = 7DDC030D156541F8001832F5;
 			remoteInfo = YACYAML;
 		};
+		0C3E82D71F176592004AA2BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C3E82D31F176592004AA2BB /* librime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CC5D0251CFC79FA001A48D6;
+			remoteInfo = librime;
+		};
 		0CAD83DE1D11619200DA88DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0CAD83BC1D11619200DA88DB /* Project object */;
@@ -457,6 +464,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0CAD842F1D119ABF00DA88DB;
 			remoteInfo = Keyboard;
+		};
+		0CE1ED721F1BB0CA00475615 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C3E82D31F176592004AA2BB /* librime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CC5D0241CFC79FA001A48D6;
+			remoteInfo = librime;
 		};
 		0CEC31381D59BBFD00C21949 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -508,6 +522,7 @@
 		0C3524F21D71484100F3C3B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0C3524F41D71484600F3C3B2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		0C3524F51D71484600F3C3B2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0C3E82D31F176592004AA2BB /* librime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = librime.xcodeproj; path = ../../../../../iOSRime/workspace/librime/librime.xcodeproj; sourceTree = "<group>"; };
 		0C55114D1DF96AD0000BB27D /* SimpleConverter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleConverter.hpp; sourceTree = "<group>"; };
 		0C5C95CC1D717971006F3EA6 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
 		0C5C95CD1D717971006F3EA6 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
@@ -515,7 +530,6 @@
 		0C5E2FEC1E078F150012F008 /* libleveldb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libleveldb.a; path = LibAndResource/lib/libleveldb.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liblibmarisa-trie.a"; path = "LibAndResource/lib/liblibmarisa-trie.a"; sourceTree = SOURCE_ROOT; };
 		0C5E2FEE1E078F150012F008 /* liblibopencc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibopencc.a; path = LibAndResource/lib/liblibopencc.a; sourceTree = SOURCE_ROOT; };
-		0C5E2FEF1E078F150012F008 /* liblibrime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibrime.a; path = LibAndResource/lib/liblibrime.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FF01E078F150012F008 /* liblibyaml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibyaml.a; path = LibAndResource/lib/liblibyaml.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FF11E078F150012F008 /* libmemenv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmemenv.a; path = LibAndResource/lib/libmemenv.a; sourceTree = SOURCE_ROOT; };
 		0C5E2FFA1E078F650012F008 /* hk2s.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hk2s.json; sourceTree = "<group>"; };
@@ -968,6 +982,7 @@
 		0CF87F531D70B16200874F4D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		0CF87F541D70B16200874F4D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		0CF87F551D70B16200874F4D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		0CF9BF841F1754BE00AA7770 /* liblibrime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibrime.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/iRime-dsmqjyidxcywgrhezynvhhingnpe/Build/Products/Debug-iphoneos/liblibrime.a"; sourceTree = "<group>"; };
 		4087E3C8972DF281B9AF0344 /* Pods-Keyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keyboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673F602EBB10A5F0E0AA3390 /* Pods-iRime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.release.xcconfig"; sourceTree = "<group>"; };
@@ -1010,11 +1025,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE5683E1F1CC93C00780B14 /* liblibrime.a in Frameworks */,
 				0C5E31421E0790140012F008 /* boost.framework in Frameworks */,
 				0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */,
 				0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */,
 				0C5E31451E0790140012F008 /* liblibopencc.a in Frameworks */,
-				0C5E31461E0790140012F008 /* liblibrime.a in Frameworks */,
 				0C5E31471E0790140012F008 /* liblibyaml.a in Frameworks */,
 				0C5E31481E0790140012F008 /* libmemenv.a in Frameworks */,
 				0CAD84F61D11A68D00DA88DB /* libc++.tbd in Frameworks */,
@@ -1035,6 +1050,14 @@
 				0C165C5F1D585C8400E61F6E /* EmojisList.plist */,
 			);
 			path = AGEmojiKeyboard;
+			sourceTree = "<group>";
+		};
+		0C3E82D41F176592004AA2BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C3E82D81F176592004AA2BB /* liblibrime.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		0C5E2FF91E078F650012F008 /* config */ = {
@@ -1375,11 +1398,11 @@
 		0CAD84081D11625000DA88DB /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				0C3E82D31F176592004AA2BB /* librime.xcodeproj */,
 				0C5E2FEB1E078F150012F008 /* boost.framework */,
 				0C5E2FEC1E078F150012F008 /* libleveldb.a */,
 				0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */,
 				0C5E2FEE1E078F150012F008 /* liblibopencc.a */,
-				0C5E2FEF1E078F150012F008 /* liblibrime.a */,
 				0C5E2FF01E078F150012F008 /* liblibyaml.a */,
 				0C5E2FF11E078F150012F008 /* libmemenv.a */,
 				0C68A74B1D7D3963001BFC24 /* OpendCC */,
@@ -1938,6 +1961,7 @@
 		83FBF8C154094323355A7879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CF9BF841F1754BE00AA7770 /* liblibrime.a */,
 				6F7EBDACB9071F9501674482 /* libPods-iRime.a */,
 				4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */,
 			);
@@ -2059,6 +2083,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0CE1ED731F1BB0CA00475615 /* PBXTargetDependency */,
 			);
 			name = Keyboard;
 			productName = Keyboard;
@@ -2118,6 +2143,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 0C3E82D41F176592004AA2BB /* Products */;
+					ProjectRef = 0C3E82D31F176592004AA2BB /* librime.xcodeproj */;
+				},
+				{
 					ProductGroup = 0CEC31331D59BBFD00C21949 /* Products */;
 					ProjectRef = 0CEC31321D59BBFD00C21949 /* YACYAML.xcodeproj */;
 				},
@@ -2133,6 +2162,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0C3E82D81F176592004AA2BB /* liblibrime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibrime.a;
+			remoteRef = 0C3E82D71F176592004AA2BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0CEC31391D59BBFD00C21949 /* libYACYAML.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -2748,6 +2784,11 @@
 			isa = PBXTargetDependency;
 			target = 0CAD842F1D119ABF00DA88DB /* Keyboard */;
 			targetProxy = 0CAD84351D119ABF00DA88DB /* PBXContainerItemProxy */;
+		};
+		0CE1ED731F1BB0CA00475615 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = librime;
+			targetProxy = 0CE1ED721F1BB0CA00475615 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -14,7 +14,7 @@
 			<key>Key</key>
 			<string>version</string>
 			<key>DefaultValue</key>
-			<string>1.4.1</string>
+			<string>1.4.3</string>
 		</dict>
 		<dict>
 			<key>Type</key>
