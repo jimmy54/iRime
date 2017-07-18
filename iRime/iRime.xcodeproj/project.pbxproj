@@ -422,6 +422,11 @@
 		0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF87F551D70B16200874F4D /* SVProgressHUD.m */; };
 		0CF87F5C1D70B1B200874F4D /* FileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDAE3861D70809E00A4FA2E /* FileManger.m */; };
 		775A35029697D51047EB3762 /* libPods-iRime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EBDACB9071F9501674482 /* libPods-iRime.a */; };
+		883E6D401F1E54780095E0EF /* iRSymbolBoardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D3F1F1E54780095E0EF /* iRSymbolBoardContentView.swift */; };
+		883E6D421F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D411F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift */; };
+		883E6D441F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */; };
+		883E6D461F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */; };
+		883E6D491F1E58C00095E0EF /* iRTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D481F1E58C00095E0EF /* iRTool.swift */; };
 		88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */; };
 		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
 		886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */; };
@@ -973,6 +978,11 @@
 		673F602EBB10A5F0E0AA3390 /* Pods-iRime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.release.xcconfig"; sourceTree = "<group>"; };
 		6F7EBDACB9071F9501674482 /* libPods-iRime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iRime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70431FB22C54860E6E7E0364 /* Pods-iRime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.debug.xcconfig"; sourceTree = "<group>"; };
+		883E6D3F1F1E54780095E0EF /* iRSymbolBoardContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardContentView.swift; sourceTree = "<group>"; };
+		883E6D411F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardLeftControlView.swift; sourceTree = "<group>"; };
+		883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardRightWordsView.swift; sourceTree = "<group>"; };
+		883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardBottomControlView.swift; sourceTree = "<group>"; };
+		883E6D481F1E58C00095E0EF /* iRTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRTool.swift; sourceTree = "<group>"; };
 		88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardFatherView.swift; sourceTree = "<group>"; };
 		886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardLeftKeysView.swift; sourceTree = "<group>"; };
 		886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardRightKeysView.swift; sourceTree = "<group>"; };
@@ -1428,6 +1438,8 @@
 		0CAD846C1D119B1E00DA88DB /* main */ = {
 			isa = PBXGroup;
 			children = (
+				883E6D471F1E588E0095E0EF /* iRTool */,
+				883E6D391F1E532E0095E0EF /* iRSymbolBoard */,
 				88410AE51E6481730042DD06 /* iRNumberBoard */,
 				0CC1D1E41D86B2210070524B /* DeployView.swift */,
 				0CEC30A71D586B1F00C21949 /* EmojiView.swift */,
@@ -1942,6 +1954,41 @@
 				4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		883E6D391F1E532E0095E0EF /* iRSymbolBoard */ = {
+			isa = PBXGroup;
+			children = (
+				883E6D3E1F1E53780095E0EF /* Model */,
+				883E6D3D1F1E53640095E0EF /* View */,
+			);
+			path = iRSymbolBoard;
+			sourceTree = "<group>";
+		};
+		883E6D3D1F1E53640095E0EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				883E6D3F1F1E54780095E0EF /* iRSymbolBoardContentView.swift */,
+				883E6D411F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift */,
+				883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */,
+				883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		883E6D3E1F1E53780095E0EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		883E6D471F1E588E0095E0EF /* iRTool */ = {
+			isa = PBXGroup;
+			children = (
+				883E6D481F1E58C00095E0EF /* iRTool.swift */,
+			);
+			path = iRTool;
 			sourceTree = "<group>";
 		};
 		88410AE51E6481730042DD06 /* iRNumberBoard */ = {
@@ -2682,10 +2729,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CF87F5C1D70B1B200874F4D /* FileManger.m in Sources */,
+				883E6D421F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift in Sources */,
 				0CB1CE3F1D22214800678571 /* MyCollectionViewFlowLayout.swift in Sources */,
 				0CAD84861D119B1E00DA88DB /* KeyboardModel.swift in Sources */,
 				0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
 				0CAD84E21D11A3E900DA88DB /* RimeTypeDef.m in Sources */,
+				883E6D491F1E58C00095E0EF /* iRTool.swift in Sources */,
 				0CAD848A1D119B1E00DA88DB /* ExtraView.swift in Sources */,
 				0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */,
 				0CAD84881D119B1E00DA88DB /* DefaultSettings.swift in Sources */,
@@ -2701,6 +2750,7 @@
 				0CAD848B1D119B1E00DA88DB /* ImageKey.swift in Sources */,
 				0CAD84E11D11A3E900DA88DB /* NSString+UTF8Utils.m in Sources */,
 				0CB1CE411D22225B00678571 /* CandidateCell.swift in Sources */,
+				883E6D401F1E54780095E0EF /* iRSymbolBoardContentView.swift in Sources */,
 				88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */,
 				0CB1CE431D22236700678571 /* TypingLabel.swift in Sources */,
 				0CAD848F1D119B1E00DA88DB /* Shapes.swift in Sources */,
@@ -2710,7 +2760,9 @@
 				0CAD84801D119B1E00DA88DB /* KeyboardLayout.swift in Sources */,
 				0CF87F561D70B16200874F4D /* SVIndefiniteAnimatedView.m in Sources */,
 				0CAD84841D119B1E00DA88DB /* DefaultKeyboard.swift in Sources */,
+				883E6D461F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift in Sources */,
 				0C165C631D585C8400E61F6E /* AGEmojiPageView.m in Sources */,
+				883E6D441F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift in Sources */,
 				0CE4F3781D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift in Sources */,
 				0C165C611D585C8400E61F6E /* AGEmojiKeyBoardView.m in Sources */,
 				0CAD848C1D119B1E00DA88DB /* KeyboardConnector.swift in Sources */,
@@ -3032,6 +3084,8 @@
 					"$(PROJECT_DIR)/LibAndResource/lib",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy54.iRime.Keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
