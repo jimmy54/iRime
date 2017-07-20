@@ -18,6 +18,7 @@
 #import "FileManger.h"
 #import "NSString+path.h"
 #import "common.h"
+#import "PlaySound.h"
 #import "OpenCCService.h"
 #import <Masonry.h>
 #import <MJRefresh.h>

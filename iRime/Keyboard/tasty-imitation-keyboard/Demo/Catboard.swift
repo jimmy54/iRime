@@ -332,6 +332,9 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     override func keyPressed(_ key: Key) {
         
+        //play key sound
+        PlaySound.playDefaultSound()
+        
         let textDocumentProxy = self.textDocumentProxy
         
         if self.isChineseInput == false {
