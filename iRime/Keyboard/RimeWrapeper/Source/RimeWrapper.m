@@ -484,7 +484,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         NSInteger candidateMax = index + count;
         
         
-        
+        //NSInteger i = index;
         NSString *s = nil;
         while (RimeCandidateListNext(&ite)) {
             
@@ -492,7 +492,8 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
                 break;
             }
             s = [NSString stringWithUTF8String:ite.candidate.text];
-//            NSLog(@"%@", s);
+            //NSLog(@"%d:%@", i, s);
+//            i++;
             [candidates addObject:s];
         }
         

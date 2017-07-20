@@ -127,7 +127,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     var isShowEmojiView: Bool = false
     
     var candidateIndex : NSInteger = -1;
-    let candidateCount : NSInteger = 50;
+    var candidateCount : NSInteger = 50;
     var candidateList:[CandidateModel]! = Array<CandidateModel>(){
 
     
@@ -220,7 +220,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             
             //
             let curSchema = NSString.userDefaultsInGroup().string(forKey: CURRENT_SCHEMA_NAME)
-            print(curSchema);
+//            print(curSchema);
             if curSchema == nil {
                 print("当前默认输入法为空")
                 NSString.userDefaultsInGroup().set(DEFAULT_SCHEMA_NAME, forKey:CURRENT_SCHEMA_NAME)
@@ -324,7 +324,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         
         RimeWrapper.clearComposition(forSession: rimeSessionId_)
-        self.candidateList.removeAll()
+        
+        self.removeAllCandidateList();
         self.candidatesBanner?.reloadData()
         
     }
@@ -381,7 +382,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
                 self.insertText(preedite!)
                 RimeWrapper.clearComposition(forSession: self.rimeSessionId_)
                 
-                self.candidateList.removeAll()
+                
+                self.removeAllCandidateList();
                 self.candidatesBanner?.reloadData()
                 
                 return;
@@ -433,7 +435,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             var t = self.candidateList.first!.text
             t = t! + " "
             self.insertText(t!)
-            self.candidateList.removeAll()
+            self.removeAllCandidateList();
             self.candidatesBanner?.reloadData()
            
         }
@@ -442,17 +444,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         let h = RimeWrapper.inputKey(forSession: rimeSessionId_, rimeKeyCode: r, rimeModifier: 0)
         if h == false {
             textDocumentProxy.deleteBackward()
-            self.candidateList.removeAll()
+            self.removeAllCandidateList();
             self.candidatesBanner?.reloadData()
             return;
         }
         
-        self.candidateList.removeAll()
-//        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
+        
+        self.removeAllCandidateList();
         let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: -1, andCount: 50) as? [String]
         
         if (cl == nil) {
-            self.candidateList.removeAll()
+            self.removeAllCandidateList();
         }else{
             
             self.addCandidates(cl!)
@@ -460,7 +462,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         
         self.candidatesBanner?.reloadData()
-        self.candidateIndex = self.candidateCount
+        
         
         return;
         
@@ -468,13 +470,19 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     func addCandidates(_ strings:[String]) {
         
-//        self.candidateList.removeAll()
+
         for s in strings {
             let candidate = CandidateModel()
             candidate.text = self.openCC(s)
             self.candidateList.append(candidate)
         }
         
+    }
+    
+    func removeAllCandidateList() {
+        self.candidateList.removeAll()
+        self.candidateIndex = -1;
+        self.candidateCount = 50;
     }
     
     func openCC(_ text: String) ->String {
@@ -749,6 +757,9 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     func loadMoreCandidate(scrollView: UIScrollView) {
 //        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
+        //print("index:%d", self.candidateIndex)
+        //print("count:%d", self.candidateCount)
+        self.candidateIndex += self.candidateCount
         let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
         
         if (cl != nil) {
@@ -760,7 +771,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         self.candidatesTable.reloadData()
         
-        self.candidateIndex += self.candidateCount
+        
         scrollView.mj_footer.endRefreshing();
     }
     
@@ -955,23 +966,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         if (comitText != nil) {
 //            self.textDocumentProxy.insertText(comitText)
             self.insertText(comitText!)
-            self.candidateList.removeAll()
+            self.removeAllCandidateList();
             self.candidatesBanner?.reloadData()
             return comitText;
         }
         
 //        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_) as? [String]
         let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: -1, andCount: 50) as? [String]
-        if (cl == nil) {
-            
-            self.candidateList.removeAll()
-            
-        }else{
-            self.candidateList.removeAll()
+        if (cl != nil) {
             self.addCandidates(cl!)
-            
         }
-        
+        self.removeAllCandidateList();
         self.candidatesBanner?.reloadData()
         return nil;
     }
