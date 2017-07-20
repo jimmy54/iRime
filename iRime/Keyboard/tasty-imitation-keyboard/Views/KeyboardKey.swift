@@ -27,13 +27,22 @@ enum VibrancyType {
 class KeyboardKey: UIControl {
     
     weak var delegate: KeyboardKeyProtocol?
-    
+    var isLongPress = false
     var vibrancy: VibrancyType?
     
     var text: String {
         didSet {
             self.label.text = text
-            self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
+            if hasUpLabel {
+                self.addSubview(upLabel)
+                self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[upLabel]-0-|", options: [], metrics: nil, views: ["upLabel": upLabel]))
+                self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[upLabel(12)]", options: [], metrics: nil, views: ["upLabel": upLabel]))
+                self.label.frame = CGRect(x: self.labelInset, y: self.labelInset + 12, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2 - 12)
+            }else {
+                upLabel.removeFromSuperview()
+                self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
+            }
+//            self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
             self.redrawText()
         }
     }
@@ -91,6 +100,34 @@ class KeyboardKey: UIControl {
     }
     
     var label: UILabel
+    lazy var  upLabel :UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = NSTextAlignment.center
+        label.baselineAdjustment = UIBaselineAdjustment.alignCenters
+        label.font = self.label.font.withSize(12)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = CGFloat(0.5)
+        label.isUserInteractionEnabled = false
+        label.numberOfLines = 1
+
+        label.textColor = self.superview?.backgroundColor
+        
+        return label
+        }()
+    
+    var hasUpLabel = false
+//    {
+//        didSet {
+//            if hasUpLabel {
+//                self.addSubview(upLabel)
+//                self.label.frame = CGRect(x: self.labelInset, y: self.labelInset - 20, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2 - 20)
+//            }else {
+//                upLabel.removeFromSuperview()
+//                self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
+//            }
+//        }
+//    }
     var popupLabel: UILabel?
     var shape: Shape? {
         didSet {
@@ -206,7 +243,17 @@ class KeyboardKey: UIControl {
         CATransaction.setDisableActions(true)
         
         self.background.frame = self.bounds
-        self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
+        
+        if hasUpLabel {
+            self.addSubview(upLabel)
+            self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-0-[upLabel]-0-|", options: [], metrics: nil, views: ["upLabel": upLabel]))
+            self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[upLabel(12)]", options: [], metrics: nil, views: ["upLabel": upLabel]))
+            self.label.frame = CGRect(x: self.labelInset, y: self.labelInset + 12, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2 - 12)
+        }else {
+            upLabel.removeFromSuperview()
+            self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
+        }
+//        self.label.frame = CGRect(x: self.labelInset, y: self.labelInset, width: self.bounds.width - self.labelInset * 2, height: self.bounds.height - self.labelInset * 2)
         
         self.displayView.frame = boundingBox
         self.shadowView.frame = boundingBox
@@ -216,6 +263,7 @@ class KeyboardKey: UIControl {
         CATransaction.commit()
         
         self.refreshViews()
+        
     }
     
     func refreshViews() {
@@ -359,12 +407,12 @@ class KeyboardKey: UIControl {
             
             if let downTextColor = self.downTextColor {
                 self.label.textColor = downTextColor
-                self.popupLabel?.textColor = downTextColor
+                self.isLongPress ? nil : (self.popupLabel?.textColor = downTextColor)
                 self.shape?.color = downTextColor
             }
             else {
                 self.label.textColor = self.textColor
-                self.popupLabel?.textColor = self.textColor
+                self.isLongPress ? nil : (self.popupLabel?.textColor = self.textColor)
                 self.shape?.color = self.textColor
             }
         }
@@ -376,7 +424,7 @@ class KeyboardKey: UIControl {
             self.borderView?.strokeColor = self.borderColor
             
             self.label.textColor = self.textColor
-            self.popupLabel?.textColor = self.textColor
+            self.isLongPress ? nil : (self.popupLabel?.textColor = self.textColor)
             self.shape?.color = self.textColor
         }
         
@@ -393,7 +441,11 @@ class KeyboardKey: UIControl {
         if let popup = self.popup {
             if let delegate = self.delegate {
                 let frame = delegate.frameForPopup(self, direction: dir)
-                popup.frame = frame
+                if (popupLabel?.text?.characters.count)! > 1 {
+                    popup.frame = CGRect.init(x: frame.origin.x - 50, y: frame.origin.y, width: frame.width + 100, height: frame.height)
+                }else {
+                    popup.frame = frame
+                }
                 popupLabel?.frame = popup.bounds
             }
             else {
@@ -450,7 +502,55 @@ class KeyboardKey: UIControl {
         }
     }
     
-    func hidePopup() {
+    var pressInt = 1
+    func longPressPopup(int:Int){
+        self.isLongPress = true
+        if self.popup == nil {
+            self.layer.zPosition = 1000
+            
+            let popup = KeyboardKeyBackground(cornerRadius: 9.0, underOffset: self.underOffset)
+            self.popup = popup
+            self.addSubview(popup)
+            
+            let popupLabel = UILabel()
+            popupLabel.textAlignment = self.label.textAlignment
+            popupLabel.baselineAdjustment = self.label.baselineAdjustment
+            popupLabel.font = self.label.font.withSize(22 * 2)
+            popupLabel.adjustsFontSizeToFitWidth = self.label.adjustsFontSizeToFitWidth
+            popupLabel.minimumScaleFactor = CGFloat(0.1)
+            popupLabel.isUserInteractionEnabled = false
+            popupLabel.numberOfLines = 1
+            popupLabel.frame = popup.bounds
+            let str = (self.label.text?.lowercased())! + "  " + (self.upLabel.text ?? "") + "  " + (self.label.text?.uppercased())!
+                    let attributeString = NSMutableAttributedString(string:str)
+                    attributeString.addAttribute(NSForegroundColorAttributeName,
+                                                 value: UIColor.blue,
+                                                 range: NSMakeRange(0+(int*3),1))
+
+//            
+                   popupLabel.attributedText = attributeString
+//            popupLabel.text =  self.label.text
+            
+            popup.addSubview(popupLabel)
+            self.popupLabel = popupLabel
+            
+            self.label.isHidden = true
+        } else {
+            let str = (self.label.text?.lowercased())! + "  " + (self.upLabel.text ?? "") + "  " + (self.label.text?.uppercased())!
+            let attributeString = NSMutableAttributedString(string:str)
+            attributeString.addAttribute(NSForegroundColorAttributeName,
+                                         value: UIColor.blue,
+                                         range: NSMakeRange(0+(int*3),1))
+            
+            //
+            self.popupLabel?.attributedText = attributeString
+        }
+        pressInt = int
+    }
+    
+    public func hidePopup() {
+        
+        self.isLongPress = false
         if self.popup != nil {
             self.delegate?.willHidePopup(self)
             

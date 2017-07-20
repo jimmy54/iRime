@@ -149,24 +149,30 @@ func defaultKeyboard() -> Keyboard {
      */
     
     
-    for key in ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"] {
+    for (index,key) in ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"].enumerated() {
+        let uplabels = ["1","2","3","4","5","6","7","8","9","0"]
         let keyModel = Key(.character)
         keyModel.setLetter(key)
+        keyModel.upLabel = uplabels[index]
         defaultKeyboard.addKey(keyModel, row: 0, page: 4)
     }
     
-    for key in ["A", "S", "D", "F", "G", "H", "J", "K", "L"] {
+    for (index,key) in ["A", "S", "D", "F", "G", "H", "J", "K", "L"].enumerated() {
+        let uplabels = ["~","!","@","#","%",".","&","*","?"]
         let keyModel = Key(.character)
         keyModel.setLetter(key)
+        keyModel.upLabel = uplabels[index]
         defaultKeyboard.addKey(keyModel, row: 1, page: 4)
     }
     
     keyModel = Key(.shift)
     defaultKeyboard.addKey(keyModel, row: 2, page: 4)
     
-    for key in ["Z", "X", "C", "V", "B", "N", "M"] {
+    for (index,key) in ["Z", "X", "C", "V", "B", "N", "M"].enumerated() {
+        let uplabels = ["(",")","-","_",":",";","/"]
         let keyModel = Key(.character)
         keyModel.setLetter(key)
+        keyModel.upLabel = uplabels[index]
         defaultKeyboard.addKey(keyModel, row: 2, page: 4)
     }
     
@@ -212,6 +218,8 @@ func defaultKeyboard() -> Keyboard {
     
     returnKey = Key(.return)
     returnKey.uppercaseKeyCap = "return"
+    returnKey.lowercaseKeyCap = "return"
+
     returnKey.uppercaseOutput = "\n"
     returnKey.lowercaseOutput = "\n"
     defaultKeyboard.addKey(returnKey, row: 3, page: 4)

@@ -90,3 +90,10 @@ var profile: ((_ id: String) -> Double?) = {
         return counterForName[id]
     }
 }()
+
+func delay(_ seconds: Double, delayedCode: @escaping ()->()) {
+    let targetTime = DispatchTime.now() + Double(Int64(Double(NSEC_PER_SEC) * seconds)) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: targetTime) {
+        delayedCode()
+    }
+}

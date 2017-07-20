@@ -498,6 +498,10 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
     }
     
     func updateKeyCapText(_ key: KeyboardKey, model: Key, uppercase: Bool, characterUppercase: Bool) {
+
+        key.hasUpLabel = !(model.upLabel?.isEmpty ?? true)
+        key.upLabel.text = model.upLabel
+        
         if model.type == .character {
             key.text = model.keyCapForCase(characterUppercase)
         }

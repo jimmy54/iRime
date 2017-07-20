@@ -84,6 +84,7 @@ class Key: Hashable {
     var lowercaseKeyCap: String?
     var uppercaseOutput: String?
     var lowercaseOutput: String?
+    var upLabel:String?
     var toMode: Int? //if the key is a mode button, this indicates which page it links to
     var keyCode: CUnsignedShort?
     
