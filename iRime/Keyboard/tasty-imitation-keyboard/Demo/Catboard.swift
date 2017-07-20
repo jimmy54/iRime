@@ -115,6 +115,21 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
 
     }()
     
+    lazy var viewSymbolBoard:iRSymbolBoardContentView = {
+        let viewSymbolBoard = iRSymbolBoardContentView.init(frame: CGRect.null)
+        self.view.addSubview(viewSymbolBoard)
+        //--属性设置
+        //--约束布局
+        viewSymbolBoard.mas_makeConstraints({ (make:MASConstraintMaker!) in
+            make.left.equalTo()(self.view)
+            make.right.equalTo()(self.view)
+            make.bottom.equalTo()(self.view)
+            make.top.equalTo()(self.view)?.setOffset(self.bannerView!.frame.size.height)
+        })
+        
+        return viewSymbolBoard
+    }()
+    
     var rimeSessionId_ : RimeSessionId = 0
     var isChineseInput: Bool = true
     var switchInputView:KeyboardKey?
@@ -314,9 +329,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         else if(toMode == 1)
         {
-           print("我要切换到数字键盘喽")
+           logIrime("我要切换数字键盘喽_王宇")
            self.viewNumberBoardView.isHidden = false
            self.view.bringSubview(toFront: self.viewNumberBoardView)
+           return
+        }
+        else if toMode == 3
+        {
+           logIrime("我要切换   符号  键盘喽_王宇")
+           self.viewSymbolBoard.isHidden = false
+           self.view.bringSubview(toFront: self.viewSymbolBoard)
+           return
         }
         else{
             self.modePush(toMode!)

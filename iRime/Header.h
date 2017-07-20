@@ -20,5 +20,6 @@
 #import "common.h"
 #import "OpenCCService.h"
 #import <Masonry.h>
+#import "MJExtension.h"
 //#import "rime_api.h"
 
