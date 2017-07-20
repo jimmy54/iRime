@@ -1037,9 +1037,9 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     func onDeploymentStarted() {
         print("deploy start....")
-        DispatchQueue.main.async { 
+//        DispatchQueue.main.async { 
 //            self.showDeployView()
-        };
+//        };
     }
     
     
@@ -1066,9 +1066,9 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func onDeploymentFailed() {
         
         print("deploy fail....")
-        DispatchQueue.main.async { 
+//        DispatchQueue.main.async { 
 //            self.exitDeployView()
-        }
+//        }
     }
     
     func onSchemaChanged(withNewSchema schema: String!) {

@@ -27,6 +27,12 @@ static void SoundFinished(SystemSoundID soundID,void* sample){
 
 +(BOOL)playSound:(NSString *)soundPath
 {
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if ([fm fileExistsAtPath:soundPath] == NO) {
+        NSLog(@"sound path is no exist");
+        return NO;
+    }
     /*系统音频ID，用来注册我们将要播放的声音*/
     SystemSoundID soundID;
     NSURL* sample = [[NSURL alloc]initWithString:soundPath];
@@ -42,6 +48,7 @@ static void SoundFinished(SystemSoundID soundID,void* sample){
     AudioServicesPlaySystemSound(soundID);
     CFRunLoopRun();
     return YES;
+
 }
 
 
