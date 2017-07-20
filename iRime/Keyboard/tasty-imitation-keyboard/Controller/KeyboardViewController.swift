@@ -337,9 +337,7 @@ class KeyboardViewController: UIInputViewController {
                             break
                         }
                         
-                        if key.hasOutput {
-                            keyView.addTarget(self, action: #selector(keyPressedHelper(_:)), for: .touchUpInside)
-                        }
+                        
                         
                         if key.isCharacter {
                             if UIDevice.current.userInterfaceIdiom != UIUserInterfaceIdiom.pad {
@@ -350,7 +348,9 @@ class KeyboardViewController: UIInputViewController {
                             }
                         }
                         
-                        
+                        if key.hasOutput {
+                            keyView.addTarget(self, action: #selector(keyPressedHelper(_:)), for: .touchUpInside)
+                        }
                         
                         if key.type != Key.KeyType.shift && key.type != Key.KeyType.modeChange {
                             keyView.addTarget(self, action: #selector(highlightKey(_:)), for: [.touchDown, .touchDragInside, .touchDragEnter])
@@ -421,8 +421,8 @@ class KeyboardViewController: UIInputViewController {
         }
         self.popupDelayTimer?.invalidate()
         
-        sender.isLongPress = false
-        self.currentShowLongPressPopupKey = nil
+//        sender.isLongPress = false
+//        self.currentShowLongPressPopupKey = nil
         if sender != self.keyWithDelayedPopup {
             self.keyWithDelayedPopup?.hidePopup()
             self.keyWithDelayedPopup = sender
@@ -495,6 +495,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func keyPressedHelper(_ sender: KeyboardKey) {
+        
         if let key = currentShowLongPressPopupKey,let model = self.layout?.keyForView(key) {
             if key.pressInt == 0 {
                 self.textDocumentProxy.insertText(model.lowercaseOutput ??  "")
@@ -504,29 +505,34 @@ class KeyboardViewController: UIInputViewController {
                 self.textDocumentProxy.insertText(model.upLabel ?? "")
             }
             
-
-        }else if let model = self.layout?.keyForView(sender) {
-            self.keyPressed(model)
-
-            // auto exit from special char subkeyboard
-//            if model.type == Key.KeyType.Space || model.type == Key.KeyType.Return {
-//                self.currentMode = 0
-//            }
-//            elseif model.lowercaseOutput == "'" {
-//                self.currentMode = 0
-//            }
-//            else if model.type == Key.KeyType.Character {
-//                self.currentMode = 0
-//            }
-            
-            // auto period on double space
-            // TODO: timeout
-            
-            self.handleAutoPeriod(model)
-            // TODO: reset context
+            sender.isLongPress = false
+            self.currentShowLongPressPopupKey = nil
+        }else {
+            if let model = self.layout?.keyForView(sender) {
+                self.keyPressed(model)
+                
+                // auto exit from special char subkeyboard
+                //            if model.type == Key.KeyType.Space || model.type == Key.KeyType.Return {
+                //                self.currentMode = 0
+                //            }
+                //            elseif model.lowercaseOutput == "'" {
+                //                self.currentMode = 0
+                //            }
+                //            else if model.type == Key.KeyType.Character {
+                //                self.currentMode = 0
+                //            }
+                
+                // auto period on double space
+                // TODO: timeout
+                
+                self.handleAutoPeriod(model)
+                
+                // TODO: reset context
+            }
+            self.setCapsIfNeeded()
         }
         
-        self.setCapsIfNeeded()
+        
     }
     
     func handleAutoPeriod(_ key: Key) {
