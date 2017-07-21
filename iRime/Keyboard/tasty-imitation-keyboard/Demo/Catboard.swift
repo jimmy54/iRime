@@ -196,11 +196,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func presentTextFromNumberPad(_ text:String) -> Void
     {
         self.textDocumentProxy.insertText(text);
+        
+        //play key sound
+        self.playKeySound()
     }
     
     func deleteBackwardOfiRNumberBoardFatherView() -> Void
     {
         self.textDocumentProxy.deleteBackward()
+        
+        //play key sound
+        self.playKeySound()
     }
     
     
@@ -333,7 +339,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     override func keyPressed(_ key: Key) {
         
         //play key sound
-        PlaySound.playDefaultSound()
+        self.playKeySound()
         
         let textDocumentProxy = self.textDocumentProxy
         
@@ -580,21 +586,22 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         candidatesBanner = CandidatesBanner(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
         candidatesBanner!.delegate = self
         
-
+        weak var weakSelf = self
         candidatesBanner?.toolsView.tapToolsItem = {
             (btn:UIButton, index:Int) in
             
+            weakSelf?.playKeySound()
             if index == 1 {
                 //open iRime
                 //let iRimeURL = "iRime://";
                 //self.openURL(iRimeURL)
             }else if index == 2{
-                if self.isShowEmojiView {
-                    self.exitEmojiView()
+                if (weakSelf?.isShowEmojiView)! {
+                    weakSelf?.exitEmojiView()
                     btn.backgroundColor = UIColor.white
                     btn.setImage(UIImage(named: "emoji_tab1"), for: UIControlState())
                 }else{
-                    self.showEmojiView()
+                    weakSelf?.showEmojiView()
                     btn.backgroundColor = UIColor.gray
                     btn.setImage(UIImage(named: "emoji_tab1Press"), for: UIControlState())
 
@@ -644,6 +651,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     //collocetionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        //play key sound
+        self.playKeySound()
         
         self.selectText(indexPath.row)
         self.exitCandidatesTableIfNecessary()
@@ -698,7 +707,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     
     var isShowingCandidatesTable = false
     @IBAction func toggleCandidatesTableOrDismissKeyboard() {
-        
+        self.playKeySound()
         if self.candidateList?.count <= 0 {
             Logger.sharedInstance.writeLogLine(filledString: "[DOWN] <> DISMISS")
             self.dismissKeyboard()
@@ -940,6 +949,11 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         if s.textSize == nil {
             s.textSize = CandidateCell.getCellSizeByText(s.text, needAccuracy: indexPath == indexPathZero ? true : false)
         }
+        //设置第一个选项宽大点，方便选择
+        if indexPath.row == 0 {
+            let l : CGFloat = 5.0
+            return s.textSize!.width + l
+        }
         return s.textSize!.width
         
        
@@ -951,8 +965,12 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
 
+        
         self.selectText(indexPath.row)
         self.candidatesBanner?.scrollToFirstCandidate()
+        
+        //play key sound
+        self.playKeySound()
         
     }
     
@@ -975,7 +993,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         
 //        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_) as? [String]
-        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: -1, andCount: 50) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
         if (cl != nil) {
             self.addCandidates(cl!)
         }
@@ -1117,6 +1135,15 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func exitDeployView() {
         
         deployView?.removeFromSuperview()
+        
+    }
+    
+    
+    override func playKeySound() {
+        
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
+            PlaySound.playSound()
+        })
         
     }
 

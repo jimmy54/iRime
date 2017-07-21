@@ -10,8 +10,11 @@
 
 @interface PlaySound : NSObject
 
++(void)setSoundPath:(NSString*)path;
 
-+(BOOL)playSound:(NSString *)soundPath;
++(void)playSound;
+
++(BOOL)playSoundWithFile:(NSString *)soundPath;
 
 
 +(void)playDefaultSound;

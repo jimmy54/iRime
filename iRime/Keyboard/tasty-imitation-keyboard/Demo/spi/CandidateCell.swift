@@ -5,9 +5,14 @@ func getCandidateCellHeight() -> CGFloat {
     return showTypingCellInExtraLine ? typingAndCandidatesViewHeightWhenShowTypingCellInExtraLineIsTrue : typingAndCandidatesViewHeightWhenShowTypingCellInExtraLineIsFalse
 }
 
-var candidateTextFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body), size: 24)
+//var candidateTextFont = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body), size: 24)
 
-let oneChineseGlyphWidth = ("镜" as NSString).boundingRect(with: CGSize(width: CGFloat.infinity, height: candidatesTableCellHeight), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: candidateTextFont], context: nil).width
+var candidateTextFont = UIFont(name: "Heiti TC", size: 22.0)
+
+//偏移
+let offset : CGFloat = 3.0
+
+let oneChineseGlyphWidth = ("镜" as NSString).boundingRect(with: CGSize(width: CGFloat.infinity, height: candidatesTableCellHeight), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: candidateTextFont], context: nil).width + offset
 
 class CandidateCell: UICollectionViewCell {
     
