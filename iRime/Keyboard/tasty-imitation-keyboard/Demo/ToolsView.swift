@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias tapToolsItemBock = (tapBtn: UIButton, tapIndex: Int) -> ()
+typealias tapToolsItemBock = (_ tapBtn: UIButton, _ tapIndex: Int) -> ()
 
 
 class ToolItem: NSObject {
@@ -26,8 +26,8 @@ class ToolItem: NSObject {
 class ToolsView: UIView {
     
     
-    let iRimeItem: UIButton = UIButton(type: .Custom)
-    let emojiItem: UIButton = UIButton(type: .Custom)
+    let iRimeItem: UIButton = UIButton(type: .custom)
+    let emojiItem: UIButton = UIButton(type: .custom)
     
     var tapToolsItem: tapToolsItemBock?
     
@@ -43,27 +43,27 @@ class ToolsView: UIView {
         iRimeItem.translatesAutoresizingMaskIntoConstraints = false
         emojiItem.translatesAutoresizingMaskIntoConstraints = false
         
-        iRimeItem.setImage(UIImage(named: "KBSkinToolbar_icon_logo"), forState: .Normal)
+        iRimeItem.setImage(UIImage(named: "KBSkinToolbar_icon_logo"), for: UIControlState())
         
-        emojiItem.setImage(UIImage(named: "emoji_tab1"), forState: .Normal)
+        emojiItem.setImage(UIImage(named: "emoji_tab1"), for: UIControlState())
         
         
   
         iRimeItem.mas_makeConstraints { (make :MASConstraintMaker! ) in
          
-            make.top.equalTo()(self).setOffset(0)
-            make.left.equalTo()(self).setOffset(0)
-            make.bottom.equalTo()(self).setOffset(0)
-            make.width.equalTo()(self.mas_width).dividedBy()(4)
+            make.top.equalTo()(self)?.setOffset(0)
+            make.left.equalTo()(self)?.setOffset(0)
+            make.bottom.equalTo()(self)?.setOffset(0)
+            make.width.equalTo()(self.mas_width)?.dividedBy()(4)
             
         }
         
         self.emojiItem.mas_makeConstraints { (make) in
             
-            make.left.equalTo()(self.iRimeItem.mas_right).setOffset(0)
-            make.top.equalTo()(self).setOffset(0)
-            make.bottom.equalTo()(self).setOffset(0)
-            make.width.equalTo()(self.mas_width).dividedBy()(4)
+            make?.left.equalTo()(self.iRimeItem.mas_right)?.setOffset(0)
+            make?.top.equalTo()(self)?.setOffset(0)
+            make?.bottom.equalTo()(self)?.setOffset(0)
+            make?.width.equalTo()(self.mas_width)?.dividedBy()(4)
             
         }
         
@@ -85,8 +85,8 @@ class ToolsView: UIView {
         
         
         //add event
-        iRimeItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), forControlEvents: .TouchUpInside)
-        emojiItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), forControlEvents: .TouchUpInside)
+        iRimeItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), for: .touchUpInside)
+        emojiItem.addTarget(self, action: #selector(ToolsView.tapToolsItem(_:)), for: .touchUpInside)
 
     }
     
@@ -100,7 +100,7 @@ class ToolsView: UIView {
     
     
     
-    func tapToolsItem(btn:UIButton) {
+    func tapToolsItem(_ btn:UIButton) {
         if self.tapToolsItem == nil {
             return;
         }
@@ -113,7 +113,7 @@ class ToolsView: UIView {
         }
         
         
-        self.tapToolsItem!(tapBtn:btn, tapIndex:index)
+        self.tapToolsItem!(btn, index)
         
         
     }

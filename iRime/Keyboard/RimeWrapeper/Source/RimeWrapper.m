@@ -18,7 +18,7 @@
 #define kXIMECandidateWindowPositionVerticalOffset 5
 
 
-#define kMaxCandidateListCount 50
+
 
 
 /* keycodes for keys that are independent of keyboard layout*/
@@ -184,6 +184,24 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     RIME_STRUCT(RimeTraits, vXIMETraits);
     vXIMETraits.shared_data_dir = [shareSupportPath UTF8String];
     vXIMETraits.user_data_dir = [rimePath UTF8String];
+    /*test
+
+
+    BOOL res = NO;
+    NSString *dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"testDir"];
+    NSFileManager * f = [NSFileManager defaultManager];
+    NSURL * url = [f containerURLForSecurityApplicationGroupIdentifier:GROUP_ID];
+    
+    res = [f createDirectoryAtPath:[url absoluteString] withIntermediateDirectories:YES attributes:NULL error:&err];
+    
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"test", @"test----", nil];
+    dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"test.txt"];
+     res = [dic writeToFile:dir atomically:YES];
+    if (res == NO) {
+        NSLog(@"create the file error!");
+    }
+    */
     vXIMETraits.distribution_name = "iRime";
     vXIMETraits.distribution_code_name = "iRime";
     vXIMETraits.distribution_version = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String];
@@ -214,7 +232,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         // If default.yaml config_version is changed, schedule a maintenance
         RimeStartMaintenance(False); // full_check = False to check config_version first, return True if a maintenance is triggered
     } else {
-        // Maintenance with full check
+        // Maintenance with full checkz
         RimeStartMaintenance(True);
     }
 }
@@ -421,27 +439,72 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
 {
     //candidate
     RimeCandidateListIterator ite;
-    bool res = RimeCandidateListBegin(sessionId, &ite);
-    if (res == false) {
-        return nil;
-    }
-    
     NSMutableArray *candidates = [NSMutableArray new];
     
-    NSString *s = nil;
-    while (RimeCandidateListNext(&ite)) {
+    @autoreleasepool {
         
-        if (ite.index > kMaxCandidateListCount) {
-            break;
+    
+        bool res = RimeCandidateListBegin(sessionId, &ite);
+        if (res == false) {
+            return nil;
         }
-        s = [NSString stringWithUTF8String:ite.candidate.text];
-        [candidates addObject:s];
+        
+        NSString *s = nil;
+        while (RimeCandidateListNext(&ite)) {
+            
+            if (ite.index > kMaxCandidateListCount) {
+                break;
+            }
+            s = [NSString stringWithUTF8String:ite.candidate.text];
+//            NSLog(@"%@", s);
+            [candidates addObject:s];
+        }
+        
+        RimeCandidateListEnd(&ite);
     }
-    
-    RimeCandidateListEnd(&ite);
-    
     return candidates;
 }
+
++(NSArray*)getCandidateListForSession:(RimeSessionId)sessionId andIndex:(NSInteger)index andCount:(NSInteger)count
+{
+     NSMutableArray *candidates = [NSMutableArray new];
+    if (index > kMaxCandidateListCount) {
+        return candidates;
+    }
+    
+    //candidate
+    RimeCandidateListIterator ite;
+    
+    @autoreleasepool {
+        
+        bool res = RimeCandidateListBeginWithIndex((int)index, sessionId, &ite);
+        if (res == false) {
+            return nil;
+        }
+        NSInteger candidateMax = index + count;
+        
+        
+        //NSInteger i = index;
+        NSString *s = nil;
+        while (RimeCandidateListNext(&ite)) {
+            
+            if (ite.index > candidateMax) {
+                break;
+            }
+            s = [NSString stringWithUTF8String:ite.candidate.text];
+            //NSLog(@"%d:%@", i, s);
+//            i++;
+            [candidates addObject:s];
+        }
+        
+        RimeCandidateListEnd(&ite);
+    }
+    
+    return candidates;
+    
+}
+
+
 
 + (BOOL)selectCandidateForSession:(RimeSessionId)seesionId inIndex:(size_t)index
 {

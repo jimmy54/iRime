@@ -12,7 +12,7 @@
 // Import necessary key codes
 #include "keysymdef.h"
 //#import <Carbon/Carbon.h>
-
+#define kMaxCandidateListCount 300
 // Typedef from Rime API
 typedef uintptr_t RimeSessionId;
 typedef enum {
@@ -104,6 +104,8 @@ typedef enum {
 
 /// Get option state for a session
 + (BOOL)getOptionStateForSession:(RimeSessionId)sessionId optionName:(NSString *)optionName;
+
++(NSArray*)getCandidateListForSession:(RimeSessionId)sessionId andIndex:(NSInteger)index andCount:(NSInteger)count;
 
 + (NSArray *)getCandidateListForSession:(RimeSessionId)sessionId;
 

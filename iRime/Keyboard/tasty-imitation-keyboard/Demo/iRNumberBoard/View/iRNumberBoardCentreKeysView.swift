@@ -11,13 +11,13 @@ import UIKit
 
 extension UIImage{
     
-   class  func imageWithColor(color:UIColor) -> UIImage {
-        let rect:CGRect = CGRectMake(0.0, 0.0, 1.0, 1.0)
+   class  func imageWithColor(_ color:UIColor) -> UIImage {
+        let rect:CGRect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         
         UIGraphicsBeginImageContext(rect.size);
-        let context:CGContextRef = UIGraphicsGetCurrentContext()!
-        CGContextSetFillColorWithColor(context, color.CGColor);
-        CGContextFillRect(context, rect);
+        let context:CGContext = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor);
+        context.fill(rect);
         
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext();
@@ -30,7 +30,7 @@ extension NSObject{
 
    class  func getFitFontForNumberBoard() -> CGFloat {
         
-        let width:CGFloat = min(UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        let width:CGFloat = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
         
         if width > 320.0{
             return CGFloat(22.0)
@@ -44,7 +44,7 @@ extension NSObject{
 }
 
 public protocol iRNumberBoardCentreKeysViewvProtocol: NSObjectProtocol {
-    func callBackOfCentreToPassText(text:String) -> Void
+    func callBackOfCentreToPassText(_ text:String) -> Void
     func callBackOfCentreToHiddenNumberKeyBoard() -> Void
 }
 
@@ -56,32 +56,32 @@ class iRNumberBoardCentreKeysBtn: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let backColor = UIColor.whiteColor();//UIColor.init(red: 204.0/255.0, green: 210.0/255.0, blue: 217.0/255.0, alpha: 1.0)
-        self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody), size: NSObject.getFitFontForNumberBoard())
+        let backColor = UIColor.white;//UIColor.init(red: 204.0/255.0, green: 210.0/255.0, blue: 217.0/255.0, alpha: 1.0)
+        self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body), size: NSObject.getFitFontForNumberBoard())
         self.backgroundColor = backColor;
-        self.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGrayColor()), forState: .Highlighted)
+        self.setTitleColor(UIColor.black, for: UIControlState())
+        self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGray), for: .highlighted)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setItemTitle(i:Int) -> Void {
+    func setItemTitle(_ i:Int) -> Void {
         if i == 9 {
-            self.setTitle("返回", forState: .Normal)
+            self.setTitle("返回", for: UIControlState())
         }
         else if i == 10
         {
-            self.setTitle("0", forState: .Normal)
+            self.setTitle("0", for: UIControlState())
         }
         else if i == 11
         {
-            self.setTitle(".", forState: .Normal)
+            self.setTitle(".", for: UIControlState())
         }
         else
         {
-            self.setTitle("\(i+1)", forState: .Normal)
+            self.setTitle("\(i+1)", for: UIControlState())
         }
     }
 
@@ -93,7 +93,7 @@ class iRNumberBoardCentreKeysView: UIView {
     var lastBtnItem:iRNumberBoardCentreKeysBtn? = nil
     var lastLineFirstItem:iRNumberBoardCentreKeysBtn? = nil
     var arrayBtnItems:[iRNumberBoardCentreKeysBtn]? = [iRNumberBoardCentreKeysBtn]();
-    var delegateAction:iRNumberBoardCentreKeysViewvProtocol?
+    weak var delegateAction:iRNumberBoardCentreKeysViewvProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -104,33 +104,33 @@ class iRNumberBoardCentreKeysView: UIView {
     }
     func createSubViews() -> Void {
         for i:Int in 0 ..< 12  {
-            let btnItem:iRNumberBoardCentreKeysBtn = iRNumberBoardCentreKeysBtn.init(frame: CGRectNull)
+            let btnItem:iRNumberBoardCentreKeysBtn = iRNumberBoardCentreKeysBtn.init(frame: CGRect.null)
             self .addSubview(btnItem)
             btnItem.tag = i
-            btnItem.addTarget(self, action: #selector(iRNumberBoardCentreKeysView.btnItemAction(_:)), forControlEvents: .TouchUpInside)
+            btnItem.addTarget(self, action: #selector(iRNumberBoardCentreKeysView.btnItemAction(_:)), for: .touchUpInside)
             arrayBtnItems?.append(btnItem)
             if i == 0 {
                 btnItem.mas_makeConstraints({ (maker:MASConstraintMaker!) in
                     maker.left.equalTo()(self)
                     maker.top.equalTo()(self)
-                    maker.width.equalTo()(self.mas_width).multipliedBy()(1.0/3.0)
-                    maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+                    maker.width.equalTo()(self.mas_width)?.multipliedBy()(1.0/3.0)
+                    maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
                 })
             }
             else if i%3==0{
                 btnItem.mas_makeConstraints({ (maker:MASConstraintMaker!) in
                     maker.left.equalTo()(self)
                     maker.top.equalTo()(self.lastLineFirstItem!.mas_bottom)
-                    maker.width.equalTo()(self.mas_width).multipliedBy()(1.0/3.0)
-                    maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+                    maker.width.equalTo()(self.mas_width)?.multipliedBy()(1.0/3.0)
+                    maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
                })
             }
             else{
                 btnItem.mas_makeConstraints({ (maker:MASConstraintMaker!) in
                     maker.left.equalTo()(self.lastBtnItem!.mas_right)
                     maker.top.equalTo()(self.lastBtnItem!)
-                    maker.width.equalTo()(self.mas_width).multipliedBy()(1.0/3.0)
-                    maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+                    maker.width.equalTo()(self.mas_width)?.multipliedBy()(1.0/3.0)
+                    maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
                 })
 
             }
@@ -198,14 +198,14 @@ class iRNumberBoardCentreKeysView: UIView {
     }
     
     func getLineView() -> UIView {
-        let viewLine:UIView = UIView.init(frame: CGRectNull)
+        let viewLine:UIView = UIView.init(frame: CGRect.null)
         //--属性设置
         viewLine.backgroundColor =  UIColor.init(red: 170.0/255.0, green: 170.0/255.0, blue: 170.0/255.0, alpha: 1.0)
         return viewLine;
         
     }
     
-    func btnItemAction(btn:UIButton) -> Void {
+    func btnItemAction(_ btn:UIButton) -> Void {
         if btn.tag == 9 {
             if self.delegateAction != nil {
                 self.delegateAction?.callBackOfCentreToHiddenNumberKeyBoard()

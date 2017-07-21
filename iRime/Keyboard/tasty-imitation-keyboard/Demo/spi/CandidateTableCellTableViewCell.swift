@@ -19,31 +19,32 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectedBackgroundView = UIView(frame: frame)
-        selectedBackgroundView?.autoresizingMask = .FlexibleWidth
-        selectedBackgroundView?.backgroundColor = UIColor.lightGrayColor()
+        selectedBackgroundView?.autoresizingMask = .flexibleWidth
+        selectedBackgroundView?.backgroundColor = UIColor.lightGray
         
-        self.contentView.backgroundColor = UIColor.clearColor()
-        self.backgroundColor = UIColor.clearColor()
+        self.contentView.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.clear
         
         txtLabel = UILabel()
-        txtLabel.backgroundColor = UIColor.clearColor()
+        txtLabel.backgroundColor = UIColor.clear
         txtLabel.font = candidateTextFont
-        txtLabel.textAlignment = .Center
-        txtLabel.baselineAdjustment = .AlignCenters
-        txtLabel.lineBreakMode = .ByTruncatingTail
+        txtLabel.textAlignment = .center
+        txtLabel.baselineAdjustment = .alignCenters
+        txtLabel.lineBreakMode = .byTruncatingTail
         contentView.addSubview(txtLabel)
         
         
-        self.separatorInset = UIEdgeInsetsZero
+        self.separatorInset = UIEdgeInsets.zero
         self.preservesSuperviewLayoutMargins = false
-        self.layoutMargins = UIEdgeInsetsZero
+        self.layoutMargins = UIEdgeInsets.zero
         
         
         
         //test
         
-//        txtLabel.backgroundColor = UIColor.redColor()
-//        self.contentView.backgroundColor = UIColor.greenColor()
+//        txtLabel.backgroundColor = UIColor.red
+//        txtLabel.textColor = UIColor.blue
+//        self.contentView.backgroundColor = UIColor.blue
         
         
         
@@ -52,14 +53,14 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         txtLabel.translatesAutoresizingMaskIntoConstraints = false
 //        let constraints = NSLayoutConstraint.constraintsWithVisualFormat("|-8-[txtLabel]-8-|", options: [], metrics: nil, views: ["txtLabel": txtLabel])
 //        self.contentView.addConstraints(constraints)
-        let constraint = NSLayoutConstraint(item: txtLabel, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1, constant: 0)
+        let constraint = NSLayoutConstraint(item: txtLabel, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0)
         self.contentView.addConstraint(constraint)
         
-        let c = NSLayoutConstraint(item: txtLabel, attribute: .CenterX, relatedBy: .Equal, toItem: contentView, attribute: .CenterX, multiplier: 1, constant: 0)
+        let c = NSLayoutConstraint(item: txtLabel, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
         self.contentView.addConstraint(c)
         
-        let rot: CGFloat = CGFloat(M_PI / 2)
-        txtLabel.transform = CGAffineTransformMakeRotation(rot)
+        let rot: CGFloat = CGFloat(Double.pi / 2)
+        txtLabel.transform = CGAffineTransform(rotationAngle: rot)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,23 +68,23 @@ class CandidateTableCellTableViewCell: UITableViewCell {
     }
     
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
     }
     
     func updateAppearance() {
         if candidatesBannerAppearanceIsDark == true {
-            txtLabel.textColor = UIColor.whiteColor()
+            txtLabel.textColor = UIColor.white
         } else {
-            txtLabel.textColor = UIColor.darkTextColor()
+            txtLabel.textColor = UIColor.darkText
         }
     }
     
-    class func getCellSizeByText(text: String, needAccuracy: Bool) -> CGSize {
+    class func getCellSizeByText(_ text: String, needAccuracy: Bool) -> CGSize {
         
         func accurateWidth() -> CGFloat {
-            return (text as NSString).boundingRectWithSize(CGSize(width: CGFloat.infinity, height: getCandidateCellHeight()), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: candidateTextFont], context: nil).width + 20
+            return (text as NSString).boundingRect(with: CGSize(width: CGFloat.infinity, height: getCandidateCellHeight()), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: candidateTextFont], context: nil).width + 20
         }
         
         var textWidth: CGFloat = 0
@@ -91,7 +92,7 @@ class CandidateTableCellTableViewCell: UITableViewCell {
             textWidth = accurateWidth()
         } else {
             let length = text.getReadingLength()
-            let utf8Length = text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+            let utf8Length = text.lengthOfBytes(using: String.Encoding.utf8)
             if utf8Length == length * 3 {
                 textWidth = oneChineseGlyphWidth * CGFloat(text.getReadingLength()) + 20
             } else {

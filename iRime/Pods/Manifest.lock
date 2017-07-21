@@ -23,6 +23,7 @@ PODS:
     - GCDWebServer/Core
   - InAppSettingsKit (2.8)
   - Masonry (1.0.2)
+  - MJRefresh (3.1.12)
   - Reachability (3.2)
   - SVProgressHUD (1.1.3)
   - TUSafariActivity (1.0.4)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - GCDWebServer/WebUploader/CocoaLumberjack (~> 3.3.3)
   - InAppSettingsKit
   - Masonry (~> 1.0.1)
+  - MJRefresh (~> 3.1.12)
   - Reachability (~> 3.2)
   - SVProgressHUD (~> 1.1.2)
   - UIAlertView+Blocks (~> 0.9)
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   InAppSettingsKit: fe3e73f8f9530cdd6270065cd7df7b3773f557e6
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
@@ -57,6 +60,6 @@ SPEC CHECKSUMS:
   UMengAnalytics: 8d95752776c32f5b954d40edc7f23944882a7c14
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: bed4b35cbe2a0403645c903b0049b52343f93a40
+PODFILE CHECKSUM: 749bdfeb91e7a27acdd4be21ea571a2ca778bfd9
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

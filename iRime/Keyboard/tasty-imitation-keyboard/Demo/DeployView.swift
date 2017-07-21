@@ -14,7 +14,7 @@ class DeployView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.grayColor()
+        self.backgroundColor = UIColor.gray
         self.alpha = 0.7
         
     }

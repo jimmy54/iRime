@@ -14,17 +14,17 @@
 			<key>Key</key>
 			<string>version</string>
 			<key>DefaultValue</key>
-			<string>1.4.0</string>
+			<string>1.4.3</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>主要开发者：
-                    @jimmy54 
-                    @Mrdongyueyue 
-                    @daaiwusheng 
-                    @bingFly 
+                    @jimmy54
+                    @Mrdongyueyue
+                    @daaiwusheng
+                    @bingFly
                     @Bighit</string>
 		</dict>
 	</array>

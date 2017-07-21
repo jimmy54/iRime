@@ -4,11 +4,11 @@ import UIKit
 
 
 let darkModeBannerColor = UIColor(red: 89, green: 92, blue: 95, alpha: 0.2)
-let lightModeBannerColor = UIColor.whiteColor()
+let lightModeBannerColor = UIColor.white
 let darkModeBannerBorderColor = UIColor(white: 0.3, alpha: 1)
 let lightModeBannerBorderColor = UIColor(white: 0.6, alpha: 1)
 
-let extraLineTypingTextFont = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+let extraLineTypingTextFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
 
 
 let typingAndCandidatesViewHeightWhenShowTypingCellInExtraLineIsTrue = 28 as CGFloat
@@ -34,7 +34,7 @@ func getBannerHeight() -> CGFloat {
 class CandidatesBanner: ExtraView {
     
     var typingLabel: TypingLabel?
-    var collectionViewLayout: MyCollectionViewFlowLayout
+//    var collectionViewLayout: MyCollectionViewFlowLayout
     var collectionView: UITableView
     var moreCandidatesButton: UIButton
     var preeLable:UILabel
@@ -43,7 +43,7 @@ class CandidatesBanner: ExtraView {
     var preeText: String?
     let toolsView: ToolsView
 
-    weak var delegate: protocol<UITableViewDataSource, UITableViewDelegate>! {
+    weak var delegate: (UITableViewDataSource & UITableViewDelegate)! {
         didSet {
             collectionView.dataSource = delegate
             collectionView.delegate = delegate
@@ -61,22 +61,22 @@ class CandidatesBanner: ExtraView {
             typingLabel = nil
         }
         
-        collectionViewLayout = MyCollectionViewFlowLayout()
+//        collectionViewLayout = MyCollectionViewFlowLayout()
 
-        collectionView = UITableView(frame: CGRectZero, style: .Plain)
+        collectionView = UITableView(frame: CGRect.zero, style: .plain)
 //        collectionView.backgroundColor = UIColor.blueColor()
-        let rot: CGFloat = CGFloat(-M_PI / 2)
-        collectionView.transform = CGAffineTransformMakeRotation(rot)
+        let rot: CGFloat = CGFloat(-Double.pi / 2)
+        collectionView.transform = CGAffineTransform(rotationAngle: rot)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.separatorStyle = .None
+        collectionView.separatorStyle = .none
  
-        moreCandidatesButton = UIButton(type: .Custom)
-        moreCandidatesButton.addTarget(delegate, action: #selector(Catboard.toggleCandidatesTableOrDismissKeyboard), forControlEvents: .TouchUpInside)
+        moreCandidatesButton = UIButton(type: .custom)
+        moreCandidatesButton.addTarget(delegate, action: #selector(Catboard.toggleCandidatesTableOrDismissKeyboard), for: .touchUpInside)
         
-        preeLable = UILabel(frame:CGRectZero)
+        preeLable = UILabel(frame:CGRect.zero)
         
-        toolsView = ToolsView(frame: CGRectZero)
+        toolsView = ToolsView(frame: CGRect.zero)
         
         
 
@@ -108,20 +108,20 @@ class CandidatesBanner: ExtraView {
             typingLabel = nil
         }
         
-        collectionViewLayout = MyCollectionViewFlowLayout()
+//        collectionViewLayout = MyCollectionViewFlowLayout()
         
-        collectionView = UITableView(frame: CGRectZero, style: .Plain)
-        collectionView.backgroundColor = UIColor.clearColor()
-        let rot: CGFloat = CGFloat(-M_PI / 2)
-        collectionView.transform = CGAffineTransformMakeRotation(rot)
+        collectionView = UITableView(frame: CGRect.zero, style: .plain)
+        collectionView.backgroundColor = UIColor.clear
+        let rot: CGFloat = CGFloat(-Double.pi / 2)
+        collectionView.transform = CGAffineTransform(rotationAngle: rot)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.separatorStyle = .None
+        collectionView.separatorStyle = .none
         
         
        
-        moreCandidatesButton = UIButton(type: .Custom)
-        moreCandidatesButton.addTarget(delegate, action: #selector(Catboard.toggleCandidatesTableOrDismissKeyboard), forControlEvents: .TouchUpInside)
+        moreCandidatesButton = UIButton(type: .custom)
+        moreCandidatesButton.addTarget(delegate, action: #selector(Catboard.toggleCandidatesTableOrDismissKeyboard), for: .touchUpInside)
     }
     
     func configureSubviews() {
@@ -178,14 +178,14 @@ class CandidatesBanner: ExtraView {
 
         
         
-        let actualScreenWidth = (UIScreen.mainScreen().nativeBounds.size.width / UIScreen.mainScreen().nativeScale)
-        let actualScreenHeight = (UIScreen.mainScreen().nativeBounds.size.height / UIScreen.mainScreen().nativeScale)
+        let actualScreenWidth = (UIScreen.main.nativeBounds.size.width / UIScreen.main.nativeScale)
+        let actualScreenHeight = (UIScreen.main.nativeBounds.size.height / UIScreen.main.nativeScale)
         
 
         
         var screenHeight = actualScreenWidth
         switch((self.delegate as! Catboard).interfaceOrientation) {    // FIXME delegate should not be casted.
-        case .Unknown, .Portrait, .PortraitUpsideDown:
+        case .unknown, .portrait, .portraitUpsideDown:
             
             
 //            self.snp_makeConstraints(closure: { (make) in
@@ -198,7 +198,7 @@ class CandidatesBanner: ExtraView {
             })
             
             screenHeight = actualScreenWidth
-        case .LandscapeLeft, .LandscapeRight:
+        case .landscapeLeft, .landscapeRight:
 
             
 //            self.snp_makeConstraints(closure: { (make) in
@@ -221,7 +221,7 @@ class CandidatesBanner: ExtraView {
         let tableOff = he / 2 - moreCandidateBtnWidth / 2
         
         
-        preeLable.frame = CGRectMake(0, 0, screenHeight, preeLabelHeight)
+        preeLable.frame = CGRect(x: 0, y: 0, width: screenHeight, height: preeLabelHeight)
         
 //        
 //        self.snp_makeConstraints { (make) in
@@ -244,9 +244,9 @@ class CandidatesBanner: ExtraView {
         
         
         preeLable.mas_makeConstraints { (make:MASConstraintMaker!) in
-            make.left.equalTo()(self).setOffset(0)
-            make.right.equalTo()(self).setOffset(0)
-            make.top.equalTo()(self).setOffset(0)
+            make.left.equalTo()(self)?.setOffset(0)
+            make.right.equalTo()(self)?.setOffset(0)
+            make.top.equalTo()(self)?.setOffset(0)
             make.height.setOffset(preeLabelHeight)
         }
 
@@ -261,8 +261,8 @@ class CandidatesBanner: ExtraView {
         
         
         collectionView.mas_makeConstraints { (make:MASConstraintMaker!) in
-            make.left.equalTo()(self).setOffset(tableOff + 10)
-            make.top.equalTo()(self).setOffset(-tableOff + preeLabelHeight / 2)
+            make.left.equalTo()(self)?.setOffset(tableOff + 10)
+            make.top.equalTo()(self)?.setOffset(-tableOff + preeLabelHeight / 2)
             make.height.setOffset(he)
             make.width.setOffset(tableViewHeight)
         }
@@ -275,7 +275,7 @@ class CandidatesBanner: ExtraView {
 //        }
         
         toolsView.mas_makeConstraints { (make: MASConstraintMaker!) in
-            make.edges.equalTo()(self).setInsets(UIEdgeInsetsMake(preeLabelHeight, 0, 0, moreCandidateBtnWidth))
+            make.edges.equalTo()(self)?.setInsets(UIEdgeInsetsMake(preeLabelHeight, 0, 0, moreCandidateBtnWidth))
         }
         
 //        moreCandidatesButton.snp_makeConstraints { (make) in
@@ -287,8 +287,8 @@ class CandidatesBanner: ExtraView {
         
         
         moreCandidatesButton.mas_makeConstraints { (make: MASConstraintMaker!) in
-            make.right.equalTo()(self).setOffset(0)
-            make.bottom.equalTo()(self).setOffset(0)
+            make.right.equalTo()(self)?.setOffset(0)
+            make.bottom.equalTo()(self)?.setOffset(0)
             make.width.setOffset(moreCandidateBtnWidth)
             make.height.setOffset(moreCandidateBtnHeight)
         }
@@ -297,21 +297,21 @@ class CandidatesBanner: ExtraView {
     }
     
     
-    func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    func willRotateToInterfaceOrientation(_ toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         addAllViewConstraints()
     }
     
     
     func scrollToFirstCandidate() {
-        collectionView.setContentOffset(CGPointMake(0, 0), animated: true)
+        collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
    }
     
-    func resetLayoutWithAllCellSize(sizes: [CGSize]) {
-        collectionViewLayout.resetLayoutWithAllCellSize(sizes)
+    func resetLayoutWithAllCellSize(_ sizes: [CGSize]) {
+//        collectionViewLayout.resetLayoutWithAllCellSize(sizes)
     }
     
-    func updateCellAt(cellIndex: NSIndexPath, withCellSize size: CGSize) {
-        collectionViewLayout.updateLayoutRaisedByCellAt(cellIndex, withCellSize: size)
+    func updateCellAt(_ cellIndex: IndexPath, withCellSize size: CGSize) {
+//        collectionViewLayout.updateLayoutRaisedByCellAt(cellIndex, withCellSize: size)
 //        collectionView.reloadItemsAtIndexPaths([cellIndex])
     }
     
@@ -325,7 +325,7 @@ class CandidatesBanner: ExtraView {
             var text: String = ""
             for t in cb.candidateList! {
                 
-                text = text.stringByAppendingString(t.text)
+                text = text + t.text
                 if i > 7 {
                     break
                 }
@@ -341,15 +341,15 @@ class CandidatesBanner: ExtraView {
         collectionView.reloadData()
         
         
-        if collectionView.numberOfRowsInSection(0) <= 0{
-            toolsView.hidden = false
+        if collectionView.numberOfRows(inSection: 0) <= 0{
+            toolsView.isHidden = false
         }else{
-            toolsView.hidden = true
+            toolsView.isHidden = true
         }
         
     }
     
-    func setCollectionViewFrame(frame: CGRect) {
+    func setCollectionViewFrame(_ frame: CGRect) {
         collectionView.frame = frame
     }
     
@@ -363,20 +363,20 @@ class CandidatesBanner: ExtraView {
         
         if let typingLabel = typingLabel {
             typingLabel.font = extraLineTypingTextFont
-            typingLabel.backgroundColor = UIColor.clearColor()
+            typingLabel.backgroundColor = UIColor.clear
         }
 
-        moreCandidatesButton.backgroundColor = UIColor.clearColor()
+        moreCandidatesButton.backgroundColor = UIColor.clear
         
-        moreCandidatesButton.layer.shadowColor = UIColor.blackColor().CGColor
-        moreCandidatesButton.layer.shadowOffset = CGSizeMake(-2.0, 0.0)
+        moreCandidatesButton.layer.shadowColor = UIColor.black.cgColor
+        moreCandidatesButton.layer.shadowOffset = CGSize(width: -2.0, height: 0.0)
         
-        collectionView.separatorInset = UIEdgeInsetsZero
+        collectionView.separatorInset = UIEdgeInsets.zero
         
         
         
-        collectionView.backgroundColor = UIColor.clearColor()
-        toolsView.backgroundColor = UIColor.clearColor()
+        collectionView.backgroundColor = UIColor.clear
+        toolsView.backgroundColor = UIColor.clear
         toolsView.frame = collectionView.frame
 //        moreCandidatesButton.backgroundColor = UIColor.redColor()
 //        self.backgroundColor = UIColor.greenColor()
@@ -397,17 +397,18 @@ class CandidatesBanner: ExtraView {
         typingLabel?.updateAppearance()
         
         collectionView.separatorColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor : lightModeBannerBorderColor
-        self.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerColor : UIColor.whiteColor()
+        collectionView.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerColor : UIColor.white
+        self.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerColor : UIColor.white
 
-        moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-down-white") : UIImage(named: "arrow-down-black"), forState: .Normal)
+        moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-down-white") : UIImage(named: "arrow-down-black"), for: UIControlState())
         
         self.layer.borderWidth = 0.5
-        self.layer.borderColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.CGColor : lightModeBannerBorderColor.CGColor
+        self.layer.borderColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.cgColor : lightModeBannerBorderColor.cgColor
         
         moreCandidatesButton.layer.shadowOpacity = 0.2
         
         preeLable.layer.borderWidth = 0.5
-        preeLable.layer.borderColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.CGColor : lightModeBannerBorderColor.CGColor
+        preeLable.layer.borderColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.cgColor : lightModeBannerBorderColor.cgColor
     }
     
     var separatorHorizontalBar: CALayer?
@@ -422,9 +423,9 @@ class CandidatesBanner: ExtraView {
         if separatorVerticalBar == nil {
             separatorVerticalBar = CALayer(layer: moreCandidatesButton.layer)
             
-            separatorVerticalBar!.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.CGColor : lightModeBannerBorderColor.CGColor
+            separatorVerticalBar!.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.cgColor : lightModeBannerBorderColor.cgColor
             
-            separatorVerticalBar!.frame = CGRectMake(0, 0, 0.5, moreCandidateBtnHeight)
+            separatorVerticalBar!.frame = CGRect(x: 0, y: 0, width: 0.5, height: moreCandidateBtnHeight)
             if let separatorVerticalBar = separatorVerticalBar {
                 moreCandidatesButton.layer.addSublayer(separatorVerticalBar)
             }
@@ -437,8 +438,8 @@ class CandidatesBanner: ExtraView {
                         separatorHorizontalBar!.removeFromSuperlayer()
                     }
                     separatorHorizontalBar = CALayer(layer: self.layer)
-                    separatorHorizontalBar!.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.CGColor : lightModeBannerBorderColor.CGColor
-                    separatorHorizontalBar!.frame = CGRectMake(0, CGRectGetHeight(typingLabel.frame), (UIScreen.mainScreen().nativeBounds.size.height / UIScreen.mainScreen().nativeScale), 0.5)
+                    separatorHorizontalBar!.backgroundColor = candidatesBannerAppearanceIsDark ? darkModeBannerBorderColor.cgColor : lightModeBannerBorderColor.cgColor
+                    separatorHorizontalBar!.frame = CGRect(x: 0, y: typingLabel.frame.height, width: (UIScreen.main.nativeBounds.size.height / UIScreen.main.nativeScale), height: 0.5)
                     self.layer.addSublayer(separatorHorizontalBar!)
                 }
             }
@@ -457,21 +458,21 @@ class CandidatesBanner: ExtraView {
     }
     
     func hideTypingAndCandidatesView() {
-        typingLabel?.hidden = true
-        collectionView.hidden = true
+        typingLabel?.isHidden = true
+        collectionView.isHidden = true
     }
 
     func unhideTypingAndCandidatesView() {
-        typingLabel?.hidden = false
-        collectionView.hidden = false
+        typingLabel?.isHidden = false
+        collectionView.isHidden = false
     }
 
     func changeArrowUp() {
-        moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-up-white") : UIImage(named: "arrow-up-black"), forState: .Normal)
+        moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-up-white") : UIImage(named: "arrow-up-black"), for: UIControlState())
     }
 
     func changeArrowDown() {
-        moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-down-white") : UIImage(named: "arrow-down-black"), forState: .Normal)
+        moreCandidatesButton.setImage(candidatesBannerAppearanceIsDark ? UIImage(named: "arrow-down-white") : UIImage(named: "arrow-down-black"), for: UIControlState())
     }
     
 }

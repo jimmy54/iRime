@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol iRNumberBoardRightKeysViewProtocol:NSObjectProtocol {
-    func passTextOfIRNumberBoardRightKeysView(text:String) -> Void
+    func passTextOfIRNumberBoardRightKeysView(_ text:String) -> Void
     func deleteOneOfIRNumberBoardRightKeysView() -> Void
 }
 
@@ -23,10 +23,10 @@ class iRNumberBoardRightKeysBtn: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         let backColor = UIColor.init(red: 204.0/255.0, green: 210.0/255.0, blue: 217.0/255.0, alpha: 1.0)
-        self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleBody), size: NSObject.getFitFontForNumberBoard())
+        self.titleLabel?.font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: UIFontTextStyle.body), size: NSObject.getFitFontForNumberBoard())
         self.backgroundColor = backColor;
-        self.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGrayColor()), forState: .Highlighted)
+        self.setTitleColor(UIColor.black, for: UIControlState())
+        self.setBackgroundImage(UIImage.imageWithColor(UIColor.lightGray), for: .highlighted)
         self.createSubVeiws()
     }
     
@@ -35,7 +35,7 @@ class iRNumberBoardRightKeysBtn: UIButton {
     }
     func createSubVeiws() -> Void {
         //1.下部分割线
-        viewBottomLine = UIView.init(frame: CGRectNull)
+        viewBottomLine = UIView.init(frame: CGRect.null)
         self .addSubview(viewBottomLine!)
         //--属性设置
         viewBottomLine?.backgroundColor = UIColor.init(red: 170.0/255.0, green: 170.0/255.0, blue: 170.0/255.0, alpha: 1.0)
@@ -55,9 +55,9 @@ class iRNumberBoardRightKeysView: UIView {
     var btnTwo:iRNumberBoardLeftKeysBtn? = nil
     var btnThree:iRNumberBoardLeftKeysBtn? = nil
     var btnFour:iRNumberBoardLeftKeysBtn? = nil
-    var delegateAction:iRNumberBoardRightKeysViewProtocol? = nil
-    var timer:NSTimer? = nil
-    let timeRepeat:NSTimeInterval = 0.2
+    weak var delegateAction:iRNumberBoardRightKeysViewProtocol? = nil
+    var timer:Timer? = nil
+    let timeRepeat:TimeInterval = 0.2
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,79 +71,79 @@ class iRNumberBoardRightKeysView: UIView {
     func createSubVeiws() -> Void {
         //想了半天,还是傻瓜式创建吧,这个也不会有太大的变动
         //1.第一个btn item
-        btnOne = iRNumberBoardLeftKeysBtn.init(frame: CGRectNull)
+        btnOne = iRNumberBoardLeftKeysBtn.init(frame: CGRect.null)
         self.addSubview(btnOne!)
         //--属性设置
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnOneStartAction(_:)), forControlEvents: .TouchDown)
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpInside)
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchCancel)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnOneStartAction(_:)), for: .touchDown)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchUpInside)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchCancel)
         
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragExit)
-        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragEnter)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchDragExit)
+        btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchDragEnter)
         
 //        btnOne?.setTitle("退格", forState: .Normal)
         //expression_delete_pressed  filter_delete
-        btnOne?.setImage(UIImage.init(named: "expression_delete"), forState: .Normal)
-        btnOne?.setImage(UIImage.init(named: "filter_delete"), forState: .Highlighted)
+        btnOne?.setImage(UIImage.init(named: "expression_delete"), for: UIControlState())
+        btnOne?.setImage(UIImage.init(named: "filter_delete"), for: .highlighted)
         //--约束布局
         btnOne?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
             maker.left.equalTo()(self)
             maker.top.equalTo()(self)
             maker.right.equalTo()(self)
-            maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+            maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
         })
         //2.第二个btn item 空格
-        btnTwo = iRNumberBoardLeftKeysBtn.init(frame: CGRectNull)
+        btnTwo = iRNumberBoardLeftKeysBtn.init(frame: CGRect.null)
         self.addSubview(btnTwo!)
         //--属性设置
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnTwoStartAction(_:)), forControlEvents: .TouchDown)
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchUpInside)
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchCancel)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnTwoStartAction(_:)), for: .touchDown)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchUpInside)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchCancel)
         
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragExit)
-        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , forControlEvents: .TouchDragEnter)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchDragExit)
+        btnTwo?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchDragEnter)
 
-        btnTwo?.setTitle("空格", forState: .Normal)
+        btnTwo?.setTitle("空格", for: UIControlState())
         //--约束布局
         btnTwo?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
             maker.left.equalTo()(self)
             maker.top.equalTo()(self.btnOne!.mas_bottom)
             maker.right.equalTo()(self)
-            maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+            maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
         })
         //3.第三个btn item @
-        btnThree = iRNumberBoardLeftKeysBtn.init(frame: CGRectNull)
+        btnThree = iRNumberBoardLeftKeysBtn.init(frame: CGRect.null)
         self.addSubview(btnThree!)
         //--属性设置
-        btnThree?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnThreeAction(_:)) , forControlEvents: .TouchUpInside)
-        btnThree?.setTitle("@", forState: .Normal)
+        btnThree?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnThreeAction(_:)) , for: .touchUpInside)
+        btnThree?.setTitle("@", for: UIControlState())
         //--约束布局
         btnThree?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
             maker.left.equalTo()(self)
             maker.top.equalTo()(self.btnTwo!.mas_bottom)
             maker.right.equalTo()(self)
-            maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+            maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
         })
         //4.第四个btn item 换行
-        btnFour = iRNumberBoardLeftKeysBtn.init(frame: CGRectNull)
+        btnFour = iRNumberBoardLeftKeysBtn.init(frame: CGRect.null)
         self.addSubview(btnFour!)
         //--属性设置
-        btnFour?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnFourAction(_:)) , forControlEvents: .TouchUpInside)
-        btnFour?.setTitle("换行", forState: .Normal)
+        btnFour?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnFourAction(_:)) , for: .touchUpInside)
+        btnFour?.setTitle("换行", for: UIControlState())
         //--约束布局
         btnFour?.mas_makeConstraints({ (maker:MASConstraintMaker!) in
             maker.left.equalTo()(self)
             maker.top.equalTo()(self.btnThree!.mas_bottom)
             maker.right.equalTo()(self)
-            maker.height.equalTo()(self.mas_height).multipliedBy()(1.0/4.0)
+            maker.height.equalTo()(self.mas_height)?.multipliedBy()(1.0/4.0)
         })
     }
     
-    func btnOneStartAction(btn:iRNumberBoardRightKeysBtn) -> Void {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeRepeat, target: self, selector: #selector(iRNumberBoardRightKeysView.repeatBtnOneAction), userInfo: nil, repeats: true)
+    func btnOneStartAction(_ btn:iRNumberBoardRightKeysBtn) -> Void {
+        self.timer = Timer.scheduledTimer(timeInterval: timeRepeat, target: self, selector: #selector(iRNumberBoardRightKeysView.repeatBtnOneAction), userInfo: nil, repeats: true)
         self.timer?.fire()
     }
-    func btnEndAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+    func btnEndAction(_ btn:iRNumberBoardRightKeysBtn) -> Void {
         self.timer?.invalidate()
         self.timer = nil
     }
@@ -154,8 +154,8 @@ class iRNumberBoardRightKeysView: UIView {
         }
         
     }
-    func btnTwoStartAction(btn:iRNumberBoardRightKeysBtn) -> Void {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeRepeat, target: self, selector: #selector(iRNumberBoardRightKeysView.repeatBtnTwoAction), userInfo: nil, repeats: true)
+    func btnTwoStartAction(_ btn:iRNumberBoardRightKeysBtn) -> Void {
+        self.timer = Timer.scheduledTimer(timeInterval: timeRepeat, target: self, selector: #selector(iRNumberBoardRightKeysView.repeatBtnTwoAction), userInfo: nil, repeats: true)
         self.timer?.fire()
     }
     func repeatBtnTwoAction() -> Void {
@@ -170,12 +170,12 @@ class iRNumberBoardRightKeysView: UIView {
 //           self.delegateAction?.passTextOfIRNumberBoardRightKeysView(" ")
 //        }
 //    }
-    func btnThreeAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+    func btnThreeAction(_ btn:iRNumberBoardRightKeysBtn) -> Void {
         if self.delegateAction != nil {
             self.delegateAction?.passTextOfIRNumberBoardRightKeysView("@")
         }
     }
-    func btnFourAction(btn:iRNumberBoardRightKeysBtn) -> Void {
+    func btnFourAction(_ btn:iRNumberBoardRightKeysBtn) -> Void {
         if self.delegateAction != nil {
             self.delegateAction?.passTextOfIRNumberBoardRightKeysView("\n")
         }
