@@ -43,7 +43,6 @@ fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-
 /*
 This is the demo keyboard. If you're implementing your own keyboard, simply follow the example here and then
 set the name of your KeyboardViewController subclass in the Info.plist file.
@@ -166,7 +165,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     override func viewDidLoad() {
         print("----------------------------viewDidLoad--------------------");
         super.viewDidLoad()
-        print("input viewDidLoad");
+
+        
         fm.startBlock = {
             ()->() in
             
@@ -218,6 +218,21 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("------------------viewDidAppear---------------------")
+        
+        
+        
+        //open iRime
+        //keyboard 没有权限，需要跳到iRime去创建目录
+        let fm = FileManager.default.fileExists(atPath: NSString.rimeResource())
+        if !fm {
+            let iRimeURL = "iRime://create.iRime.dir";
+            self.openURL(iRimeURL)
+            return;
+        }
+        
+
+        
+        
          RimeWrapper .setNotificationDelegate(self)
         if RimeWrapper.startService() {
             
@@ -260,7 +275,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             
         }
         print("------------------viewDidAppear---------------------")
-        
+        SVProgressHUD.show()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -456,6 +471,15 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             self.removeAllCandidateList();
             self.candidatesBanner?.reloadData()
             return;
+        }else{
+            //
+            let comitText = RimeWrapper.consumeComposedText(forSession: self.rimeSessionId_)
+            if (comitText != nil) {
+                self.insertText(comitText!)
+                self.removeAllCandidateList();
+                self.candidatesBanner?.reloadData()
+                return
+            }
         }
         
         

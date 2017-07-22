@@ -27,11 +27,11 @@
 		0C0C94931D7534C1004D29D9 /* NSObject+DeepMutableCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30DC1D5980B800C21949 /* NSObject+DeepMutableCopy.m */; };
 		0C0C94941D7534C1004D29D9 /* NSString+SHExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30DE1D5980B800C21949 /* NSString+SHExtensions.m */; };
 		0C0C94951D7534C1004D29D9 /* SHFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30E11D5980B800C21949 /* SHFoundation.m */; };
-		0C1239CC1F1CF1C600AC1503 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D5A1E2F56070028C711 /* liblibrime.a */; };
 		0C165C611D585C8400E61F6E /* AGEmojiKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C165C5C1D585C8400E61F6E /* AGEmojiKeyBoardView.m */; };
 		0C165C631D585C8400E61F6E /* AGEmojiPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C165C5E1D585C8400E61F6E /* AGEmojiPageView.m */; };
 		0C165C641D585C8400E61F6E /* EmojisList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C165C5F1D585C8400E61F6E /* EmojisList.plist */; };
 		0C165C651D585C8400E61F6E /* EmojisList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C165C5F1D585C8400E61F6E /* EmojisList.plist */; };
+		0C2357871F23AB0500485AE5 /* KeyboardAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2357861F23AB0500485AE5 /* KeyboardAlertView.swift */; };
 		0C5C95CE1D717971006F3EA6 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C95CD1D717971006F3EA6 /* GuideViewController.m */; };
 		0C5E30161E078F650012F008 /* hk2s.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E2FFA1E078F650012F008 /* hk2s.json */; };
 		0C5E30171E078F650012F008 /* s2hk.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E2FFB1E078F650012F008 /* s2hk.json */; };
@@ -202,6 +202,7 @@
 		0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6507861D59DAAB0089A6B9 /* NSString+Path.m */; };
 		0C68A76C1D7D490B001BFC24 /* OpenCCService.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0C68A76B1D7D490B001BFC24 /* OpenCCService.mm */; };
 		0C70B9761D7F13A9005B7640 /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C70B9751D7F13A9005B7640 /* ToolsView.swift */; };
+		0C8BA44D1F2265D6005EA456 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F103A1F225AAB002C977D /* liblibrime.a */; };
 		0C9FDB701D603F7D00D98649 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FDB6F1D603F7D00D98649 /* Podfile */; };
 		0CAD24601D604A29007EE8C0 /* SettingRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD83CE1D11619200DA88DB /* SettingRootViewController.m */; };
 		0CAD24651D604B47007EE8C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD24641D604B47007EE8C0 /* Settings.bundle */; };
@@ -439,6 +440,20 @@
 			remoteGlobalIDString = 7DDC030D156541F8001832F5;
 			remoteInfo = YACYAML;
 		};
+		0C2F10391F225AAB002C977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C2F10351F225AAB002C977D /* librime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CC5D0251CFC79FA001A48D6;
+			remoteInfo = librime;
+		};
+		0C2F103D1F225AE1002C977D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C2F10351F225AAB002C977D /* librime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CC5D0241CFC79FA001A48D6;
+			remoteInfo = librime;
+		};
 		0CAD83DE1D11619200DA88DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0CAD83BC1D11619200DA88DB /* Project object */;
@@ -506,6 +521,8 @@
 		0C165C5F1D585C8400E61F6E /* EmojisList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmojisList.plist; sourceTree = "<group>"; };
 		0C1A9CF31D70A26200B95D70 /* iRime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iRime.entitlements; sourceTree = "<group>"; };
 		0C1A9CF41D70A26700B95D70 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Keyboard.entitlements; sourceTree = "<group>"; };
+		0C2357861F23AB0500485AE5 /* KeyboardAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAlertView.swift; sourceTree = "<group>"; };
+		0C2F10351F225AAB002C977D /* librime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = librime.xcodeproj; path = ../../../../iOSRime/workspace/librime/librime.xcodeproj; sourceTree = "<group>"; };
 		0C3524EE1D71484000F3C3B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		0C3524F21D71484100F3C3B2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0C3524F41D71484600F3C3B2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -1014,8 +1031,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C8BA44D1F2265D6005EA456 /* liblibrime.a in Frameworks */,
 				0C5E31421E0790140012F008 /* boost.framework in Frameworks */,
-				0C1239CC1F1CF1C600AC1503 /* liblibrime.a in Frameworks */,
 				0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */,
 				0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */,
 				0C5E31451E0790140012F008 /* liblibopencc.a in Frameworks */,
@@ -1039,6 +1056,14 @@
 				0C165C5F1D585C8400E61F6E /* EmojisList.plist */,
 			);
 			path = AGEmojiKeyboard;
+			sourceTree = "<group>";
+		};
+		0C2F10361F225AAB002C977D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C2F103A1F225AAB002C977D /* liblibrime.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		0C5E2FF91E078F650012F008 /* config */ = {
@@ -1293,6 +1318,7 @@
 		0CAD83BB1D11619200DA88DB = {
 			isa = PBXGroup;
 			children = (
+				0C2F10351F225AAB002C977D /* librime.xcodeproj */,
 				0CF55D4E1E2F56060028C711 /* LibAndResource */,
 				0C9FDB6F1D603F7D00D98649 /* Podfile */,
 				0C0C949C1D774710004D29D9 /* common.h */,
@@ -1434,6 +1460,7 @@
 				88410AE51E6481730042DD06 /* iRNumberBoard */,
 				0CC1D1E41D86B2210070524B /* DeployView.swift */,
 				0CEC30A71D586B1F00C21949 /* EmojiView.swift */,
+				0C2357861F23AB0500485AE5 /* KeyboardAlertView.swift */,
 				0CE4F3771D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift */,
 				0CB1CE461D22254300678571 /* StringExtension.swift */,
 				0CB1CE441D2223D500678571 /* Logger.swift */,
@@ -2065,6 +2092,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0C2F103E1F225AE1002C977D /* PBXTargetDependency */,
 			);
 			name = Keyboard;
 			productName = Keyboard;
@@ -2124,6 +2152,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 0C2F10361F225AAB002C977D /* Products */;
+					ProjectRef = 0C2F10351F225AAB002C977D /* librime.xcodeproj */;
+				},
+				{
 					ProductGroup = 0CEC31331D59BBFD00C21949 /* Products */;
 					ProjectRef = 0CEC31321D59BBFD00C21949 /* YACYAML.xcodeproj */;
 				},
@@ -2139,6 +2171,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0C2F103A1F225AAB002C977D /* liblibrime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibrime.a;
+			remoteRef = 0C2F10391F225AAB002C977D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0CEC31391D59BBFD00C21949 /* libYACYAML.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -2694,6 +2733,7 @@
 				0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
 				0CAD84E21D11A3E900DA88DB /* RimeTypeDef.m in Sources */,
 				0CAD848A1D119B1E00DA88DB /* ExtraView.swift in Sources */,
+				0C2357871F23AB0500485AE5 /* KeyboardAlertView.swift in Sources */,
 				CF88DBF71F2111D500FCA0DE /* PlaySound.m in Sources */,
 				0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */,
 				0CAD84881D119B1E00DA88DB /* DefaultSettings.swift in Sources */,
@@ -2741,6 +2781,11 @@
 			isa = PBXTargetDependency;
 			name = YACYAML;
 			targetProxy = 0C0C947B1D75322F004D29D9 /* PBXContainerItemProxy */;
+		};
+		0C2F103E1F225AE1002C977D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = librime;
+			targetProxy = 0C2F103D1F225AE1002C977D /* PBXContainerItemProxy */;
 		};
 		0CAD83DF1D11619200DA88DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
