@@ -60,7 +60,7 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(enInput, row: 3, page: 0)
     
     
-    let chineseInput = Key(.modeChange)
+    var chineseInput = Key(.modeChange)
     chineseInput.uppercaseKeyCap = "中"
     chineseInput.uppercaseOutput = "中"
     chineseInput.lowercaseKeyCap = "中"
@@ -95,7 +95,8 @@ func defaultKeyboard() -> Keyboard {
         defaultKeyboard.addKey(keyModel, row: 0, page: 3)
     }
     
-    let row = cornerBracketEnabled ? ["-", "/", "：", "；", "（", "）", "$", "@", "「", "」"] : ["-", "/", "：", "；", "（", "）", "$", "@", "“", "”"]
+    
+    let row = cornerBracketEnabled ? ["-", "/", "；", "（", "）", "$", "@", "「", "」"] : ["-", "/", "：", "（", "）", "$", "@", "“", "”"]
     for key in row {
         let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
@@ -108,8 +109,9 @@ func defaultKeyboard() -> Keyboard {
     var keyModeChangeSpecialCharacters = Key(.modeChange)
     keyModeChangeSpecialCharacters.uppercaseKeyCap = "#+="
     keyModeChangeSpecialCharacters.toMode = 2
+    defaultKeyboard.addKey(keyModeChangeSpecialCharacters, row: 2, page: 3)
     
-    for key in ["。", ",", "+", "_", "、", "？", "！", ".", "，"] {
+    for key in ["。", ",", "、", "？","：", "！", ".", "，"] {
         let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         
@@ -128,8 +130,13 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(back, row: 3, page: 3)
     
 
-    defaultKeyboard.addKey(keyModeChangeSpecialCharacters, row: 3, page: 3)
     
+    enInput = Key(.modeChange)
+    enInput.uppercaseKeyCap = "英"
+    enInput.uppercaseOutput = "英"
+    enInput.lowercaseKeyCap = "英"
+    enInput.toMode = 4
+    defaultKeyboard.addKey(enInput, row: 3, page: 3)
     
     
     space = Key(.space)
@@ -140,6 +147,7 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(space), row: 3, page: 3)
     
     defaultKeyboard.addKey(Key(returnKey), row: 3, page: 3)
+    
     
     //--------------------------------------------
     
@@ -289,16 +297,16 @@ func defaultKeyboard() -> Keyboard {
         defaultKeyboard.addKey(keyModel, row: 0, page: 2)
     }
     
-    for key in ["_", "\\", "|", "~", "<", ">", "€", "£", "¥", "•"] {
+    for key in ["\\", "|", "~", "<", ">", "€", "£", "¥", "•"] {
         let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         keyModel.toMode = -1
         defaultKeyboard.addKey(keyModel, row: 1, page: 2)
     }
     
-//    defaultKeyboard.addKey(Key(keyModeChangeNumbers), row: 2, page: 2)
+    defaultKeyboard.addKey(Key(keyModeChangeNumbers), row: 2, page: 2)
     
-    for key in [".", ",", "?", "!", "'", "……", "《", "》", "~"] {
+    for key in [ "?", "!", "'", "_", "……", "《", "》", "~"] {
         let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         keyModel.toMode = -1
@@ -306,6 +314,7 @@ func defaultKeyboard() -> Keyboard {
     }
     
     defaultKeyboard.addKey(Key(backspace), row: 2, page: 2)
+    
     
 //    defaultKeyboard.addKey(Key(keyModeChangeLetters), row: 3, page: 2)
     
@@ -318,7 +327,20 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(back), row: 3, page: 2)
     
     
+    enInput = Key(.modeChange)
+    enInput.uppercaseKeyCap = "英"
+    enInput.uppercaseOutput = "英"
+    enInput.lowercaseKeyCap = "英"
+    enInput.toMode = 4
+    defaultKeyboard.addKey(enInput, row: 3, page: 2)
     
+    
+    chineseInput = Key(.modeChange)
+    chineseInput.uppercaseKeyCap = "中"
+    chineseInput.uppercaseOutput = "中"
+    chineseInput.lowercaseKeyCap = "中"
+    chineseInput.toMode = 0
+    defaultKeyboard.addKey(chineseInput, row: 3, page: 2)
     
     space = Key(.space)
     space.uppercaseKeyCap = "英文符号"
@@ -328,6 +350,7 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(space), row: 3, page: 2)
     
     defaultKeyboard.addKey(Key(returnKey), row: 3, page: 2)
+    
     
     return defaultKeyboard
 }
