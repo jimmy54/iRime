@@ -429,7 +429,6 @@
 		883E6D491F1E58C00095E0EF /* iRTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D481F1E58C00095E0EF /* iRTool.swift */; };
 		883E6D4C1F1FA5160095E0EF /* iRimeSymbols.json in Resources */ = {isa = PBXBuildFile; fileRef = 883E6D4B1F1FA5160095E0EF /* iRimeSymbols.json */; };
 		883E6D4E1F1FA61F0095E0EF /* iRsymbolsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D4D1F1FA61F0095E0EF /* iRsymbolsModel.swift */; };
-		883E6D661F1FAE520095E0EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883E6D501F1FAE520095E0EF /* Info.plist */; };
 		883E6D671F1FAE520095E0EF /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D531F1FAE520095E0EF /* MJExtensionConst.m */; };
 		883E6D681F1FAE520095E0EF /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D551F1FAE520095E0EF /* MJFoundation.m */; };
 		883E6D691F1FAE520095E0EF /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D571F1FAE520095E0EF /* MJProperty.m */; };
@@ -998,7 +997,6 @@
 		883E6D481F1E58C00095E0EF /* iRTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRTool.swift; sourceTree = "<group>"; };
 		883E6D4B1F1FA5160095E0EF /* iRimeSymbols.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iRimeSymbols.json; sourceTree = "<group>"; };
 		883E6D4D1F1FA61F0095E0EF /* iRsymbolsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRsymbolsModel.swift; sourceTree = "<group>"; };
-		883E6D501F1FAE520095E0EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		883E6D511F1FAE520095E0EF /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		883E6D521F1FAE520095E0EF /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
 		883E6D531F1FAE520095E0EF /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
@@ -2042,7 +2040,6 @@
 		883E6D4F1F1FAE520095E0EF /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
-				883E6D501F1FAE520095E0EF /* Info.plist */,
 				883E6D511F1FAE520095E0EF /* MJExtension.h */,
 				883E6D521F1FAE520095E0EF /* MJExtensionConst.h */,
 				883E6D531F1FAE520095E0EF /* MJExtensionConst.m */,
@@ -2640,7 +2637,6 @@
 			files = (
 				0C165C651D585C8400E61F6E /* EmojisList.plist in Resources */,
 				883E6D4C1F1FA5160095E0EF /* iRimeSymbols.json in Resources */,
-				883E6D661F1FAE520095E0EF /* Info.plist in Resources */,
 				0CB60D8B1D227285000D40C7 /* Assets.xcassets in Resources */,
 				0CAD84891D119B1E00DA88DB /* DefaultSettings.xib in Resources */,
 				0CF87F571D70B16200874F4D /* SVProgressHUD.bundle in Resources */,
