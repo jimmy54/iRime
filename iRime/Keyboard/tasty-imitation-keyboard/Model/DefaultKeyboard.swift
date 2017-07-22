@@ -111,7 +111,7 @@ func defaultKeyboard() -> Keyboard {
     keyModeChangeSpecialCharacters.toMode = 2
     defaultKeyboard.addKey(keyModeChangeSpecialCharacters, row: 2, page: 3)
     
-    for key in ["。", ",", "、", "？","：", "！", ".", "，"] {
+    for key in ["。", ",", "、", "？", "！", ".", "，"] {
         let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         
@@ -306,7 +306,7 @@ func defaultKeyboard() -> Keyboard {
     
     defaultKeyboard.addKey(Key(keyModeChangeNumbers), row: 2, page: 2)
     
-    for key in [ "?", "!", "'", "_", "……", "《", "》", "~"] {
+    for key in ["!", "'", "_", "……", "《", "》", "~"] {
         let keyModel = Key(.specialCharacter)
         keyModel.setLetter(key)
         keyModel.toMode = -1
