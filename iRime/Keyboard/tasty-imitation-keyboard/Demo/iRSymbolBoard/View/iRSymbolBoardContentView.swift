@@ -10,47 +10,157 @@ import UIKit
 
 class iRSymbolBoardContentView: UIView {
     
-    func getNeedData() -> Void {
-//        let path = Bundle.main.path(forResource: "iRimeSymbols", ofType: "json")
-//        let url:URL = URL(fileURLWithPath: path!)
-//        var modelSymbol:iRsymbolsModel?
-//        do{
-//            
-//            let data = try Data(contentsOf: url)
-//            
-//            let json:Any = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.mutableContainers)
-//            
-//            let jsonDic = json as!Dictionary<String,Any>
-//            
-//            let dictData =  jsonDic["arrayNeed"]
-//            
-//            modelSymbol = iRsymbolsModel.mj_object(withKeyValues: dictData)
-//            
-//            print(modelSymbol?.arrayModels! as Any)//输出数据
-//            
-//        }catch let erro as Error!{
-//            
-//            print("读取本地数据出现错误！",erro)
-//            
-//        }
+    var modelMain:iRsymbolsModel = iRsymbolsModel()
+    lazy var viewLeft:iRSymbolBoardLeftControlView = { () -> iRSymbolBoardLeftControlView in
+        let viewLeft:iRSymbolBoardLeftControlView = iRSymbolBoardLeftControlView.init(frame: CGRect.null)
         
-       
+        return viewLeft
+    }()
+    
+    lazy var viewRight:iRSymbolBoardRightWordsView = { () -> iRSymbolBoardRightWordsView in
+        let viewRight:iRSymbolBoardRightWordsView = iRSymbolBoardRightWordsView.init(frame:CGRect.null)
         
-    }
+        return viewRight
+        
+    }()
     
-    
+    lazy var viewBottom:iRSymbolBoardBottomControlView = { () -> iRSymbolBoardBottomControlView in
+        let viewBottom:iRSymbolBoardBottomControlView = iRSymbolBoardBottomControlView.init(frame:CGRect.null)
+        return viewBottom
+    }()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.red
+        createSubViews()
         getNeedData()
+        configData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func createSubViews() -> Void {
+        //1.底部侧控制条view
+        self.addSubview(viewBottom)
+        //--约束布局
+        viewBottom.mas_makeConstraints { (maker:MASConstraintMaker!) in
+            maker.bottom.equalTo()(self)
+            maker.left.equalTo()(self)
+            maker.right.equalTo()(self)
+            maker.height.mas_equalTo()(45)
+        }
+        //2.左侧控制条view
+        self.addSubview(viewLeft)
+        //--约束布局
+        viewLeft.mas_makeConstraints { (make:MASConstraintMaker!) in
+            make.left.top().equalTo()(self);
+            make.bottom.equalTo()(self.viewBottom.mas_top)
+            make.width.mas_equalTo()(90)
+        }
+        //3.右侧容器view
+        self.addSubview(viewRight)
+        //--约束布局
+        viewRight.mas_makeConstraints { (make:MASConstraintMaker!) in
+            make.left.equalTo()(self.viewLeft.mas_right)
+            make.bottom.equalTo()(self.viewBottom.mas_top)
+            make.top.right().equalTo()(self)  
+        }
+    }
     
+    func configData() -> Void {
+        viewLeft.modelMain = modelMain
+        viewLeft.tableView.reloadData()
+    }
+    
+    
+    func getNeedData() -> Void {
+        //1.常用符号
+        let modelSymbol_changyong:iRsymbolsItemModel = iRsymbolsItemModel()
+        modelSymbol_changyong.name = "常用"
+        modelSymbol_changyong.arraySymbols = [
+            "，",
+            "。",
+            "？",
+            "！",
+            ".",
+            "@",
+            "、",
+            "~",
+            "……",
+            "：",
+            "-",
+            "+",
+            "_",
+            "*",
+            "』",
+            "#",
+            "www.",
+            "…",
+            ".com",
+            "〔",
+            ";",
+            "/",
+            "=",
+            "$",
+            "%",
+            "（",
+            "￥",
+            "&",
+            "┅",
+            "＾",
+            "『",
+            "）"
+        ]
+        modelMain.arrayModels = Array()
+        modelMain.arrayModels?.append(modelSymbol_changyong)
+        
+        print(modelMain)
+    }
+   
+
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
