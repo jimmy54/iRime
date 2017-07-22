@@ -275,7 +275,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             
         }
         print("------------------viewDidAppear---------------------")
-        SVProgressHUD.show()
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -1009,19 +1009,20 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         let comitText = RimeWrapper.consumeComposedText(forSession: self.rimeSessionId_)
         if (comitText != nil) {
-//            self.textDocumentProxy.insertText(comitText)
             self.insertText(comitText!)
             self.removeAllCandidateList();
             self.candidatesBanner?.reloadData()
             return comitText;
         }
         
-//        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_) as? [String]
+
         let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
+        self.removeAllCandidateList();
         if (cl != nil) {
+            
             self.addCandidates(cl!)
         }
-        self.removeAllCandidateList();
+
         self.candidatesBanner?.reloadData()
         return nil;
     }
