@@ -440,6 +440,7 @@
 		883E6D6F1F1FAE520095E0EF /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D631F1FAE520095E0EF /* NSObject+MJProperty.m */; };
 		883E6D701F1FAE520095E0EF /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D651F1FAE520095E0EF /* NSString+MJExtension.m */; };
 		88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */; };
+		885C551F1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C551E1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift */; };
 		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
 		886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */; };
 		886EAAC51E6C633200DC722C /* iRNumberBoardCentreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */; };
@@ -1019,6 +1020,7 @@
 		883E6D641F1FAE520095E0EF /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		883E6D651F1FAE520095E0EF /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardFatherView.swift; sourceTree = "<group>"; };
+		885C551E1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardLeftControlViewCell.swift; sourceTree = "<group>"; };
 		886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardLeftKeysView.swift; sourceTree = "<group>"; };
 		886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardRightKeysView.swift; sourceTree = "<group>"; };
 		886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardCentreKeysView.swift; sourceTree = "<group>"; };
@@ -2007,6 +2009,7 @@
 			children = (
 				883E6D3F1F1E54780095E0EF /* iRSymbolBoardContentView.swift */,
 				883E6D411F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift */,
+				885C551E1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift */,
 				883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */,
 				883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */,
 			);
@@ -2825,6 +2828,7 @@
 				0CEC30EF1D5980B800C21949 /* UINavigationBar+BackgroundImage.m in Sources */,
 				0CAD84821D119B1E00DA88DB /* Catboard.swift in Sources */,
 				0CAD848D1D119B1E00DA88DB /* KeyboardKey.swift in Sources */,
+				885C551F1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift in Sources */,
 				0CAD84811D119B1E00DA88DB /* KeyboardViewController.swift in Sources */,
 				0CAD847E1D119B1E00DA88DB /* ForwardingView.swift in Sources */,
 				0CAD84E31D11A3E900DA88DB /* RimeWrapper.m in Sources */,

@@ -30,4 +30,44 @@ extension UIColor {
             return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         }
     }
+    
+    public convenience init(hexString: UInt32, alpha: CGFloat = 1.0) {
+        let red     = CGFloat((hexString & 0xFF0000) >> 16) / 255.0
+        let green   = CGFloat((hexString & 0x00FF00) >> 8 ) / 255.0
+        let blue    = CGFloat((hexString & 0x0000FF)      ) / 255.0
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
 }
+/** RGB色值设置
+ * parameter r: 红色色值
+ * parameter g: 绿色色值
+ * parameter b: 蓝色色值
+ * parameter a: 透明度
+ */
+func RGB (r:CGFloat,
+          g:CGFloat,
+          b:CGFloat
+          ) -> UIColor
+{
+    return UIColor (red: r/225.0, green: g/225.0, blue: b/225.0, alpha: 1)
+}
+
+func RGBA (r:CGFloat,
+          g:CGFloat,
+          b:CGFloat,
+          alpha:CGFloat
+    ) -> UIColor
+{
+    return UIColor (red: r/225.0, green: g/225.0, blue: b/225.0, alpha: alpha)
+}
+
+
+func onePixel() -> CGFloat {
+    return 1/UIScreen.main.scale
+}
+
+
+
+
+
+

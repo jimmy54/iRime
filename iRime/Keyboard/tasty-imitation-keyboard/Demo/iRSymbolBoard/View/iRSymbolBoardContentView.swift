@@ -57,7 +57,7 @@ class iRSymbolBoardContentView: UIView {
         viewLeft.mas_makeConstraints { (make:MASConstraintMaker!) in
             make.left.top().equalTo()(self);
             make.bottom.equalTo()(self.viewBottom.mas_top)
-            make.width.mas_equalTo()(90)
+            make.width.mas_equalTo()(70)
         }
         //3.右侧容器view
         self.addSubview(viewRight)

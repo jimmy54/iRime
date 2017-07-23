@@ -10,11 +10,18 @@ import UIKit
 
 class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDelegate {
 
+    var modelItemPreviousSelected:iRsymbolsItemModel?
+    var indexPathPreviousSelected:NSIndexPath?
+    
+    
     var modelMain:iRsymbolsModel?
     lazy var tableView = {()->UITableView in
         let tableView:UITableView = UITableView.init(frame: CGRect.null, style: UITableViewStyle.plain)
+        tableView.register(iRSymbolBoardLeftControlViewCell.classForCoder(), forCellReuseIdentifier: "iRSymbolBoardLeftControlViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
         return tableView
     }()
     
@@ -50,16 +57,71 @@ class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDele
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell:UITableViewCell = UITableViewCell.init(style: .default, reuseIdentifier: "i")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "iRSymbolBoardLeftControlViewCell") as! iRSymbolBoardLeftControlViewCell
         
         let modelSymbolItem:iRsymbolsItemModel = (modelMain?.arrayModels?[indexPath.row])!
-        
-        
-        cell.textLabel?.text = modelSymbolItem.name
-        
-        
+        cell.modelSymbolItem = modelSymbolItem
         
         return cell
     }
+    //MARK:talbeveiw 代理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let modelSymbolItem:iRsymbolsItemModel = (modelMain?.arrayModels?[indexPath.row])!
+        
+        
+        if modelItemPreviousSelected?.name == modelSymbolItem.name {
+            return
+        }
+        
+        modelItemPreviousSelected?.isSelected = false
+        modelSymbolItem.isSelected = true
+       
+        var arrayNeed:[NSIndexPath]?
+        if (indexPathPreviousSelected != nil) {
+             arrayNeed = [indexPath as NSIndexPath,indexPathPreviousSelected!]
+        }
+        else
+        {
+             arrayNeed = [indexPath as NSIndexPath]
+        }
+        
+        tableView.reloadRows(at: arrayNeed! as [IndexPath], with: UITableViewRowAnimation.none)
+        
+        
+        modelItemPreviousSelected = modelSymbolItem
+        indexPathPreviousSelected = indexPath as NSIndexPath
+    }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

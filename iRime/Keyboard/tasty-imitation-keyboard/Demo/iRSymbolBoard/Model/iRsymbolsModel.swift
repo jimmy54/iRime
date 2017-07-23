@@ -12,6 +12,9 @@ class iRsymbolsItemModel: NSObject {
     var name:String?
     var arraySymbols:[String]?
     
+    //--控制字段
+    var isSelected:Bool = false
+    
     
 }
 
