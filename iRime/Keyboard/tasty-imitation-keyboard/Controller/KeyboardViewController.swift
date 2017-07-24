@@ -249,8 +249,6 @@ class KeyboardViewController: UIInputViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.bannerView?.isHidden = false
         self.keyboardHeight = self.heightForOrientation(self.interfaceOrientation, withTopBanner: true)
-        
-        self.updateReturnType()
     }
     
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
@@ -957,24 +955,5 @@ class KeyboardViewController: UIInputViewController {
         return returnString
     }
     
-    func updateReturnType() {
-        
-        
-        //find the return key
-        for page in keyboard.pages {
-            for row in page.rows {
-                
-                for k in row {
-                    if k.type == .return {
-                        k.uppercaseKeyCap = self.getReturnKeyTitleString()
-                        k.uppercaseOutput = "\n"
-                        k.lowercaseOutput = "\n"
-                    }
-                }
 
-            }
-        }
-        
-        
-    }
 }

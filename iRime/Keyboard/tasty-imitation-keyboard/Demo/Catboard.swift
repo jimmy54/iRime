@@ -266,6 +266,8 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             //中文输入
             if !RimeWrapper.isSessionAlive(rimeSessionId_) {
                 rimeSessionId_ = RimeWrapper.createSession()
+                
+
             }
             
             
@@ -274,6 +276,13 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             print("start service error");
             
         }
+        
+        
+        
+        //update key board
+        self.updateKeyTitle()
+        
+        
         print("------------------viewDidAppear---------------------")
 
     }
@@ -1170,6 +1179,41 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             PlaySound.playSound()
         })
         
+    }
+    
+    
+    func updateKeyTitle() {
+        
+
+        //find the return key
+        for page in keyboard.pages {
+            for row in page.rows {
+                
+                for k in row {
+                    if k.type == .return {
+                        k.uppercaseKeyCap = self.getReturnKeyTitleString()
+                        k.uppercaseOutput = "\n"
+                        k.lowercaseOutput = "\n"
+                    }
+                    
+                    if k.type == .space {
+                        
+                        if RimeWrapper.isSessionAlive(rimeSessionId_) {
+                            
+                            let schemaName = RimeWrapper.getCurrentSchemaName(withSessionId: rimeSessionId_)
+                            
+                            k.uppercaseKeyCap = schemaName
+                            k.uppercaseOutput = "\n"
+                            k.lowercaseOutput = "\n"
+
+                        }
+                        
+
+                    }
+                }
+                
+            }
+        }
     }
 
 }

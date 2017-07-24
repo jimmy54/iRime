@@ -537,10 +537,38 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         item = &schemaList.list[i];
         
     }
-        
     
     return res;
+}
+
+
++(void)getCurrentSchemaWithSessionId:(RimeSessionId) sessionId
+{
+    size_t size = 32;
+    char schemaId[size];
+    bool res = RimeGetCurrentSchema(sessionId, schemaId , size);
+    if (res == NO) {
+        NSLog(@"get current schema id fail;");
+        return;
+    }
+    NSLog(@"%s", schemaId);
+}
+
++(NSString*)getCurrentSchemaNameWithSessionId:(RimeSessionId)sessionId
+{
+
+    NSString *schemaName = nil;
+//    RIME_API Bool RimeGetStatus(RimeSessionId session_id, RimeStatus* status);
+    RIME_STRUCT(RimeStatus, status);
+    bool res = RimeGetStatus(sessionId, &status);
+    if (res == NO) {
+        NSLog(@"get status fail");
+        return schemaName;
+    }
     
+    schemaName = [NSString stringWithUTF8String:status.schema_name];
+    RimeFreeStatus(&status);
+    return schemaName;
     
 }
 

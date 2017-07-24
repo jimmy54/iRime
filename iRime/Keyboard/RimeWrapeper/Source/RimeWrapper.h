@@ -121,7 +121,8 @@ typedef enum {
 
 +(NSArray*)getSchemaList;
 //+(void)freeSchemaList();
-//+(void)getCurrentSchema();
++(void)getCurrentSchemaWithSessionId:(RimeSessionId) sessionId;
++(NSString*)getCurrentSchemaNameWithSessionId:(RimeSessionId)sessionId;
 +(void)selectSchemaInRimeSeesiong:(RimeSessionId) seesionId useSchemaId:(const char*) schemaId;
 
 
