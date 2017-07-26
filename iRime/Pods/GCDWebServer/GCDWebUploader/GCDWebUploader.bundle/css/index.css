@@ -128,3 +128,10 @@
 .uploading {
   display: none;
 }
+
+
+#listing tr:hover td{
+    color:#3879d9;
+    font-weight: bold;
+    background-color: #f6fbff;
+}
