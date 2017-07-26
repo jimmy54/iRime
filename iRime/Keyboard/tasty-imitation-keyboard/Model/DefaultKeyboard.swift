@@ -71,7 +71,7 @@ func defaultKeyboard() -> Keyboard {
         spaceTitle = schemaId as! String;
     }
     
-    spaceTitle = spaceTitle + "(⇌)"
+
     
     var space = Key(.space)
     space.uppercaseKeyCap = spaceTitle
