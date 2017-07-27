@@ -66,6 +66,30 @@ func onePixel() -> CGFloat {
     return 1/UIScreen.main.scale
 }
 
+/** 判断字符串是否为空 */
+func isEmptyStringIR(string: String) -> Bool {
+    if string.isEmpty || string == "" {
+        return true
+    }else {
+        return false
+    }
+}
+/** 屏幕的宽 */
+func screenWidthIR() -> CGFloat {
+    // swift 2.3
+    //    return UIScreen.mainScreen().bounds.width
+    // swift 3.0
+    return UIScreen.main.bounds.width
+}
+
+/** 屏幕的高 */
+func screenHeightIR() -> CGFloat {
+    // swift 2.3
+    //    return UIScreen.mainScreen().bounds.height
+    // swift 3.0
+    return UIScreen.main.bounds.height
+}
+
 
 
 

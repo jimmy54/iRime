@@ -444,6 +444,7 @@
 		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
 		886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */; };
 		886EAAC51E6C633200DC722C /* iRNumberBoardCentreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */; };
+		88EF517A1F2A3A5200B24064 /* iRSymbolBoardRightWordsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF51791F2A3A5200B24064 /* iRSymbolBoardRightWordsCollectionCell.swift */; };
 		F4F9CCB5297369477E6CA790 /* libPods-Keyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */; };
 /* End PBXBuildFile section */
 
@@ -1024,6 +1025,7 @@
 		886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardLeftKeysView.swift; sourceTree = "<group>"; };
 		886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardRightKeysView.swift; sourceTree = "<group>"; };
 		886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardCentreKeysView.swift; sourceTree = "<group>"; };
+		88EF51791F2A3A5200B24064 /* iRSymbolBoardRightWordsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardRightWordsCollectionCell.swift; sourceTree = "<group>"; };
 		E195E134834BA41048E6E55A /* Pods-Keyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2011,6 +2013,7 @@
 				883E6D411F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift */,
 				885C551E1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift */,
 				883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */,
+				88EF51791F2A3A5200B24064 /* iRSymbolBoardRightWordsCollectionCell.swift */,
 				883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */,
 			);
 			path = View;
@@ -2810,6 +2813,7 @@
 				883E6D421F1E552C0095E0EF /* iRSymbolBoardLeftControlView.swift in Sources */,
 				0CB1CE3F1D22214800678571 /* MyCollectionViewFlowLayout.swift in Sources */,
 				0CAD84861D119B1E00DA88DB /* KeyboardModel.swift in Sources */,
+				88EF517A1F2A3A5200B24064 /* iRSymbolBoardRightWordsCollectionCell.swift in Sources */,
 				0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
 				0CAD84E21D11A3E900DA88DB /* RimeTypeDef.m in Sources */,
 				883E6D491F1E58C00095E0EF /* iRTool.swift in Sources */,

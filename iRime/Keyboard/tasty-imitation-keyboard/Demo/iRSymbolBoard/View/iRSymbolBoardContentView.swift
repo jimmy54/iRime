@@ -10,6 +10,22 @@ import UIKit
 
 class iRSymbolBoardContentView: UIView {
     
+    static var width_iRSymbolBoardLeftControlView:CGFloat = 70
+    static var height_line_iRSymbolBoardLeftControlView:CGFloat = 45
+    var sizeOfItemNormal:CGSize = {
+        let width = (screenWidthIR()-iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)*0.2
+        
+        return CGSize.init(width: width, height: iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView-onePixel())
+        
+    }()
+    var sizeOfItemLong:CGSize = {
+        let width = (screenWidthIR()-iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)*0.5
+        
+        return CGSize.init(width: width, height: iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView-onePixel())
+        
+    }()
+    
+    
     var modelMain:iRsymbolsModel = iRsymbolsModel()
     lazy var viewLeft:iRSymbolBoardLeftControlView = { () -> iRSymbolBoardLeftControlView in
         let viewLeft:iRSymbolBoardLeftControlView = iRSymbolBoardLeftControlView.init(frame: CGRect.null)
@@ -57,7 +73,7 @@ class iRSymbolBoardContentView: UIView {
         viewLeft.mas_makeConstraints { (make:MASConstraintMaker!) in
             make.left.top().equalTo()(self);
             make.bottom.equalTo()(self.viewBottom.mas_top)
-            make.width.mas_equalTo()(70)
+            make.width.mas_equalTo()(iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)
         }
         //3.右侧容器view
         self.addSubview(viewRight)
@@ -72,13 +88,20 @@ class iRSymbolBoardContentView: UIView {
     func configData() -> Void {
         viewLeft.modelMain = modelMain
         viewLeft.tableView.reloadData()
+        
+        viewRight.modelSymbolItem = modelMain.arrayModels?.first
+        viewRight.collectionView.reloadData()
     }
     
     
     func getNeedData() -> Void {
+        modelMain.arrayModels = Array()
+       
         //1.常用符号
         let modelSymbol_changyong:iRsymbolsItemModel = iRsymbolsItemModel()
+        modelMain.arrayModels?.append(modelSymbol_changyong)
         modelSymbol_changyong.name = "常用"
+        modelSymbol_changyong.sizeOfItem = self.sizeOfItemNormal
         modelSymbol_changyong.arraySymbols = [
             "，",
             "。",
@@ -113,8 +136,47 @@ class iRSymbolBoardContentView: UIView {
             "『",
             "）"
         ]
-        modelMain.arrayModels = Array()
-        modelMain.arrayModels?.append(modelSymbol_changyong)
+        //2.英文符号
+        let modelSymbol_yingwen:iRsymbolsItemModel = iRsymbolsItemModel()
+        modelMain.arrayModels?.append(modelSymbol_yingwen)
+        modelSymbol_yingwen.name = "英文"
+        modelSymbol_changyong.sizeOfItem = self.sizeOfItemNormal
+        modelSymbol_yingwen.arraySymbols = [
+            "，",
+            "。",
+            "？",
+            "！",
+            ".",
+            "@",
+            "、",
+            "~",
+            "……",
+            "：",
+            "-",
+            "+",
+            "_",
+            "*",
+            "』",
+            "#",
+            "www.",
+            "…",
+            ".com",
+            "〔",
+            ";",
+            "/",
+            "=",
+            "$",
+            "%",
+            "（",
+            "￥",
+            "&",
+            "┅",
+            "＾",
+            "『",
+            "）"
+        ]
+
+
         
         print(modelMain)
     }

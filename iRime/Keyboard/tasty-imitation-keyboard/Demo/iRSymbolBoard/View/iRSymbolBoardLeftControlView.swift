@@ -12,7 +12,7 @@ class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDele
 
     var modelItemPreviousSelected:iRsymbolsItemModel?
     var indexPathPreviousSelected:NSIndexPath?
-    
+   
     
     var modelMain:iRsymbolsModel?
     lazy var tableView = {()->UITableView in
@@ -64,6 +64,12 @@ class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDele
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView
+    }
+    
     //MARK:talbeveiw 代理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let modelSymbolItem:iRsymbolsItemModel = (modelMain?.arrayModels?[indexPath.row])!

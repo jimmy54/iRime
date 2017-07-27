@@ -11,7 +11,7 @@ import UIKit
 class iRsymbolsItemModel: NSObject {
     var name:String?
     var arraySymbols:[String]?
-    
+    var sizeOfItem:CGSize?
     //--控制字段
     var isSelected:Bool = false
     
@@ -21,5 +21,6 @@ class iRsymbolsItemModel: NSObject {
 
 class iRsymbolsModel: NSObject {
     var arrayModels:[iRsymbolsItemModel]?
+    
     
 }
