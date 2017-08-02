@@ -8,11 +8,16 @@
 
 import UIKit
 
+@objc protocol iRSymbolBoardLeftControlViewProtocol:NSObjectProtocol {
+    func didSelectedOneCell(modelSelected:iRsymbolsItemModel,indexPath:NSIndexPath) -> Void
+}
+
+
 class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDelegate {
 
     var modelItemPreviousSelected:iRsymbolsItemModel?
     var indexPathPreviousSelected:NSIndexPath?
-   
+    weak var delegateCallBack:iRSymbolBoardLeftControlViewProtocol?
     
     var modelMain:iRsymbolsModel?
     lazy var tableView = {()->UITableView in
@@ -61,6 +66,11 @@ class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDele
         
         let modelSymbolItem:iRsymbolsItemModel = (modelMain?.arrayModels?[indexPath.row])!
         cell.modelSymbolItem = modelSymbolItem
+        if modelSymbolItem.isSelected && modelItemPreviousSelected == nil{
+            modelItemPreviousSelected = modelSymbolItem;
+            indexPathPreviousSelected = indexPath as NSIndexPath;
+        }
+        
         
         return cell
     }
@@ -93,7 +103,10 @@ class iRSymbolBoardLeftControlView: UIView,UITableViewDataSource,UITableViewDele
         
         tableView.reloadRows(at: arrayNeed! as [IndexPath], with: UITableViewRowAnimation.none)
         
-        
+        if (self.delegateCallBack?.responds(to: #selector(iRSymbolBoardLeftControlViewProtocol.didSelectedOneCell(modelSelected:indexPath:))))!
+        {
+            self.delegateCallBack?.didSelectedOneCell(modelSelected: modelSymbolItem, indexPath: indexPath as NSIndexPath)
+        }
         modelItemPreviousSelected = modelSymbolItem
         indexPathPreviousSelected = indexPath as NSIndexPath
     }

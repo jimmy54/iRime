@@ -22,12 +22,13 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
     
     let labContent:UILabel = {
         let lab:UILabel = UILabel.init()
-        lab.font = UIFont.systemFont(ofSize: 24)
+        lab.font = UIFont.systemFont(ofSize: 20)
         lab.textAlignment = NSTextAlignment.center
+        lab.adjustsFontSizeToFitWidth = true;
         return lab
         
     }()
-    let viewLineTop:UIView = {
+    let viewLineBottom:UIView = {
         
         let view:UIView = UIView.init()
         view.backgroundColor = RGB(r: 150, g: 150, b: 150)
@@ -55,11 +56,11 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
     }
     
     func createSubViews() -> Void {
-        //1.顶部分割线
-        self.contentView.addSubview(viewLineTop)
+        //1.滴部分割线
+        self.contentView.addSubview(viewLineBottom)
         //--约束布局
-        viewLineTop.mas_makeConstraints { (make:MASConstraintMaker!) in
-            make.top.right().left().equalTo()(self.contentView)
+        viewLineBottom.mas_makeConstraints { (make:MASConstraintMaker!) in
+            make.bottom.right().left().equalTo()(self.contentView)
             make.height.mas_equalTo()(onePixel());
         }
         //2.右侧分割线
@@ -73,12 +74,53 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
         self.contentView.addSubview(labContent)
         //--约束布局
         labContent.mas_makeConstraints { (make:MASConstraintMaker!) in
-            make.top.equalTo()(self.viewLineTop.mas_bottom)
-            make.left.equalTo()(self)
-            make.right.equalTo()(self.viewLineRight.mas_left)
-            make.bottom.equalTo()(self)
+            make.top.equalTo()(self.contentView)
+            make.left.equalTo()(self)?.offset()(2)
+            make.right.equalTo()(self.viewLineRight.mas_left)?.offset()(-2)
+            make.bottom.equalTo()(self.viewLineBottom.mas_top)
         }
     }
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

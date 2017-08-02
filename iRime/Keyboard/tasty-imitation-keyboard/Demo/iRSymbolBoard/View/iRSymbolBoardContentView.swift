@@ -8,14 +8,35 @@
 
 import UIKit
 
-class iRSymbolBoardContentView: UIView {
+let arrayCoupleSymbols:[String] = [ "“”","（）", "《》","〈〉","［］","｛｝","【】","〖〗","〔〕", "『』","「」","()","<>","{}","[]"];
+
+extension String {
+    
+    func ifCoupleSymbols() -> Bool {
+        
+        if arrayCoupleSymbols.contains(self)
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
+    
+    var isCouple:Bool  { return self.ifCoupleSymbols() }
+}
+
+
+
+class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
     
     static var width_iRSymbolBoardLeftControlView:CGFloat = 70
     static var height_line_iRSymbolBoardLeftControlView:CGFloat = 45
     var sizeOfItemNormal:CGSize = {
         let width = (screenWidthIR()-iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)*0.2
         
-        return CGSize.init(width: width, height: iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView-onePixel())
+        return CGSize.init(width: width, height: iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView)
         
     }()
     var sizeOfItemLong:CGSize = {
@@ -29,7 +50,7 @@ class iRSymbolBoardContentView: UIView {
     var modelMain:iRsymbolsModel = iRsymbolsModel()
     lazy var viewLeft:iRSymbolBoardLeftControlView = { () -> iRSymbolBoardLeftControlView in
         let viewLeft:iRSymbolBoardLeftControlView = iRSymbolBoardLeftControlView.init(frame: CGRect.null)
-        
+        viewLeft.delegateCallBack = self
         return viewLeft
     }()
     
@@ -93,7 +114,13 @@ class iRSymbolBoardContentView: UIView {
         viewRight.collectionView.reloadData()
     }
     
-    
+    //MARK:代理回调
+    func didSelectedOneCell(modelSelected:iRsymbolsItemModel,indexPath:NSIndexPath) -> Void
+    {
+        viewRight.modelSymbolItem = modelMain.arrayModels?[indexPath.row]
+        viewRight.collectionView.reloadData()
+        viewRight.collectionView.contentOffset = CGPoint.zero
+    }
     func getNeedData() -> Void {
         modelMain.arrayModels = Array()
        
@@ -101,6 +128,7 @@ class iRSymbolBoardContentView: UIView {
         let modelSymbol_changyong:iRsymbolsItemModel = iRsymbolsItemModel()
         modelMain.arrayModels?.append(modelSymbol_changyong)
         modelSymbol_changyong.name = "常用"
+        modelSymbol_changyong.isSelected = true
         modelSymbol_changyong.sizeOfItem = self.sizeOfItemNormal
         modelSymbol_changyong.arraySymbols = [
             "，",
@@ -136,47 +164,116 @@ class iRSymbolBoardContentView: UIView {
             "『",
             "）"
         ]
-        //2.英文符号
-        let modelSymbol_yingwen:iRsymbolsItemModel = iRsymbolsItemModel()
-        modelMain.arrayModels?.append(modelSymbol_yingwen)
-        modelSymbol_yingwen.name = "英文"
-        modelSymbol_changyong.sizeOfItem = self.sizeOfItemNormal
-        modelSymbol_yingwen.arraySymbols = [
+        //2.中文文符号
+        let modelSymbol_zhongwen:iRsymbolsItemModel = iRsymbolsItemModel()
+        modelMain.arrayModels?.append(modelSymbol_zhongwen)
+        modelSymbol_zhongwen.name = "中文"
+        modelSymbol_zhongwen.sizeOfItem = self.sizeOfItemNormal
+        modelSymbol_zhongwen.arraySymbols = [
             "，",
             "。",
             "？",
             "！",
-            ".",
-            "@",
-            "、",
-            "~",
-            "……",
             "：",
-            "-",
-            "+",
-            "_",
-            "*",
-            "』",
-            "#",
-            "www.",
-            "…",
-            ".com",
-            "〔",
-            ";",
-            "/",
-            "=",
-            "$",
-            "%",
+            "；",
+            "……",
+            "～",
+            "“”",
+            "“",
+            "”",
+            "、",
+            "（）",
             "（",
+            "）",
+            "——",
+            "‘’",
+            "‘",
+            "’",
+            "·",
+            "＠",
+            "＆",
+            "＊",
+            "＃",
+            "《》",
+            "〈〉",
+            "＄",
             "￥",
-            "&",
-            "┅",
-            "＾",
+            "［］",
+            "［",
+            "］",
+            "￡",
+            "｛｝",
+            "｛",
+            "｝",
+            "￠",
+            "【】",
+            "【",
+            "】",
+            "％",
+            "〖〗",
+            "〖",
+            "〗",
+            "／",
+            "〔〕",
+            "〔",
+            "〕",
+            "＼",
+            "『』",
             "『",
-            "）"
+            "』",
+            "＾",
+            "「」",
+            "「",
+            "」",
+           " ．",
+            "﹁",
+            "﹂",
+            "｀",
+            "．"
         ]
-
-
+        //3.英文文符号
+        let modelSymbol_yingwen:iRsymbolsItemModel = iRsymbolsItemModel()
+        modelMain.arrayModels?.append(modelSymbol_yingwen)
+        modelSymbol_yingwen.name = "英文"
+        modelSymbol_yingwen.sizeOfItem = self.sizeOfItemNormal
+        modelSymbol_yingwen.arraySymbols = [
+            ",",
+            ".",
+            "?",
+            "!",
+            ":",
+            ";",
+            "…",
+            "~",
+            "_",
+            "-",
+            "\"\"",
+            "'",
+            "/",
+            "@",
+            "*",
+            "+",
+            "()",
+            "<>",
+            "{}",
+            "[]",
+            "=",
+            "%",
+            "&",
+            "$",
+            "|",
+            "\\",
+            "♀",
+            "♂",
+            "#",
+            "¥",
+            "£",
+            "¢",
+            "€",
+            "\"",
+            "^",
+            "`"
+        ]
         
         print(modelMain)
     }
