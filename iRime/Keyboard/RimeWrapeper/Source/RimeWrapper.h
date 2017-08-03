@@ -60,6 +60,8 @@ typedef enum {
 /// Start Rime service. This will setup notification handler, logging and deployer. And then start the service and perform a fast deployment.
 + (BOOL)startService;
 
++ (BOOL)startServiceWithFastMode:(BOOL)fastMode;
+
 /// Stop Rime service
 + (void)stopService;
 
@@ -107,7 +109,7 @@ typedef enum {
 
 +(NSArray*)getCandidateListForSession:(RimeSessionId)sessionId andIndex:(NSInteger)index andCount:(NSInteger)count;
 
-+ (NSArray *)getCandidateListForSession:(RimeSessionId)sessionId;
+//+ (NSArray *)getCandidateListForSession:(RimeSessionId)sessionId;
 
 + (BOOL)selectCandidateForSession:(RimeSessionId)seesionId inIndex:(size_t)index;
 

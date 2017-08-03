@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C030A291F278ABB00124E13 /* liblibyaml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C030A241F278A9500124E13 /* liblibyaml.a */; };
+		0C030A2A1F27911A00124E13 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D561E2F56060028C711 /* boost.framework */; };
+		0C030A2B1F27911A00124E13 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D571E2F56060028C711 /* libleveldb.a */; };
+		0C030A2C1F27911A00124E13 /* liblibmarisa-trie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D581E2F56060028C711 /* liblibmarisa-trie.a */; };
+		0C030A2D1F27911A00124E13 /* liblibopencc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D591E2F56070028C711 /* liblibopencc.a */; };
+		0C030A2F1F27911A00124E13 /* libmemenv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF55D5C1E2F56070028C711 /* libmemenv.a */; };
+		0C030A321F27917000124E13 /* liblibrime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2F103A1F225AAB002C977D /* liblibrime.a */; };
+		0C030A331F27924800124E13 /* RimeWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD84E01D11A3E900DA88DB /* RimeWrapper.m */; };
+		0C030A341F27940800124E13 /* RimeTypeDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD84DE1D11A3E900DA88DB /* RimeTypeDef.m */; };
+		0C030A351F27940B00124E13 /* NSString+UTF8Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD84DC1D11A3E900DA88DB /* NSString+UTF8Utils.m */; };
 		0C0C94801D7532FA004D29D9 /* libYACYAML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEC31391D59BBFD00C21949 /* libYACYAML.a */; };
 		0C0C94811D75330A004D29D9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEC31301D598C0500C21949 /* libresolv.tbd */; };
-		0C0C94841D7534C1004D29D9 /* key_table.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC31281D59889000C21949 /* key_table.cc */; };
 		0C0C94851D7534C1004D29D9 /* RimeKitConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30B21D5980B800C21949 /* RimeKitConfig.m */; };
 		0C0C94861D7534C1004D29D9 /* RimeConfigAppOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30B41D5980B800C21949 /* RimeConfigAppOption.m */; };
 		0C0C94871D7534C1004D29D9 /* RimeConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30B61D5980B800C21949 /* RimeConfigController.m */; };
@@ -60,7 +69,6 @@
 		0C5E302E1E078F650012F008 /* TWVariants.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30131E078F650012F008 /* TWVariants.txt */; };
 		0C5E302F1E078F650012F008 /* TWVariantsRev.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30141E078F650012F008 /* TWVariantsRev.txt */; };
 		0C5E30301E078F650012F008 /* TWVariantsRevPhrases.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30151E078F650012F008 /* TWVariantsRevPhrases.txt */; };
-		0C5E30BD1E078FCB0012F008 /* iRime.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30321E078FCB0012F008 /* iRime.zip */; };
 		0C5E30BE1E078FCB0012F008 /* cangjie5.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30341E078FCB0012F008 /* cangjie5.schema.yaml */; };
 		0C5E30BF1E078FCB0012F008 /* default.custom.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30351E078FCB0012F008 /* default.custom.yaml */; };
 		0C5E30C01E078FCB0012F008 /* default.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30361E078FCB0012F008 /* default.yaml */; };
@@ -191,7 +199,6 @@
 		0C5E313D1E078FCB0012F008 /* wugniu_lopha.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30BA1E078FCB0012F008 /* wugniu_lopha.schema.yaml */; };
 		0C5E313E1E078FCB0012F008 /* zyenpheng.dict.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30BB1E078FCB0012F008 /* zyenpheng.dict.yaml */; };
 		0C5E313F1E078FCB0012F008 /* zyenpheng.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30BC1E078FCB0012F008 /* zyenpheng.schema.yaml */; };
-		0C5E31411E078FDB0012F008 /* RimeResource.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E31401E078FDB0012F008 /* RimeResource.zip */; };
 		0C5E31421E0790140012F008 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEB1E078F150012F008 /* boost.framework */; };
 		0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEC1E078F150012F008 /* libleveldb.a */; };
 		0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */; };
@@ -208,7 +215,7 @@
 		0CAD24651D604B47007EE8C0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD24641D604B47007EE8C0 /* Settings.bundle */; };
 		0CAD24BF1D615EC7007EE8C0 /* SelectInputViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD24BE1D615EC7007EE8C0 /* SelectInputViewController.mm */; };
 		0CAD24C41D61609F007EE8C0 /* SelectInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD24C21D61609F007EE8C0 /* SelectInputViewController.xib */; };
-		0CAD83C91D11619200DA88DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD83C81D11619200DA88DB /* main.m */; };
+		0CAD83C91D11619200DA88DB /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD83C81D11619200DA88DB /* main.mm */; };
 		0CAD83CC1D11619200DA88DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD83CB1D11619200DA88DB /* AppDelegate.m */; };
 		0CAD83D21D11619200DA88DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD83D01D11619200DA88DB /* Main.storyboard */; };
 		0CAD83D41D11619200DA88DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD83D31D11619200DA88DB /* Assets.xcassets */; };
@@ -254,7 +261,6 @@
 		0CDAE3781D707EA200A4FA2E /* SettingFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CDAE3761D707EA200A4FA2E /* SettingFileViewController.xib */; };
 		0CDAE3871D70809E00A4FA2E /* FileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDAE3861D70809E00A4FA2E /* FileManger.m */; };
 		0CE4F3781D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4F3771D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift */; };
-		0CE4F37A1D255A7A00E6DDB2 /* CandidateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4F3791D255A7A00E6DDB2 /* CandidateModel.swift */; };
 		0CEC30A81D586B1F00C21949 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30A71D586B1F00C21949 /* EmojiView.swift */; };
 		0CEC30EF1D5980B800C21949 /* UINavigationBar+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEC30CD1D5980B800C21949 /* UINavigationBar+BackgroundImage.m */; };
 		0CF55E151E2F56070028C711 /* iRime.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55D5E1E2F56070028C711 /* iRime.zip */; };
@@ -335,7 +341,6 @@
 		0CF55E601E2F56080028C711 /* MANIFEST-000065 in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB11E2F56070028C711 /* MANIFEST-000065 */; };
 		0CF55E611E2F56080028C711 /* wubi_pinyin.prism.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB21E2F56070028C711 /* wubi_pinyin.prism.bin */; };
 		0CF55E621E2F56080028C711 /* wubi_pinyin.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB31E2F56070028C711 /* wubi_pinyin.schema.yaml */; };
-		0CF55E631E2F56080028C711 /* Rime.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB41E2F56070028C711 /* Rime.zip */; };
 		0CF55E641E2F56080028C711 /* cangjie5.prism.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB61E2F56070028C711 /* cangjie5.prism.bin */; };
 		0CF55E651E2F56080028C711 /* cangjie5.reverse.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB71E2F56070028C711 /* cangjie5.reverse.bin */; };
 		0CF55E661E2F56080028C711 /* cangjie5.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DB81E2F56070028C711 /* cangjie5.schema.yaml */; };
@@ -360,7 +365,6 @@
 		0CF55E791E2F56080028C711 /* stroke.table.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DCB1E2F56070028C711 /* stroke.table.bin */; };
 		0CF55E7A1E2F56080028C711 /* symbols.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DCC1E2F56070028C711 /* symbols.yaml */; };
 		0CF55E7B1E2F56080028C711 /* user.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DCD1E2F56070028C711 /* user.yaml */; };
-		0CF55E7C1E2F56080028C711 /* RimeResource.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DCE1E2F56070028C711 /* RimeResource.zip */; };
 		0CF55E7D1E2F56080028C711 /* bopomofo.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DD01E2F56070028C711 /* bopomofo.schema.yaml */; };
 		0CF55E7E1E2F56080028C711 /* bopomofo_tw.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DD11E2F56070028C711 /* bopomofo_tw.schema.yaml */; };
 		0CF55E7F1E2F56080028C711 /* cangjie5.dict.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55DD21E2F56070028C711 /* cangjie5.dict.yaml */; };
@@ -417,11 +421,12 @@
 		0CF55EB21E2F56080028C711 /* wugniu_lopha.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55E061E2F56070028C711 /* wugniu_lopha.schema.yaml */; };
 		0CF55EB31E2F56080028C711 /* zyenpheng.dict.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55E071E2F56070028C711 /* zyenpheng.dict.yaml */; };
 		0CF55EB41E2F56080028C711 /* zyenpheng.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55E081E2F56070028C711 /* zyenpheng.schema.yaml */; };
-		0CF55EB51E2F56080028C711 /* SharedSupport.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0CF55E091E2F56070028C711 /* SharedSupport.zip */; };
 		0CF87F561D70B16200874F4D /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF87F521D70B16200874F4D /* SVIndefiniteAnimatedView.m */; };
 		0CF87F571D70B16200874F4D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0CF87F531D70B16200874F4D /* SVProgressHUD.bundle */; };
 		0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF87F551D70B16200874F4D /* SVProgressHUD.m */; };
 		0CF87F5C1D70B1B200874F4D /* FileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDAE3861D70809E00A4FA2E /* FileManger.m */; };
+		0CFDAB731F28F16A0086AECD /* CandidateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFDAB721F28F16A0086AECD /* CandidateModel.m */; };
+		0CFDAB761F28F4130086AECD /* CandidateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFDAB721F28F16A0086AECD /* CandidateModel.m */; };
 		775A35029697D51047EB3762 /* libPods-iRime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7EBDACB9071F9501674482 /* libPods-iRime.a */; };
 		88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */; };
 		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
@@ -433,6 +438,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0C030A231F278A9500124E13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C030A1F1F278A9400124E13 /* libyaml.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CC5CD801CFC447D001A48D6;
+			remoteInfo = libyaml;
+		};
+		0C030A271F278AB200124E13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C030A1F1F278A9400124E13 /* libyaml.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CC5CD7F1CFC447D001A48D6;
+			remoteInfo = libyaml;
+		};
+		0C030A301F27916D00124E13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C2F10351F225AAB002C977D /* librime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CC5D0241CFC79FA001A48D6;
+			remoteInfo = librime;
+		};
 		0C0C947B1D75322F004D29D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0CEC31321D59BBFD00C21949 /* YACYAML.xcodeproj */;
@@ -513,6 +539,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C030A1F1F278A9400124E13 /* libyaml.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libyaml.xcodeproj; path = ../../../../iOSRime/workspace/libyaml/libyaml.xcodeproj; sourceTree = "<group>"; };
 		0C0C949C1D774710004D29D9 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		0C165C5B1D585C8400E61F6E /* AGEmojiKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGEmojiKeyBoardView.h; sourceTree = "<group>"; };
 		0C165C5C1D585C8400E61F6E /* AGEmojiKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGEmojiKeyBoardView.m; sourceTree = "<group>"; };
@@ -706,7 +733,7 @@
 		0CAD24BE1D615EC7007EE8C0 /* SelectInputViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectInputViewController.mm; sourceTree = "<group>"; };
 		0CAD24C21D61609F007EE8C0 /* SelectInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectInputViewController.xib; sourceTree = "<group>"; };
 		0CAD83C41D11619200DA88DB /* iRime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRime.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CAD83C81D11619200DA88DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0CAD83C81D11619200DA88DB /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		0CAD83CA1D11619200DA88DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CAD83CB1D11619200DA88DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0CAD83CD1D11619200DA88DB /* SettingRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingRootViewController.h; sourceTree = "<group>"; };
@@ -768,7 +795,6 @@
 		0CDAE3851D70809E00A4FA2E /* FileManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManger.h; sourceTree = "<group>"; };
 		0CDAE3861D70809E00A4FA2E /* FileManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManger.m; sourceTree = "<group>"; };
 		0CE4F3771D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CandidateTableCellTableViewCell.swift; path = spi/CandidateTableCellTableViewCell.swift; sourceTree = "<group>"; };
-		0CE4F3791D255A7A00E6DDB2 /* CandidateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateModel.swift; sourceTree = "<group>"; };
 		0CEC30A71D586B1F00C21949 /* EmojiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
 		0CEC30B11D5980B800C21949 /* RimeKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RimeKitConfig.h; sourceTree = "<group>"; };
 		0CEC30B21D5980B800C21949 /* RimeKitConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RimeKitConfig.m; sourceTree = "<group>"; };
@@ -807,8 +833,6 @@
 		0CEC30DF1D5980B800C21949 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0CEC30E01D5980B800C21949 /* SHFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFoundation.h; sourceTree = "<group>"; };
 		0CEC30E11D5980B800C21949 /* SHFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFoundation.m; sourceTree = "<group>"; };
-		0CEC31271D59889000C21949 /* key_table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = key_table.h; sourceTree = "<group>"; };
-		0CEC31281D59889000C21949 /* key_table.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = key_table.cc; sourceTree = "<group>"; };
 		0CEC312B1D5988AE00C21949 /* keysym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keysym.h; sourceTree = "<group>"; };
 		0CEC312C1D5988AE00C21949 /* keysymdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keysymdef.h; sourceTree = "<group>"; };
 		0CEC31301D598C0500C21949 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
@@ -987,6 +1011,8 @@
 		0CF87F541D70B16200874F4D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		0CF87F551D70B16200874F4D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		0CF9BF841F1754BE00AA7770 /* liblibrime.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibrime.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/iRime-dsmqjyidxcywgrhezynvhhingnpe/Build/Products/Debug-iphoneos/liblibrime.a"; sourceTree = "<group>"; };
+		0CFDAB711F28F16A0086AECD /* CandidateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CandidateModel.h; path = "Keyboard/tasty-imitation-keyboard/Model/CandidateModel.h"; sourceTree = SOURCE_ROOT; };
+		0CFDAB721F28F16A0086AECD /* CandidateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CandidateModel.m; path = "Keyboard/tasty-imitation-keyboard/Model/CandidateModel.m"; sourceTree = SOURCE_ROOT; };
 		4087E3C8972DF281B9AF0344 /* Pods-Keyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Keyboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673F602EBB10A5F0E0AA3390 /* Pods-iRime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRime.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRime/Pods-iRime.release.xcconfig"; sourceTree = "<group>"; };
@@ -1006,8 +1032,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C030A321F27917000124E13 /* liblibrime.a in Frameworks */,
+				0C030A291F278ABB00124E13 /* liblibyaml.a in Frameworks */,
 				0C0C94811D75330A004D29D9 /* libresolv.tbd in Frameworks */,
 				0C0C94801D7532FA004D29D9 /* libYACYAML.a in Frameworks */,
+				0C030A2A1F27911A00124E13 /* boost.framework in Frameworks */,
+				0C030A2B1F27911A00124E13 /* libleveldb.a in Frameworks */,
+				0C030A2C1F27911A00124E13 /* liblibmarisa-trie.a in Frameworks */,
+				0C030A2D1F27911A00124E13 /* liblibopencc.a in Frameworks */,
+				0C030A2F1F27911A00124E13 /* libmemenv.a in Frameworks */,
 				0CAD842B1D1163FF00DA88DB /* libc++.tbd in Frameworks */,
 				775A35029697D51047EB3762 /* libPods-iRime.a in Frameworks */,
 			);
@@ -1046,6 +1079,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C030A201F278A9400124E13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C030A241F278A9500124E13 /* liblibyaml.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0C165C5A1D585C8400E61F6E /* AGEmojiKeyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1318,6 +1359,7 @@
 		0CAD83BB1D11619200DA88DB = {
 			isa = PBXGroup;
 			children = (
+				0C030A1F1F278A9400124E13 /* libyaml.xcodeproj */,
 				0C2F10351F225AAB002C977D /* librime.xcodeproj */,
 				0CF55D4E1E2F56060028C711 /* LibAndResource */,
 				0C9FDB6F1D603F7D00D98649 /* Podfile */,
@@ -1379,7 +1421,7 @@
 		0CAD83C71D11619200DA88DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0CAD83C81D11619200DA88DB /* main.m */,
+				0CAD83C81D11619200DA88DB /* main.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1470,7 +1512,6 @@
 				0CB1CE3C1D22208800678571 /* CandidatesBanner.swift */,
 				0C70B9751D7F13A9005B7640 /* ToolsView.swift */,
 				0CAD846D1D119B1E00DA88DB /* Catboard.swift */,
-				0CE4F3791D255A7A00E6DDB2 /* CandidateModel.swift */,
 			);
 			name = main;
 			path = "tasty-imitation-keyboard/Demo";
@@ -1534,6 +1575,8 @@
 				0CAD84DB1D11A3E900DA88DB /* NSString+UTF8Utils.h */,
 				0CAD84DC1D11A3E900DA88DB /* NSString+UTF8Utils.m */,
 				0CAD84DD1D11A3E900DA88DB /* RimeTypeDef.h */,
+				0CFDAB711F28F16A0086AECD /* CandidateModel.h */,
+				0CFDAB721F28F16A0086AECD /* CandidateModel.m */,
 				0CAD84DE1D11A3E900DA88DB /* RimeTypeDef.m */,
 				0CAD84DF1D11A3E900DA88DB /* RimeWrapper.h */,
 				0CAD84E01D11A3E900DA88DB /* RimeWrapper.m */,
@@ -1599,8 +1642,6 @@
 		0CEC30AE1D5980B800C21949 /* RimeKit */ = {
 			isa = PBXGroup;
 			children = (
-				0CEC31271D59889000C21949 /* key_table.h */,
-				0CEC31281D59889000C21949 /* key_table.cc */,
 				0CEC30B11D5980B800C21949 /* RimeKitConfig.h */,
 				0CEC30B21D5980B800C21949 /* RimeKitConfig.m */,
 				0CEC30B31D5980B800C21949 /* RimeConfigAppOption.h */,
@@ -2034,6 +2075,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				0C030A311F27916D00124E13 /* PBXTargetDependency */,
+				0C030A281F278AB200124E13 /* PBXTargetDependency */,
 				0C0C947C1D75322F004D29D9 /* PBXTargetDependency */,
 				0CAD84361D119ABF00DA88DB /* PBXTargetDependency */,
 			);
@@ -2156,6 +2199,10 @@
 					ProjectRef = 0C2F10351F225AAB002C977D /* librime.xcodeproj */;
 				},
 				{
+					ProductGroup = 0C030A201F278A9400124E13 /* Products */;
+					ProjectRef = 0C030A1F1F278A9400124E13 /* libyaml.xcodeproj */;
+				},
+				{
 					ProductGroup = 0CEC31331D59BBFD00C21949 /* Products */;
 					ProjectRef = 0CEC31321D59BBFD00C21949 /* YACYAML.xcodeproj */;
 				},
@@ -2171,6 +2218,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0C030A241F278A9500124E13 /* liblibyaml.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibyaml.a;
+			remoteRef = 0C030A231F278A9500124E13 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0C2F103A1F225AAB002C977D /* liblibrime.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -2435,7 +2489,6 @@
 				0CF55E4D1E2F56080028C711 /* luna_pinyin.userdb.txt in Resources */,
 				0C5E30EF1E078FCB0012F008 /* wubi_pinyin.schema.yaml in Resources */,
 				0C5E312A1E078FCB0012F008 /* TWVariants.ocd in Resources */,
-				0CF55E631E2F56080028C711 /* Rime.zip in Resources */,
 				0CF55E4F1E2F56080028C711 /* luna_pinyin_simp.schema.yaml in Resources */,
 				0C5E30BF1E078FCB0012F008 /* default.custom.yaml in Resources */,
 				0CF55EA51E2F56080028C711 /* soutzoe.dict.yaml in Resources */,
@@ -2450,7 +2503,6 @@
 				0C5E301F1E078F650012F008 /* tw2sp.json in Resources */,
 				0C5E31371E078FCB0012F008 /* terra_pinyin.schema.yaml in Resources */,
 				0C5E31061E078FCB0012F008 /* symbols.yaml in Resources */,
-				0CF55EB51E2F56080028C711 /* SharedSupport.zip in Resources */,
 				0C5E30D71E078FCB0012F008 /* default.custom.yaml in Resources */,
 				0C5E310C1E078FCB0012F008 /* cangjie5_express.schema.yaml in Resources */,
 				0CF55E661E2F56080028C711 /* cangjie5.schema.yaml in Resources */,
@@ -2461,7 +2513,6 @@
 				0C5E30F51E078FCB0012F008 /* installation.yaml in Resources */,
 				0CF55E2B1E2F56070028C711 /* TWPhrasesName.txt in Resources */,
 				0CF55E221E2F56070028C711 /* HKVariantsRev.txt in Resources */,
-				0C5E31411E078FDB0012F008 /* RimeResource.zip in Resources */,
 				0C5E30C21E078FCB0012F008 /* luna_pinyin.schema.yaml in Resources */,
 				0CF55E5A1E2F56080028C711 /* 000061.ldb in Resources */,
 				0C5E310E1E078FCB0012F008 /* default.yaml in Resources */,
@@ -2477,9 +2528,7 @@
 				0C5E30E41E078FCB0012F008 /* wubi86.reverse.bin in Resources */,
 				0C5E310A1E078FCB0012F008 /* cangjie5.dict.yaml in Resources */,
 				0C5E30211E078F650012F008 /* HKVariantsPhrases.txt in Resources */,
-				0CF55E7C1E2F56080028C711 /* RimeResource.zip in Resources */,
 				0C5E31321E078FCB0012F008 /* squirrel.yaml in Resources */,
-				0C5E30BD1E078FCB0012F008 /* iRime.zip in Resources */,
 				0CF55E501E2F56080028C711 /* luna_pinyin_tw.schema.yaml in Resources */,
 				0CF55E281E2F56070028C711 /* TSPhrases.txt in Resources */,
 				0C5E30EB1E078FCB0012F008 /* LOG in Resources */,
@@ -2677,7 +2726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C0C94841D7534C1004D29D9 /* key_table.cc in Sources */,
+				0C030A331F27924800124E13 /* RimeWrapper.m in Sources */,
 				0C0C94851D7534C1004D29D9 /* RimeKitConfig.m in Sources */,
 				0C0C94861D7534C1004D29D9 /* RimeConfigAppOption.m in Sources */,
 				0C0C94871D7534C1004D29D9 /* RimeConfigController.m in Sources */,
@@ -2694,15 +2743,18 @@
 				0C0C94911D7534C1004D29D9 /* UIViewController+SHExtensions.m in Sources */,
 				0C0C94921D7534C1004D29D9 /* NSDictionary+KeyPath.m in Sources */,
 				0C0C94931D7534C1004D29D9 /* NSObject+DeepMutableCopy.m in Sources */,
+				0C030A351F27940B00124E13 /* NSString+UTF8Utils.m in Sources */,
 				0C0C94941D7534C1004D29D9 /* NSString+SHExtensions.m in Sources */,
 				0C0C94951D7534C1004D29D9 /* SHFoundation.m in Sources */,
+				0C030A341F27940800124E13 /* RimeTypeDef.m in Sources */,
 				0CDAE3771D707EA200A4FA2E /* SettingFileViewController.m in Sources */,
 				0C5C95CE1D717971006F3EA6 /* GuideViewController.m in Sources */,
 				0CAD24601D604A29007EE8C0 /* SettingRootViewController.m in Sources */,
 				0C6507871D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
+				0CFDAB761F28F4130086AECD /* CandidateModel.m in Sources */,
 				0CAD24BF1D615EC7007EE8C0 /* SelectInputViewController.mm in Sources */,
 				0CAD83CC1D11619200DA88DB /* AppDelegate.m in Sources */,
-				0CAD83C91D11619200DA88DB /* main.m in Sources */,
+				0CAD83C91D11619200DA88DB /* main.mm in Sources */,
 				0CDAE3871D70809E00A4FA2E /* FileManger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2751,8 +2803,8 @@
 				0CB1CE411D22225B00678571 /* CandidateCell.swift in Sources */,
 				88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */,
 				0CB1CE431D22236700678571 /* TypingLabel.swift in Sources */,
+				0CFDAB731F28F16A0086AECD /* CandidateModel.m in Sources */,
 				0CAD848F1D119B1E00DA88DB /* Shapes.swift in Sources */,
-				0CE4F37A1D255A7A00E6DDB2 /* CandidateModel.swift in Sources */,
 				0C68A76C1D7D490B001BFC24 /* OpenCCService.mm in Sources */,
 				0C70B9761D7F13A9005B7640 /* ToolsView.swift in Sources */,
 				0CAD84801D119B1E00DA88DB /* KeyboardLayout.swift in Sources */,
@@ -2777,6 +2829,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0C030A281F278AB200124E13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libyaml;
+			targetProxy = 0C030A271F278AB200124E13 /* PBXContainerItemProxy */;
+		};
+		0C030A311F27916D00124E13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = librime;
+			targetProxy = 0C030A301F27916D00124E13 /* PBXContainerItemProxy */;
+		};
 		0C0C947C1D75322F004D29D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YACYAML;

@@ -493,13 +493,13 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         
         self.removeAllCandidateList();
-        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: -1, andCount: 50) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: -1, andCount: 50) as? [CandidateModel]
         
         if (cl == nil) {
             self.removeAllCandidateList();
         }else{
             
-            self.addCandidates(cl!)
+            self.addCandidates(candidates: cl!)
             
         }
         
@@ -510,13 +510,12 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
     }
     
-    func addCandidates(_ strings:[String]) {
+    func addCandidates(candidates: [CandidateModel]) {
         
 
-        for s in strings {
-            let candidate = CandidateModel()
-            candidate.text = self.openCC(s)
-            self.candidateList.append(candidate)
+        for s in candidates {
+            s.text = self.openCC(s.text)
+            self.candidateList.append(s)
         }
         
     }
@@ -723,7 +722,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             candidate.textSize = getCellSizeAtIndex(indexPath, andText: candidate.text, andSetLayout: collectionViewLayout as! UICollectionViewFlowLayout)
         }
         
-        return candidate.textSize!
+        return candidate.textSize
         
     }
     
@@ -801,14 +800,12 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     }
     
     func loadMoreCandidate(scrollView: UIScrollView) {
-//        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
-        //print("index:%d", self.candidateIndex)
-        //print("count:%d", self.candidateCount)
+
         self.candidateIndex += self.candidateCount
-        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [CandidateModel]
         
         if (cl != nil) {
-            self.addCandidates(cl!)
+            self.addCandidates(candidates: cl!)
         }else{
             scrollView.mj_footer.endRefreshingWithNoMoreData()
             return;
@@ -959,6 +956,12 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         let c: CandidateTableCellTableViewCell = cell as! CandidateTableCellTableViewCell
         let candidate = self.candidateList[indexPath.row]
+        
+        
+        
+        
+        
+        
         c.txtLabel?.text = candidate.text
         
         if indexPath.row == 0 {
@@ -979,15 +982,15 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
         let s = self.candidateList![indexPath.row]
         
-        if s.textSize == nil {
+        if s.textSize.width <= 0 {
             s.textSize = CandidateCell.getCellSizeByText(s.text, needAccuracy: indexPath == indexPathZero ? true : false)
         }
         //设置第一个选项宽大点，方便选择
         if indexPath.row == 0 {
             let l : CGFloat = 5.0
-            return s.textSize!.width + l
+            return s.textSize.width + l
         }
-        return s.textSize!.width
+        return s.textSize.width
         
        
         
@@ -1025,11 +1028,11 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         }
         
 
-        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
+        let cl = RimeWrapper.getCandidateList(forSession: self.rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [CandidateModel]
         self.removeAllCandidateList();
         if (cl != nil) {
             
-            self.addCandidates(cl!)
+            self.addCandidates(candidates: cl!)
         }
 
         self.candidatesBanner?.reloadData()

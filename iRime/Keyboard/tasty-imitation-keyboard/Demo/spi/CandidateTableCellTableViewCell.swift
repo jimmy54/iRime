@@ -14,6 +14,7 @@ import UIKit
 class CandidateTableCellTableViewCell: UITableViewCell {
     
     var txtLabel: UILabel!
+    var commentLable: UILabel!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,6 +35,15 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         contentView.addSubview(txtLabel)
         
         
+        commentLable = UILabel()
+        commentLable.backgroundColor = UIColor.clear
+        commentLable.font = commentTextFont
+        commentLable.textAlignment = .left
+        commentLable.baselineAdjustment = .alignCenters
+        commentLable.lineBreakMode = .byTruncatingTail
+        contentView.addSubview(commentLable)
+        
+        
         self.separatorInset = UIEdgeInsets.zero
         self.preservesSuperviewLayoutMargins = false
         self.layoutMargins = UIEdgeInsets.zero
@@ -51,6 +61,7 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         
         
         txtLabel.translatesAutoresizingMaskIntoConstraints = false
+        commentLable.translatesAutoresizingMaskIntoConstraints = false
 //        let constraints = NSLayoutConstraint.constraintsWithVisualFormat("|-8-[txtLabel]-8-|", options: [], metrics: nil, views: ["txtLabel": txtLabel])
 //        self.contentView.addConstraints(constraints)
         let constraint = NSLayoutConstraint(item: txtLabel, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0)
@@ -59,8 +70,17 @@ class CandidateTableCellTableViewCell: UITableViewCell {
         let c = NSLayoutConstraint(item: txtLabel, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
         self.contentView.addConstraint(c)
         
+        //commenttext
+        let commentLableConstraint = NSLayoutConstraint(item: commentLable, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1, constant: 0)
+        self.contentView.addConstraint(commentLableConstraint)
+        
+        let commentLableC = NSLayoutConstraint(item: commentLable, attribute: .trailing, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0)
+        self.contentView.addConstraint(commentLableC)
+        
+        
         let rot: CGFloat = CGFloat(Double.pi / 2)
         txtLabel.transform = CGAffineTransform(rotationAngle: rot)
+        commentLable.transform = CGAffineTransform(rotationAngle: rot)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,8 +96,10 @@ class CandidateTableCellTableViewCell: UITableViewCell {
     func updateAppearance() {
         if candidatesBannerAppearanceIsDark == true {
             txtLabel.textColor = UIColor.white
+            commentLable.textColor = UIColor.lightGray
         } else {
             txtLabel.textColor = UIColor.darkText
+            commentLable.textColor = UIColor.lightGray
         }
     }
     

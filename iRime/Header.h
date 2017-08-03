@@ -22,4 +22,5 @@
 #import "OpenCCService.h"
 #import <Masonry.h>
 #import <MJRefresh.h>
+#import "CandidateModel.h"
 

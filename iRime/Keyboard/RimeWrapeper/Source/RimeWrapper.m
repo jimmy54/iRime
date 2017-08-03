@@ -9,9 +9,10 @@
 #import "RimeWrapper.h"
 #import "NSString+UTF8Utils.h"
 #include "rime_api.h"
-
+#import "CandidateModel.h"
 
 #import "NSString+Path.h"
+
 
 // All const definitions here
 #define kXIMEUserDataDirectoryKey @"XIMEUserDataDirectory"
@@ -155,7 +156,14 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     notificationDelegate_ = delegate;
 }
 
-+ (BOOL)startService {
+
++ (BOOL)startService
+{
+    return [RimeWrapper startServiceWithFastMode:YES];
+}
+
++ (BOOL)startServiceWithFastMode:(BOOL)fastMode
+{
     
     NSString *rimePath = nil;
     NSString *shareSupportPath = nil;
@@ -184,24 +192,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     RIME_STRUCT(RimeTraits, vXIMETraits);
     vXIMETraits.shared_data_dir = [shareSupportPath UTF8String];
     vXIMETraits.user_data_dir = [rimePath UTF8String];
-    /*test
 
-
-    BOOL res = NO;
-    NSString *dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"testDir"];
-    NSFileManager * f = [NSFileManager defaultManager];
-    NSURL * url = [f containerURLForSecurityApplicationGroupIdentifier:GROUP_ID];
-    
-    res = [f createDirectoryAtPath:[url absoluteString] withIntermediateDirectories:YES attributes:NULL error:&err];
-    
-    
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"test", @"test----", nil];
-    dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"test.txt"];
-     res = [dic writeToFile:dir atomically:YES];
-    if (res == NO) {
-        NSLog(@"create the file error!");
-    }
-    */
     vXIMETraits.distribution_name = "iRime";
     vXIMETraits.distribution_code_name = "iRime";
     vXIMETraits.distribution_version = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String];
@@ -217,7 +208,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     RimeInitialize(NULL);
     
     // Fast deploy
-    [self deployWithFastMode:YES];
+    [self deployWithFastMode:fastMode];
     
     return YES;
 }
@@ -486,15 +477,26 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         
         //NSInteger i = index;
         NSString *s = nil;
+        CandidateModel *model = nil;
         while (RimeCandidateListNext(&ite)) {
             
             if (ite.index > candidateMax) {
                 break;
             }
+            
+            
+            model = [CandidateModel new];
             s = [NSString stringWithUTF8String:ite.candidate.text];
+            model.text = s;
+//            if (ite.candidate.comment != NULL) {
+//                s = [NSString stringWithUTF8String:ite.candidate.comment];
+//                NSLog(@"c:%@", s);
+//            }
+//            model.comment = s;
+//            
             //NSLog(@"%d:%@", i, s);
 //            i++;
-            [candidates addObject:s];
+            [candidates addObject:model];
         }
         
         RimeCandidateListEnd(&ite);
@@ -522,7 +524,8 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     
     RimeSchemaList schemaList;
     
-    Bool r = rime_get_api()->get_schema_list(&schemaList);
+    
+    Bool r = RimeGetSchemaList(&schemaList);
     if (r == NO) {
         NSLog(@"get schema list fail");
         return nil;
@@ -535,8 +538,11 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     for (int i = 0; i < schemaList.size; i++) {
         
         item = &schemaList.list[i];
+        NSLog(@"%s", item->name);
         
     }
+    
+    RimeFreeSchemaList(&schemaList);
     
     return res;
 }

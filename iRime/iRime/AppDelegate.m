@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-//#import "RimeWrapper.h"
+#import "RimeWrapper.h"
 #import "rime_api.h"
 #import "SHUIKit.h"
 
@@ -40,8 +40,13 @@
 
 #import "RimeConfigController.h"
 
-@interface AppDelegate (){
+@interface AppDelegate ()<RimeNotificationDelegate>{
+    
+    
+    
 }
+
+@property(nonatomic, assign)RimeSessionId rimeSession;
 
 
 
@@ -62,40 +67,23 @@
     UMConfigInstance.channelId = @"App Store";
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     
-
-    
-//
-//#ifdef DEBUG
-//    /**
-//     *  PGYER TEST
-//     */
-//    
-//    //启动基本SDK
-//    [[PgyManager sharedPgyManager] startManagerWithAppId:PGYTER_APPID];
-//#endif
-    
-    
     FileManger *fm = [FileManger new];
     
     fm.endBlock = ^{
         
-//        [[RimeConfigController sharedInstance] loadConfig];
+        
+        //start service
+        [self startRimeService];
     
     };
     
     [fm initSettingFile];
     
-    
-    
+
     
     [SVProgressHUD setBackgroundColor:[UIColor darkGrayColor]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-    
-    
-    
 
-//    [RimeWrapper startService];
-    
     
     //create the dir
     
@@ -122,16 +110,11 @@
         }
     }
     
-    
-    
+
 
     
     return YES;
 }
-
-
-
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -156,7 +139,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     // Stop Rime service
-//    [RimeWrapper stopService];
+    [RimeWrapper stopService];
     
     // Destroy IMKServer
 }
@@ -171,51 +154,56 @@
                 [SVProgressHUD showSuccessWithStatus:@"部署成功！可以返回使用iRime输入法了"];
             }
         ];
-        
     }
 
-        
-        
-    
     return YES;
 }
 
 
-#pragma mark Key Up Event Handler
+#pragma mark rime server
 
-//- (RimeConfigController *)configController {
-//    if (!_configController) {
-//        RimeConfigError *error;
-//        
-//        _configController = [[RimeConfigController alloc] init:&error];
-//        
-//        if (!_configController) {
-//            NSString *message;
-//            NSString *info;
-//            
-//            switch ([error errorType]) {
-//                case RimeConfigFolderNotExistsError:
-//                    message = NSLocalizedString(@"Rime configuration folder does not exist", nil);
-//                    info = [NSString stringWithFormat:NSLocalizedString(@"Should run the Deploy command with file path", nil), [RimeConfigController rimeFolder]];
-//                    break;
-//                case RimeConfigFileNotExistsError:
-//                    message = NSLocalizedString(@"Rime configuration file does not exist", nil);
-//                    info = [NSString stringWithFormat:NSLocalizedString(@"Should run the Deploy command with file path", nil), [error configFile]];
-//                    break;
-//                default:
-//                    message = NSLocalizedString(@"Rime configuration loading failed", nil);
-//                    info = NSLocalizedString(@"Should run the Deploy command with further info", nil);
-//                    break;
-//            }
-//            NSString *buttonLabel = NSLocalizedString(@"OK", nil);
-////            [SHUIKit alertWithMessage:message info:info cancelButton:buttonLabel];
-//            
-//            return nil;
-//        }
-//    }
-//    
-//    return _configController;
-//}
+-(void)startRimeService
+{
+    [RimeWrapper setNotificationDelegate:self];
+    if ([RimeWrapper startServiceWithFastMode:NO]) {
+        
+        if ([RimeWrapper isSessionAlive:self.rimeSession] == NO) {
+            self.rimeSession = [RimeWrapper createSession];
+        }else{
+            NSLog(@"iRime create session fail");
+        }
+        
+    }else{
+        NSLog(@"iRime start rime service fail");
+    }
 
+}
+
+#pragma mark -- rime notif
+
+- (void)onDeploymentStarted
+{
+    NSLog(@"onDeploymentStarted");
+}
+
+- (void)onDeploymentSuccessful
+{
+    NSLog(@"onDeploymentSuccessful");
+}
+
+- (void)onDeploymentFailed
+{
+    NSLog(@"onDeploymentFailed");
+}
+
+- (void)onSchemaChangedWithNewSchema:(NSString *)schema
+{
+    NSLog(@"onSchemaChangedWithNewSchema");
+}
+
+- (void)onOptionChangedWithOption:(XRimeOption)option value:(BOOL)value
+{
+    NSLog(@"onOptionChangedWithOption");
+}
 
 @end

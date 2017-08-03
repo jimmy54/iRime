@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface CandidateModel : NSObject
+
+
+
+@property(nonatomic, strong)NSString *text;
+@property(nonatomic, strong)NSString *comment;
+@property(nonatomic, assign)CGSize   textSize;
 
 @end
