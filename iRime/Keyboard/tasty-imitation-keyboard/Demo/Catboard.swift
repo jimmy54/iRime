@@ -96,7 +96,18 @@ var startTime: Date?
 
 let kCatTypeEnabled = "kCatTypeEnabled"
 
-class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDelegate,iRNumberBoardFatherViewProtocol{
+class Catboard: KeyboardViewController,
+                RimeNotificationDelegate,
+                UICollectionViewDataSource,
+                UICollectionViewDelegate,
+                UITableViewDelegate,
+                UITableViewDataSource,
+                AGEmojiKeyboardViewDataSource,
+                AGEmojiKeyboardViewDelegate,
+                iRNumberBoardFatherViewProtocol,
+                iRSymbolBoardContentViewProtocol
+
+{
     
     lazy var viewNumberBoardView:iRNumberBoardFatherView = {
         let viewNumberBoard = iRNumberBoardFatherView.init(frame: CGRect.null)
@@ -119,6 +130,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         let viewSymbolBoard = iRSymbolBoardContentView.init(frame: CGRect.null)
         self.view.addSubview(viewSymbolBoard)
         //--属性设置
+        viewSymbolBoard.delegateAction = self as! iRSymbolBoardContentViewProtocol
         //--约束布局
         viewSymbolBoard.mas_makeConstraints({ (make:MASConstraintMaker!) in
             make.left.equalTo()(self.view)
@@ -205,7 +217,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
         
     }
 
-    
+    //MARK:数字键盘代理
     func presentTextFromNumberPad(_ text:String) -> Void
     {
         self.textDocumentProxy.insertText(text);
@@ -218,6 +230,16 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     func getReturnKeyTitle() -> String {
         return self.getReturnKeyTitleString()
     }
+    //MARK:符号键盘代理
+    func presentTextFromSymbolBoard(_ text:String) -> Void
+    {
+        self.textDocumentProxy.insertText(text);
+    }
+    func deleteBackwardOfiRSymbolBoardContentView() -> Void
+    {
+        self.textDocumentProxy.deleteBackward()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("------------------viewDidAppear---------------------")

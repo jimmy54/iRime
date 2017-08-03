@@ -10,6 +10,16 @@ import UIKit
 
 let arrayCoupleSymbols:[String] = [ "“”","（）", "《》","〈〉","［］","｛｝","【】","〖〗","〔〕", "『』","「」","()","<>","{}","[]"];
 
+
+
+@objc protocol iRSymbolBoardContentViewProtocol:NSObjectProtocol {
+    
+    func presentTextFromSymbolBoard(_ text:String) -> Void
+    func deleteBackwardOfiRSymbolBoardContentView() -> Void
+}
+
+
+
 extension String {
     
     func ifCoupleSymbols() -> Bool {
@@ -33,6 +43,15 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
     
     static var width_iRSymbolBoardLeftControlView:CGFloat = 70
     static var height_line_iRSymbolBoardLeftControlView:CGFloat = 45
+    weak var delegateAction:iRSymbolBoardContentViewProtocol?
+        {
+            didSet
+                {
+                   viewRight.delegateAction = delegateAction
+                }
+        }
+    
+    
     var sizeOfItemNormal:CGSize = {
         let width = (screenWidthIR()-iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)*0.2
         

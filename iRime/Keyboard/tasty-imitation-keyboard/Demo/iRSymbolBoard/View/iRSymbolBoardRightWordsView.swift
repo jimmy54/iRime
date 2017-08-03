@@ -10,6 +10,7 @@ import UIKit
 
 class iRSymbolBoardRightWordsView: UIView,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
 
+    weak var delegateAction:iRSymbolBoardContentViewProtocol?
     let collectionView:UICollectionView = {
         let collectionView = UICollectionView.init(frame: CGRect.null, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.register(iRSymbolBoardRightWordsCollectionCell.classForCoder(), forCellWithReuseIdentifier: "iRSymbolBoardRightWordsCollectionCell")
@@ -76,7 +77,15 @@ class iRSymbolBoardRightWordsView: UIView,UICollectionViewDelegateFlowLayout,UIC
         return 0
     }
     
-   
+    //MARK:点击回调
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (self.delegateAction?.responds(to: #selector(iRSymbolBoardContentViewProtocol.presentTextFromSymbolBoard(_:))))! {
+            
+            let strSymbol:String = (modelSymbolItem?.arraySymbols?[indexPath.item])!
+            
+            self.delegateAction?.presentTextFromSymbolBoard(strSymbol)
+        }
+    }
     
 
     
