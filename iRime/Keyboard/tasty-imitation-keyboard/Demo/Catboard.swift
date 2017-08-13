@@ -117,7 +117,13 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     }()
 
     var rimeSessionId_ : RimeSessionId = 0
-    var isChineseInput: Bool = true
+    var isChineseInput: Bool = true {
+      didSet {
+        if isChineseInput && shiftState != .disabled {
+          shiftState = .disabled
+        }
+      }
+    }
     var switchInputView:KeyboardKey?
     var candidatesBanner: CandidatesBanner?
 
