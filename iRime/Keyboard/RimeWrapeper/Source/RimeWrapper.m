@@ -473,35 +473,28 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     }
     
     //candidate
-    RimeCandidateListIterator ite;
-    
-    @autoreleasepool {
-        
-        bool res = RimeCandidateListBeginWithIndex((int)index, sessionId, &ite);
-        if (res == false) {
-            return nil;
-        }
-        NSInteger candidateMax = index + count;
-        
-        
-        //NSInteger i = index;
-        NSString *s = nil;
-        while (RimeCandidateListNext(&ite)) {
-            
-            if (ite.index > candidateMax) {
-                break;
-            }
-            s = [NSString stringWithUTF8String:ite.candidate.text];
-            //NSLog(@"%d:%@", i, s);
-//            i++;
-            [candidates addObject:s];
-        }
-        
-        RimeCandidateListEnd(&ite);
+  RimeCandidateListIterator ite;
+  bool res = RimeCandidateListBegin(sessionId, &ite);
+  if (res == false) {
+    return nil;
+  }
+
+
+  NSString *s = nil;
+  while (RimeCandidateListNext(&ite)) {
+
+    if (ite.index > kMaxCandidateListCount) {
+      break;
     }
-    
-    return candidates;
-    
+
+    s = [NSString stringWithUTF8String:ite.candidate.text];
+    [candidates addObject:s];
+  }
+
+  RimeCandidateListEnd(&ite);
+
+  return candidates;
+
 }
 
 
