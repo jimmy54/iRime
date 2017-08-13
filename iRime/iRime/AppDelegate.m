@@ -20,6 +20,7 @@
 
 
 #import "FileManger.h"
+#import <UIAlertView+Blocks.h>
 
 #define UMENG_KEY @"57aff5d267e58ec99c001744"
 
@@ -154,7 +155,17 @@
     // Destroy IMKServer
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
 
+  if ([url.absoluteString hasSuffix:@"create.iRime.dir"]) {
+    [UIAlertView showWithTitle:@"提示" message:@"第一次使用需要部署一下" cancelButtonTitle:nil otherButtonTitles:@[@"确认"] tapBlock:^(UIAlertView * _Nonnull alertView, NSInteger buttonIndex) {
+          [SVProgressHUD showSuccessWithStatus:@"部署成功！可以返回使用iRime输入法了"];
+    }];
+  }
+
+  return YES;
+}
 
 #pragma mark Key Up Event Handler
 

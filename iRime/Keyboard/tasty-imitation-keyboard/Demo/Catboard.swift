@@ -219,6 +219,15 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("------------------viewDidAppear---------------------")
+
+        //keyboard 没有权限，需要跳到iRime去创建目录
+        let fm = FileManager.default.fileExists(atPath: NSString.rimeResource())
+        if !fm {
+            let iRimeURL = "iRime://create.iRime.dir";
+            self.openURL(iRimeURL)
+            return;
+        }
+
          RimeWrapper .setNotificationDelegate(self)
         if RimeWrapper.startService() {
 
