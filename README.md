@@ -1,4 +1,4 @@
-# iRime輸入法 禁止代码原封不动打包上传到AppStore
+# iRime輸入法         注：禁止代码原封不动打包上传到AppStore
 
 =====
 基於著名的[Rime]輸入法框架，
