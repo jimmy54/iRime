@@ -426,8 +426,6 @@
 		886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */; };
 		886EAAC51E6C633200DC722C /* iRNumberBoardCentreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */; };
 		B3ABD6D31F409E520035E1B4 /* boost in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ABD6D21F409E520035E1B4 /* boost */; };
-		CF88DBF61F2111D500FCA0DE /* PlaySound.m in Sources */ = {isa = PBXBuildFile; fileRef = CF88DBF51F2111D500FCA0DE /* PlaySound.m */; };
-		CF88DBF71F2111D500FCA0DE /* PlaySound.m in Sources */ = {isa = PBXBuildFile; fileRef = CF88DBF51F2111D500FCA0DE /* PlaySound.m */; };
 		F4F9CCB5297369477E6CA790 /* libPods-Keyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */; };
 /* End PBXBuildFile section */
 
@@ -981,8 +979,6 @@
 		886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardCentreKeysView.swift; sourceTree = "<group>"; };
 		B3ABD6D01F409E410035E1B4 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = LibAndResource/lib; sourceTree = "<group>"; };
 		B3ABD6D21F409E520035E1B4 /* boost */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = boost; path = LibAndResource/lib/boost.framework/Versions/A/boost; sourceTree = "<group>"; };
-		CF88DBF41F2111D500FCA0DE /* PlaySound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaySound.h; sourceTree = "<group>"; };
-		CF88DBF51F2111D500FCA0DE /* PlaySound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaySound.m; sourceTree = "<group>"; };
 		E195E134834BA41048E6E55A /* Pods-Keyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1541,8 +1537,6 @@
 			children = (
 				0CDAE3851D70809E00A4FA2E /* FileManger.h */,
 				0CDAE3861D70809E00A4FA2E /* FileManger.m */,
-				CF88DBF41F2111D500FCA0DE /* PlaySound.h */,
-				CF88DBF51F2111D500FCA0DE /* PlaySound.m */,
 			);
 			path = FileManger;
 			sourceTree = "<group>";
@@ -2655,7 +2649,6 @@
 				0C0C948E1D7534C1004D29D9 /* SHTabBarController.m in Sources */,
 				0C0C948F1D7534C1004D29D9 /* SHUIKit.m in Sources */,
 				0C0C94901D7534C1004D29D9 /* UINavigationBar+BackgroundImage.m in Sources */,
-				CF88DBF61F2111D500FCA0DE /* PlaySound.m in Sources */,
 				0C0C94911D7534C1004D29D9 /* UIViewController+SHExtensions.m in Sources */,
 				0C0C94921D7534C1004D29D9 /* NSDictionary+KeyPath.m in Sources */,
 				0C0C94931D7534C1004D29D9 /* NSObject+DeepMutableCopy.m in Sources */,
@@ -2698,7 +2691,6 @@
 				0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
 				0CAD84E21D11A3E900DA88DB /* RimeTypeDef.m in Sources */,
 				0CAD848A1D119B1E00DA88DB /* ExtraView.swift in Sources */,
-				CF88DBF71F2111D500FCA0DE /* PlaySound.m in Sources */,
 				0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */,
 				0CAD84881D119B1E00DA88DB /* DefaultSettings.swift in Sources */,
 				886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */,

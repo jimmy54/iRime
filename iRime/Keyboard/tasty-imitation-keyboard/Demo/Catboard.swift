@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -331,9 +332,6 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     }
 
     override func keyPressed(_ key: Key) {
-
-        //play key sound
-        PlaySound.playDefaultSound()
 
         let textDocumentProxy = self.textDocumentProxy
 

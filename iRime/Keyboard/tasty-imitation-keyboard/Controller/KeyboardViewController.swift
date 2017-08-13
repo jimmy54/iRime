@@ -870,11 +870,8 @@ class KeyboardViewController: UIInputViewController {
     
     // this only works if full access is enabled
     func playKeySound() {
-        if !UserDefaults.standard.bool(forKey: kKeyboardClicks) {
-            return
-        }
-        
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
+
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: {
             AudioServicesPlaySystemSound(1104)
         })
     }
