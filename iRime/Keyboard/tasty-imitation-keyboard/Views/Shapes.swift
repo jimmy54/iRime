@@ -271,7 +271,7 @@ func drawGlobe(_ bounds: CGRect, color: UIColor) {
     let factors = getFactors(CGSize(width: 41, height: 40), toRect: bounds)
     let xScalingFactor = factors.xScalingFactor
     let yScalingFactor = factors.yScalingFactor
-    let lineWidthScalingFactor = factors.lineWidthScalingFactor
+    let lineWidthScalingFactor = factors.lineWidthScalingFactor * 2
     
     centerShape(CGSize(width: 41 * xScalingFactor, height: 40 * yScalingFactor), toRect: bounds)
     
