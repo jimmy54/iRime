@@ -542,7 +542,7 @@ class KeyboardViewController: UIInputViewController {
         self.setCapsIfNeeded()
         
         // trigger for subsequent deletes
-        self.backspaceDelayTimer = Timer.scheduledTimer(timeInterval: backspaceDelay - backspaceRepeat, target: self, selector: #selector(KeyboardViewController.backspaceDelayCallback), userInfo: nil, repeats: false)
+        self.backspaceDelayTimer = Timer.scheduledTimer(timeInterval: backspaceDelay - backspaceRepeat, target: self, selector: #selector(KeyboardViewController.backspaceDelayCallback), userInfo: sender, repeats: false)
     }
     
     func backspaceUp(_ sender: KeyboardKey) {
@@ -551,15 +551,15 @@ class KeyboardViewController: UIInputViewController {
         self.keyPressedHelper(sender)
     }
     
-    func backspaceDelayCallback() {
+    func backspaceDelayCallback(timer: Timer) {
         self.backspaceDelayTimer = nil
-        self.backspaceRepeatTimer = Timer.scheduledTimer(timeInterval: backspaceRepeat, target: self, selector: #selector(KeyboardViewController.backspaceRepeatCallback), userInfo: nil, repeats: true)
+        self.backspaceRepeatTimer = Timer.scheduledTimer(timeInterval: backspaceRepeat, target: self, selector: #selector(KeyboardViewController.backspaceRepeatCallback), userInfo: timer.userInfo, repeats: true)
     }
     
-    func backspaceRepeatCallback() {
+    func backspaceRepeatCallback(timer: Timer) {
         self.playKeySound()
         
-        self.textDocumentProxy.deleteBackward()
+        self.keyPressedHelper(timer.userInfo as! KeyboardKey)
         self.setCapsIfNeeded()
     }
     
