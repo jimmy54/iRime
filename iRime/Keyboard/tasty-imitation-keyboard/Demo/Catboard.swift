@@ -779,13 +779,10 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     }
 
     func loadMoreCandidate(scrollView: UIScrollView) {
-//        let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_) as? [String]
-        //print("index:%d", self.candidateIndex)
-        //print("count:%d", self.candidateCount)
         self.candidateIndex += self.candidateCount
         let cl = RimeWrapper.getCandidateList(forSession: rimeSessionId_, andIndex: self.candidateIndex, andCount: self.candidateCount) as? [String]
 
-        if (cl != nil) {
+        if (cl != nil && cl?.count > 0) {
             self.addCandidates(cl!)
         }else{
             scrollView.mj_footer.endRefreshingWithNoMoreData()

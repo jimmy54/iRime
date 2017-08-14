@@ -92,13 +92,13 @@ typedef NS_OPTIONS(NSUInteger, NSEventModifierFlags) {
 static id<RimeNotificationDelegate> notificationDelegate_ = nil;
 
 void notificationHandler(void* context_object, RimeSessionId session_id, const char* message_type, const char* message_value) {
-    
+
     if (notificationDelegate_ == nil) {
         return;
     }
-    
+
     if (!strcmp(message_type, "deploy")) { // Deployment state change
-        
+
         if (!strcmp(message_value, "start")) {
             if ([notificationDelegate_ respondsToSelector:@selector(onDeploymentStarted)]) {
                 [notificationDelegate_ onDeploymentStarted];
@@ -114,20 +114,20 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
                 [notificationDelegate_ onDeploymentFailed];
             }
         }
-        
+
     } else if (!strcmp(message_type, "schema") && [notificationDelegate_ respondsToSelector:@selector(onSchemaChangedWithNewSchema:)]) { // Schema change
-        
+
         const char* schema_name = strchr(message_value, '/');
         if (schema_name) {
             ++schema_name;
             [notificationDelegate_ onSchemaChangedWithNewSchema:[NSString stringWithFormat:@"%@", [NSString stringWithUTF8String:schema_name]]];
         }
-        
+
     } else if (!strcmp(message_type, "option") && [notificationDelegate_ respondsToSelector:@selector(onOptionChangedWithOption:value:)]) { // Option change
-        
+
         XRimeOption option = XRimeOptionUndefined;
         BOOL value = (message_value[0] != '!');;
-        
+
         if (!strcmp(message_value, "ascii_mode") || !strcmp(message_value, "!ascii_mode")) {
             option = XRimeOptionASCIIMode;
         }
@@ -143,9 +143,9 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         else if (!strcmp(message_value, "extended_charset") || !strcmp(message_value, "!extended_charset")) {
             option = XRimeOptionExtendedCharset;
         }
-        
+
         [notificationDelegate_ onOptionChangedWithOption:option value:value];
-        
+
     }
 }
 
@@ -156,16 +156,16 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
 }
 
 + (BOOL)startService {
-    
+
     NSString *rimePath = nil;
     NSString *shareSupportPath = nil;
     NSString *userPath = nil;
-    
+
     shareSupportPath = [NSString appendingHostAppBundlePath:@"SharedSupport"];
     rimePath = [NSString rimeResource];
     userPath = [NSString userPath];
-    
-    
+
+
     NSError *err = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:rimePath]) {
@@ -174,13 +174,13 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
             return NO;
         }
     }
-    
+
     if (![fileManager fileExistsAtPath:userPath]) {
         if (![fileManager createDirectoryAtPath:userPath withIntermediateDirectories:YES attributes:nil error:&err]) {
             NSLog(@"Failed to create user data directory.  err :%@", err);
         }
     }
-    
+
     RIME_STRUCT(RimeTraits, vXIMETraits);
     vXIMETraits.shared_data_dir = [shareSupportPath UTF8String];
     vXIMETraits.user_data_dir = [rimePath UTF8String];
@@ -191,10 +191,10 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     NSString *dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"testDir"];
     NSFileManager * f = [NSFileManager defaultManager];
     NSURL * url = [f containerURLForSecurityApplicationGroupIdentifier:GROUP_ID];
-    
+
     res = [f createDirectoryAtPath:[url absoluteString] withIntermediateDirectories:YES attributes:NULL error:&err];
-    
-    
+
+
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"test", @"test----", nil];
     dir = [NSString stringWithFormat:@"%@/%@", rimePath, @"test.txt"];
      res = [dic writeToFile:dir atomically:YES];
@@ -206,19 +206,19 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     vXIMETraits.distribution_code_name = "iRime";
     vXIMETraits.distribution_version = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] UTF8String];
     vXIMETraits.app_name = "iRime";
-    
+
     // Set Rime notification handler
     RimeSetNotificationHandler(notificationHandler, (__bridge void *)self);
-    
+
     // Setup deployer and logging
     RimeSetup(&vXIMETraits);
-    
+
     // Load modules and start service
     RimeInitialize(NULL);
-    
+
     // Fast deploy
     [self deployWithFastMode:YES];
-    
+
     return YES;
 }
 
@@ -241,7 +241,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     // Restart service
     RimeFinalize();
     RimeInitialize(NULL);
-    
+
     // Deploy
     [self deployWithFastMode:fastMode];
 }
@@ -391,12 +391,12 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
         if (ctx.commit_text_preview) {
             [xCtx setCommitTextPreview:[NSString stringWithUTF8String:ctx.commit_text_preview]];
         }
-        
+
         XRimeMenu *xMenu = [[XRimeMenu alloc] init];
         XRimeComposition * xComp = [[XRimeComposition alloc] init];
         [xCtx setMenu:xMenu];
         [xCtx setComposition:xComp];
-        
+
         [xMenu setPageSize:ctx.menu.page_size];
         [xMenu setPageNumber:ctx.menu.page_no];
         [xMenu setIsLastPage:ctx.menu.is_last_page == True];
@@ -440,18 +440,18 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     //candidate
     RimeCandidateListIterator ite;
     NSMutableArray *candidates = [NSMutableArray new];
-    
+
     @autoreleasepool {
-        
-    
+
+
         bool res = RimeCandidateListBegin(sessionId, &ite);
         if (res == false) {
             return nil;
         }
-        
+
         NSString *s = nil;
         while (RimeCandidateListNext(&ite)) {
-            
+
             if (ite.index > kMaxCandidateListCount) {
                 break;
             }
@@ -459,7 +459,7 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
 //            NSLog(@"%@", s);
             [candidates addObject:s];
         }
-        
+
         RimeCandidateListEnd(&ite);
     }
     return candidates;
@@ -471,30 +471,38 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
     if (index > kMaxCandidateListCount) {
         return candidates;
     }
-    
+
     //candidate
-  RimeCandidateListIterator ite;
-  bool res = RimeCandidateListBegin(sessionId, &ite);
-  if (res == false) {
-    return nil;
-  }
-
-
-  NSString *s = nil;
-  while (RimeCandidateListNext(&ite)) {
-
-    if (ite.index > kMaxCandidateListCount) {
-      break;
+    RimeCandidateListIterator ite;
+    bool res = RimeCandidateListBegin(sessionId, &ite);
+    if (res == false) {
+        return nil;
     }
 
-    s = [NSString stringWithUTF8String:ite.candidate.text];
-    [candidates addObject:s];
-  }
 
-  RimeCandidateListEnd(&ite);
+    NSString *s = nil;
+    NSInteger candidateMax = index + count;
 
-  return candidates;
+    if (candidateMax > kMaxCandidateListCount) {
+        candidateMax = kMaxCandidateListCount;
+    }
 
+    while (RimeCandidateListNext(&ite)) {
+        if (ite.index <= index) {
+            continue;
+        }
+
+        if (ite.index > candidateMax) {
+        break;
+        }
+
+        s = [NSString stringWithUTF8String:ite.candidate.text];
+        [candidates addObject:s];
+    }
+
+    RimeCandidateListEnd(&ite);
+
+    return candidates;
 }
 
 
@@ -512,34 +520,34 @@ void notificationHandler(void* context_object, RimeSessionId session_id, const c
 
 +(NSArray*)getSchemaList
 {
-    
+
     RimeSchemaList schemaList;
-    
+
     Bool r = rime_get_api()->get_schema_list(&schemaList);
     if (r == NO) {
         NSLog(@"get schema list fail");
         return nil;
     }
-    
-    
+
+
     NSMutableArray *res = [NSMutableArray new];
     RimeSchemaListItem *item = nil;
-    
+
     for (int i = 0; i < schemaList.size; i++) {
-        
+
         item = &schemaList.list[i];
-        
+
     }
-        
-    
+
+
     return res;
-    
-    
+
+
 }
 
 +(void)selectSchemaInRimeSeesiong:(RimeSessionId) seesionId useSchemaId:(const char*) schemaId
 {
-    
+
 }
 
 
