@@ -105,10 +105,10 @@ class Catboard: KeyboardViewController,
                 AGEmojiKeyboardViewDataSource,
                 AGEmojiKeyboardViewDelegate,
                 iRNumberBoardFatherViewProtocol,
-                iRSymbolBoardContentViewProtocol
+                iRSymbolBoardContentViewProtocol,
+                iRSymbolBoardBottomControlViewProtocol
 
 {
-    
     lazy var viewNumberBoardView:iRNumberBoardFatherView = {
         let viewNumberBoard = iRNumberBoardFatherView.init(frame: CGRect.null)
         self.view.addSubview(viewNumberBoard)
@@ -130,7 +130,7 @@ class Catboard: KeyboardViewController,
         let viewSymbolBoard = iRSymbolBoardContentView.init(frame: CGRect.null)
         self.view.addSubview(viewSymbolBoard)
         //--属性设置
-        viewSymbolBoard.delegateAction = self as! iRSymbolBoardContentViewProtocol
+        viewSymbolBoard.delegateAction = self as iRSymbolBoardContentViewProtocol
         //--约束布局
         viewSymbolBoard.mas_makeConstraints({ (make:MASConstraintMaker!) in
             make.left.equalTo()(self.view)
@@ -239,6 +239,16 @@ class Catboard: KeyboardViewController,
     {
         self.textDocumentProxy.deleteBackward()
     }
+    func deleteOneFor_iRSymbolBoardBottomControlView() -> Void
+    {
+        self.textDocumentProxy.deleteBackward()
+    }
+    func hidSymbolBoard() -> Void
+    {
+        self.viewSymbolBoard.isHidden = true
+     
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

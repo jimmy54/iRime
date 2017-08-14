@@ -81,7 +81,6 @@ class iRNumberBoardRightKeysView: UIView {
         btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchDragExit)
         btnOne?.addTarget(self, action:#selector(iRNumberBoardRightKeysView.btnEndAction(_:)) , for: .touchDragEnter)
         
-//        btnOne?.setTitle("退格", forState: .Normal)
         //expression_delete_pressed  filter_delete
         btnOne?.setImage(UIImage.init(named: "expression_delete"), for: UIControlState())
         btnOne?.setImage(UIImage.init(named: "filter_delete"), for: .highlighted)

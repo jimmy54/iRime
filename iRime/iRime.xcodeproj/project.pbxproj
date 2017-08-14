@@ -427,18 +427,7 @@
 		883E6D441F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */; };
 		883E6D461F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */; };
 		883E6D491F1E58C00095E0EF /* iRTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D481F1E58C00095E0EF /* iRTool.swift */; };
-		883E6D4C1F1FA5160095E0EF /* iRimeSymbols.json in Resources */ = {isa = PBXBuildFile; fileRef = 883E6D4B1F1FA5160095E0EF /* iRimeSymbols.json */; };
 		883E6D4E1F1FA61F0095E0EF /* iRsymbolsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D4D1F1FA61F0095E0EF /* iRsymbolsModel.swift */; };
-		883E6D671F1FAE520095E0EF /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D531F1FAE520095E0EF /* MJExtensionConst.m */; };
-		883E6D681F1FAE520095E0EF /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D551F1FAE520095E0EF /* MJFoundation.m */; };
-		883E6D691F1FAE520095E0EF /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D571F1FAE520095E0EF /* MJProperty.m */; };
-		883E6D6A1F1FAE520095E0EF /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D591F1FAE520095E0EF /* MJPropertyKey.m */; };
-		883E6D6B1F1FAE520095E0EF /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D5B1F1FAE520095E0EF /* MJPropertyType.m */; };
-		883E6D6C1F1FAE520095E0EF /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D5D1F1FAE520095E0EF /* NSObject+MJClass.m */; };
-		883E6D6D1F1FAE520095E0EF /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D5F1F1FAE520095E0EF /* NSObject+MJCoding.m */; };
-		883E6D6E1F1FAE520095E0EF /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D611F1FAE520095E0EF /* NSObject+MJKeyValue.m */; };
-		883E6D6F1F1FAE520095E0EF /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D631F1FAE520095E0EF /* NSObject+MJProperty.m */; };
-		883E6D701F1FAE520095E0EF /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E6D651F1FAE520095E0EF /* NSString+MJExtension.m */; };
 		88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */; };
 		885C551F1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C551E1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift */; };
 		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
@@ -997,29 +986,7 @@
 		883E6D431F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardRightWordsView.swift; sourceTree = "<group>"; };
 		883E6D451F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardBottomControlView.swift; sourceTree = "<group>"; };
 		883E6D481F1E58C00095E0EF /* iRTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRTool.swift; sourceTree = "<group>"; };
-		883E6D4B1F1FA5160095E0EF /* iRimeSymbols.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iRimeSymbols.json; sourceTree = "<group>"; };
 		883E6D4D1F1FA61F0095E0EF /* iRsymbolsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRsymbolsModel.swift; sourceTree = "<group>"; };
-		883E6D511F1FAE520095E0EF /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
-		883E6D521F1FAE520095E0EF /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
-		883E6D531F1FAE520095E0EF /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
-		883E6D541F1FAE520095E0EF /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
-		883E6D551F1FAE520095E0EF /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
-		883E6D561F1FAE520095E0EF /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
-		883E6D571F1FAE520095E0EF /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
-		883E6D581F1FAE520095E0EF /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
-		883E6D591F1FAE520095E0EF /* MJPropertyKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyKey.m; sourceTree = "<group>"; };
-		883E6D5A1F1FAE520095E0EF /* MJPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyType.h; sourceTree = "<group>"; };
-		883E6D5B1F1FAE520095E0EF /* MJPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyType.m; sourceTree = "<group>"; };
-		883E6D5C1F1FAE520095E0EF /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
-		883E6D5D1F1FAE520095E0EF /* NSObject+MJClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJClass.m"; sourceTree = "<group>"; };
-		883E6D5E1F1FAE520095E0EF /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
-		883E6D5F1F1FAE520095E0EF /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
-		883E6D601F1FAE520095E0EF /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
-		883E6D611F1FAE520095E0EF /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
-		883E6D621F1FAE520095E0EF /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
-		883E6D631F1FAE520095E0EF /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
-		883E6D641F1FAE520095E0EF /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
-		883E6D651F1FAE520095E0EF /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		88410AEA1E65C8360042DD06 /* iRNumberBoardFatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardFatherView.swift; sourceTree = "<group>"; };
 		885C551E1F2397AA00FB05D5 /* iRSymbolBoardLeftControlViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRSymbolBoardLeftControlViewCell.swift; sourceTree = "<group>"; };
 		886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardLeftKeysView.swift; sourceTree = "<group>"; };
@@ -1990,7 +1957,6 @@
 		83FBF8C154094323355A7879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				883E6D4F1F1FAE520095E0EF /* MJExtension */,
 				6F7EBDACB9071F9501674482 /* libPods-iRime.a */,
 				4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */,
 			);
@@ -2038,37 +2004,8 @@
 		883E6D4A1F1FA5100095E0EF /* iRData */ = {
 			isa = PBXGroup;
 			children = (
-				883E6D4B1F1FA5160095E0EF /* iRimeSymbols.json */,
 			);
 			path = iRData;
-			sourceTree = "<group>";
-		};
-		883E6D4F1F1FAE520095E0EF /* MJExtension */ = {
-			isa = PBXGroup;
-			children = (
-				883E6D511F1FAE520095E0EF /* MJExtension.h */,
-				883E6D521F1FAE520095E0EF /* MJExtensionConst.h */,
-				883E6D531F1FAE520095E0EF /* MJExtensionConst.m */,
-				883E6D541F1FAE520095E0EF /* MJFoundation.h */,
-				883E6D551F1FAE520095E0EF /* MJFoundation.m */,
-				883E6D561F1FAE520095E0EF /* MJProperty.h */,
-				883E6D571F1FAE520095E0EF /* MJProperty.m */,
-				883E6D581F1FAE520095E0EF /* MJPropertyKey.h */,
-				883E6D591F1FAE520095E0EF /* MJPropertyKey.m */,
-				883E6D5A1F1FAE520095E0EF /* MJPropertyType.h */,
-				883E6D5B1F1FAE520095E0EF /* MJPropertyType.m */,
-				883E6D5C1F1FAE520095E0EF /* NSObject+MJClass.h */,
-				883E6D5D1F1FAE520095E0EF /* NSObject+MJClass.m */,
-				883E6D5E1F1FAE520095E0EF /* NSObject+MJCoding.h */,
-				883E6D5F1F1FAE520095E0EF /* NSObject+MJCoding.m */,
-				883E6D601F1FAE520095E0EF /* NSObject+MJKeyValue.h */,
-				883E6D611F1FAE520095E0EF /* NSObject+MJKeyValue.m */,
-				883E6D621F1FAE520095E0EF /* NSObject+MJProperty.h */,
-				883E6D631F1FAE520095E0EF /* NSObject+MJProperty.m */,
-				883E6D641F1FAE520095E0EF /* NSString+MJExtension.h */,
-				883E6D651F1FAE520095E0EF /* NSString+MJExtension.m */,
-			);
-			path = MJExtension;
 			sourceTree = "<group>";
 		};
 		88410AE51E6481730042DD06 /* iRNumberBoard */ = {
@@ -2642,7 +2579,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C165C651D585C8400E61F6E /* EmojisList.plist in Resources */,
-				883E6D4C1F1FA5160095E0EF /* iRimeSymbols.json in Resources */,
 				0CB60D8B1D227285000D40C7 /* Assets.xcassets in Resources */,
 				0CAD84891D119B1E00DA88DB /* DefaultSettings.xib in Resources */,
 				0CF87F571D70B16200874F4D /* SVProgressHUD.bundle in Resources */,
@@ -2817,16 +2753,10 @@
 				0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
 				0CAD84E21D11A3E900DA88DB /* RimeTypeDef.m in Sources */,
 				883E6D491F1E58C00095E0EF /* iRTool.swift in Sources */,
-				883E6D691F1FAE520095E0EF /* MJProperty.m in Sources */,
 				0CAD848A1D119B1E00DA88DB /* ExtraView.swift in Sources */,
 				0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */,
-				883E6D671F1FAE520095E0EF /* MJExtensionConst.m in Sources */,
-				883E6D6A1F1FAE520095E0EF /* MJPropertyKey.m in Sources */,
 				0CAD84881D119B1E00DA88DB /* DefaultSettings.swift in Sources */,
-				883E6D6F1F1FAE520095E0EF /* NSObject+MJProperty.m in Sources */,
 				886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */,
-				883E6D6B1F1FAE520095E0EF /* MJPropertyType.m in Sources */,
-				883E6D701F1FAE520095E0EF /* NSString+MJExtension.m in Sources */,
 				0CAD84871D119B1E00DA88DB /* Utilities.swift in Sources */,
 				886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */,
 				0CEC30EF1D5980B800C21949 /* UINavigationBar+BackgroundImage.m in Sources */,
@@ -2837,11 +2767,8 @@
 				0CAD847E1D119B1E00DA88DB /* ForwardingView.swift in Sources */,
 				0CAD84E31D11A3E900DA88DB /* RimeWrapper.m in Sources */,
 				0CAD848B1D119B1E00DA88DB /* ImageKey.swift in Sources */,
-				883E6D6E1F1FAE520095E0EF /* NSObject+MJKeyValue.m in Sources */,
 				0CAD84E11D11A3E900DA88DB /* NSString+UTF8Utils.m in Sources */,
 				0CB1CE411D22225B00678571 /* CandidateCell.swift in Sources */,
-				883E6D681F1FAE520095E0EF /* MJFoundation.m in Sources */,
-				883E6D6C1F1FAE520095E0EF /* NSObject+MJClass.m in Sources */,
 				883E6D401F1E54780095E0EF /* iRSymbolBoardContentView.swift in Sources */,
 				88410AEB1E65C8360042DD06 /* iRNumberBoardFatherView.swift in Sources */,
 				0CB1CE431D22236700678571 /* TypingLabel.swift in Sources */,
@@ -2853,7 +2780,6 @@
 				0CF87F561D70B16200874F4D /* SVIndefiniteAnimatedView.m in Sources */,
 				0CAD84841D119B1E00DA88DB /* DefaultKeyboard.swift in Sources */,
 				883E6D461F1E55C50095E0EF /* iRSymbolBoardBottomControlView.swift in Sources */,
-				883E6D6D1F1FAE520095E0EF /* NSObject+MJCoding.m in Sources */,
 				0C165C631D585C8400E61F6E /* AGEmojiPageView.m in Sources */,
 				883E6D441F1E557E0095E0EF /* iRSymbolBoardRightWordsView.swift in Sources */,
 				0CE4F3781D2427FC00E6DDB2 /* CandidateTableCellTableViewCell.swift in Sources */,

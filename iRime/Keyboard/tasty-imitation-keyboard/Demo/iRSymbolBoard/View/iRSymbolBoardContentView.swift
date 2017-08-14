@@ -48,6 +48,7 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
             didSet
                 {
                    viewRight.delegateAction = delegateAction
+                   viewBottom.delegateCallBack = delegateAction as? iRSymbolBoardBottomControlViewProtocol
                 }
         }
     
