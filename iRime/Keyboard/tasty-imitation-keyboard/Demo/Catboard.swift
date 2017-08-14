@@ -246,7 +246,6 @@ class Catboard: KeyboardViewController,
     func hidSymbolBoard() -> Void
     {
         self.viewSymbolBoard.isHidden = true
-     
     }
     
     
