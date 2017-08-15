@@ -234,6 +234,10 @@ class Catboard: KeyboardViewController,
     func presentTextFromSymbolBoard(_ text:String) -> Void
     {
         self.textDocumentProxy.insertText(text);
+        if text.isCouple {
+            self.textDocumentProxy.adjustTextPosition(byCharacterOffset: -1)
+        }
+        
     }
     func deleteBackwardOfiRSymbolBoardContentView() -> Void
     {
