@@ -85,6 +85,17 @@ class iRSymbolBoardRightWordsView: UIView,UICollectionViewDelegateFlowLayout,UIC
             
             self.delegateAction?.presentTextFromSymbolBoard(strSymbol)
         }
+        
+        
+        let identifyLockStr:String = UserDefaults.standard.string(forKey: identifyLock_iRSymbolBoard)!
+        if identifyLockStr  == "0"
+        {
+            //--锁是开启状态
+            if (self.delegateAction?.responds(to: #selector(iRSymbolBoardContentViewProtocol.tapToCheckIfNeedToHideSymbolBoard)))! {
+                self.delegateAction?.tapToCheckIfNeedToHideSymbolBoard()
+            }
+        }
+        
     }
     
 

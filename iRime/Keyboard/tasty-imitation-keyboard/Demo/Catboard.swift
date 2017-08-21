@@ -251,8 +251,10 @@ class Catboard: KeyboardViewController,
     {
         self.viewSymbolBoard.isHidden = true
     }
-    
-    
+    func tapToCheckIfNeedToHideSymbolBoard() -> Void
+    {
+        self.viewSymbolBoard.isHidden = true
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("------------------viewDidAppear---------------------")

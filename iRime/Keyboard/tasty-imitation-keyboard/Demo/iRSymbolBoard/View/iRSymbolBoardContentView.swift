@@ -10,12 +10,14 @@ import UIKit
 
 let arrayCoupleSymbols:[String] = [ "“”","（）", "《》","〈〉","［］","｛｝","【】","〖〗","〔〕", "『』","「」","()","<>","{}","[]"];
 
+let identifyLock_iRSymbolBoard = "identifyLock_iRSymbolBoard"
 
 
 @objc protocol iRSymbolBoardContentViewProtocol:NSObjectProtocol {
     
     func presentTextFromSymbolBoard(_ text:String) -> Void
     func deleteBackwardOfiRSymbolBoardContentView() -> Void
+    func tapToCheckIfNeedToHideSymbolBoard() -> Void  //--点击一次输入以后监测是否需要隐藏键盘,如果未加锁,那么关闭键盘
 }
 
 
@@ -89,6 +91,7 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configIndetify()
         createSubViews()
         getNeedData()
         configData()
@@ -96,6 +99,15 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func configIndetify() -> Void {
+        //TODO:初始化标识符,如果==0 锁是开启状态,为1是锁住状态
+        if UserDefaults.standard.value(forKey: identifyLock_iRSymbolBoard) == nil{
+            UserDefaults.standard.set("0", forKey: identifyLock_iRSymbolBoard)
+            UserDefaults.standard.synchronize()
+        }
     }
     
     func createSubViews() -> Void {
@@ -184,7 +196,7 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
             "『",
             "）"
         ]
-        //MARK:2.中文文符号
+        //MARK:2.中文符号
         let modelSymbol_zhongwen:iRsymbolsItemModel = iRsymbolsItemModel()
         modelMain.arrayModels?.append(modelSymbol_zhongwen)
         modelSymbol_zhongwen.name = "中文"
@@ -251,7 +263,7 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
             "｀",
             "．"
         ]
-        //MARK:3.英文文符号
+        //MARK:3.英文符号
         let modelSymbol_yingwen:iRsymbolsItemModel = iRsymbolsItemModel()
         modelMain.arrayModels?.append(modelSymbol_yingwen)
         modelSymbol_yingwen.name = "英文"

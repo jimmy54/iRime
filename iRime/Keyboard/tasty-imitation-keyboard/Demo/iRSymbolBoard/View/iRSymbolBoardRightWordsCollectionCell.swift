@@ -25,6 +25,9 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
         lab.font = UIFont.systemFont(ofSize: 20)
         lab.textAlignment = NSTextAlignment.center
         lab.adjustsFontSizeToFitWidth = true;
+        
+//        lab.backgroundColor = UIColor.red
+        
         return lab
         
     }()
@@ -47,7 +50,6 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         createSubViews()
     }
     

@@ -41,6 +41,27 @@ class iRSymbolBoardBottomControlView: UIView {
     
     }()
     
+    var btnLock:UIButton = {
+        let btn = UIButton.init()
+        btn.addTarget(self, action: #selector(btnLockAction), for: .touchUpInside)
+        
+        let identifyLockStr:String = UserDefaults.standard.string(forKey: identifyLock_iRSymbolBoard)!
+        if identifyLockStr  == "0"
+        {
+            //--锁是开启状态
+             btn.setImage(UIImage.init(named: "wifi_transfer_no_wifi"), for: .normal)
+        }
+        else
+        {
+            //--锁住状态
+            btn.setImage(UIImage.init(named: "wifi_transfer_wifi_red"), for: .normal)
+        }
+        
+        return btn
+    
+    }()
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +94,14 @@ class iRSymbolBoardBottomControlView: UIView {
             make.width.mas_equalTo()(40)
             make.top.equalTo()(self)
         }
+        //3.锁
+        self.addSubview(btnLock)
+        //--约束布局
+        btnLock.mas_makeConstraints { (make:MASConstraintMaker!) in
+            make.centerX.equalTo()(self)
+            make.top.bottom().equalTo()(self)
+        }
+        
     }
     func btnBackAction() -> Void
     {
@@ -92,6 +121,22 @@ class iRSymbolBoardBottomControlView: UIView {
         self.timer = nil
     }
     
+    func btnLockAction() -> Void {
+        
+        let identifyLockStr:String = UserDefaults.standard.string(forKey: identifyLock_iRSymbolBoard)!
+        if identifyLockStr == "0" {
+            UserDefaults.standard.set("1", forKey: identifyLock_iRSymbolBoard)
+            UserDefaults.standard.synchronize()
+            btnLock.setImage(UIImage.init(named: "wifi_transfer_wifi_red"), for: .normal)
+        }
+        else
+        {
+            UserDefaults.standard.set("0", forKey: identifyLock_iRSymbolBoard)
+            UserDefaults.standard.synchronize()
+            btnLock.setImage(UIImage.init(named: "wifi_transfer_no_wifi"), for: .normal)
+        }
+        
+    }
     
     func btnDeleteRepeatAction() -> Void
     {
