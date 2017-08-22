@@ -8,7 +8,7 @@
 
 import UIKit
 
-let arrayCoupleSymbols:[String] = [ "“”","（）", "《》","〈〉","［］","｛｝","【】","〖〗","〔〕", "『』","「」","()","<>","{}","[]"];
+let arrayCoupleSymbols:[String] = ["\"\"","“”","''","‘’","（）", "《》","〈〉","［］","｛｝","【】","〖〗","〔〕", "『』","「」","()","<>","{}","[]"];
 
 let identifyLock_iRSymbolBoard = "identifyLock_iRSymbolBoard"
 
@@ -45,6 +45,12 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
     
     static var width_iRSymbolBoardLeftControlView:CGFloat = 70
     static var height_line_iRSymbolBoardLeftControlView:CGFloat = 45
+    
+    deinit
+    {
+       NotificationCenter.default.removeObserver(self)
+    }
+    
     weak var delegateAction:iRSymbolBoardContentViewProtocol?
         {
             didSet
@@ -91,6 +97,7 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configNotification()
         configIndetify()
         createSubViews()
         getNeedData()
@@ -101,6 +108,35 @@ class iRSymbolBoardContentView: UIView,iRSymbolBoardLeftControlViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configNotification() -> Void {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationChanged(notify:)), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+    }
+    
+    func orientationChanged(notify: NSNotification) {
+        for model:iRsymbolsItemModel in modelMain.arrayModels!
+        {
+            if model.name == "网址"||model.name == "邮箱" {
+                model.sizeOfItem = {
+                    let width = (screenWidthIR()-iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)*0.5
+                    
+                    return CGSize.init(width: width, height: iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView-onePixel())
+                    
+                }()
+            }
+            else
+            {
+                model.sizeOfItem = {
+                    let width = (screenWidthIR()-iRSymbolBoardContentView.width_iRSymbolBoardLeftControlView)*0.2
+                    
+                    return CGSize.init(width: width, height: iRSymbolBoardContentView.height_line_iRSymbolBoardLeftControlView)
+                    
+                }()
+            }
+            
+            
+        }
+        viewRight.collectionView.reloadData()
+    }
     
     func configIndetify() -> Void {
         //TODO:初始化标识符,如果==0 锁是开启状态,为1是锁住状态

@@ -20,6 +20,13 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
     }
     
     
+    let viewHightLight = { () -> UIView in 
+        let view = UIView.init()
+        view.backgroundColor = UIColor.clear
+        return view
+    }()
+    
+    
     let labContent:UILabel = {
         let lab:UILabel = UILabel.init()
         lab.font = UIFont.systemFont(ofSize: 20)
@@ -57,6 +64,17 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func changeStateForSelected(_ isSelected:Bool) -> Void {
+        if isSelected {
+            viewHightLight.backgroundColor = RGBA(r: 100, g: 100, b: 100, alpha: 0.3)
+        }
+        else
+        {
+            viewHightLight.backgroundColor = UIColor.clear
+        }
+    }
+    
+    
     func createSubViews() -> Void {
         //1.滴部分割线
         self.contentView.addSubview(viewLineBottom)
@@ -81,6 +99,14 @@ class iRSymbolBoardRightWordsCollectionCell: UICollectionViewCell {
             make.right.equalTo()(self.viewLineRight.mas_left)?.offset()(-2)
             make.bottom.equalTo()(self.viewLineBottom.mas_top)
         }
+        
+        //4.viewHightLight 高亮view
+        self.contentView.addSubview(viewHightLight)
+        //--约束布局
+        viewHightLight.mas_makeConstraints { (make:MASConstraintMaker!) in
+            make.edges.equalTo()(self.contentView)
+        }
+        
     }
     
     

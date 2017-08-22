@@ -97,8 +97,26 @@ class iRSymbolBoardRightWordsView: UIView,UICollectionViewDelegateFlowLayout,UIC
         }
         
     }
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool
+    {
+        return true
+    }
     
-
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath)
+    {
+        let cell:iRSymbolBoardRightWordsCollectionCell = collectionView.cellForItem(at: indexPath) as! iRSymbolBoardRightWordsCollectionCell
+        
+        cell.changeStateForSelected(true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath)
+    {
+        let cell:iRSymbolBoardRightWordsCollectionCell = collectionView.cellForItem(at: indexPath) as! iRSymbolBoardRightWordsCollectionCell
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) {
+            cell.changeStateForSelected(false)
+        }
+    
+    }
     
     
     
