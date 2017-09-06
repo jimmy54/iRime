@@ -347,18 +347,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
     }
 
     override func keyPressed(_ key: Key) {
+      // 由 在空格上左右移动之后触发的 keyPressed 事件 只重置状态，不插入任何内容
+      if key.type == .space && self.spaceDragIsMoving {
+        self.spaceDragIsMoving = false
+        return
+      }
 
         let textDocumentProxy = self.textDocumentProxy
 
         if self.isChineseInput == false {
             if key.type == .backspace {
                 textDocumentProxy.deleteBackward()
-                return;
-            }
-
-            if key.type == .space && self.spaceDragIsMoving == false {
-                textDocumentProxy.insertText(" ")
-                self.spaceDragIsMoving = false
                 return;
             }
 
@@ -411,39 +410,13 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
 
 
 
-        //数字，符号等
-        //--------------------------------------------------
-        let keyOutput = key.outputForCase(self.shiftState.uppercase())
-
-        if !UserDefaults.standard.bool(forKey: kCatTypeEnabled) {
-            textDocumentProxy.insertText(keyOutput)
-            return
-        }
-
-
-        //----------------------------------------------
-        let ko = key.outputForCase(self.shiftState.uppercase())
-        let nsstrTest:NSString = ko as NSString
-        let result = nsstrTest.utf8String?[0] //result = 99
-
-        //删除按钮
-        var r = Int32(result!)
-        if key.type == .backspace {
-            r = Int32(XK_BackSpace)
-        }
-
         if key.type == .space {
-
-
             if self.candidateList.count <= 0 {
                 if RimeWrapper.commitComposition(forSession: rimeSessionId_) {
                     RimeWrapper.clearComposition(forSession: rimeSessionId_)
                     self.candidatesBanner?.reloadData()
                 }
-                if self.spaceDragIsMoving == false {
-                    textDocumentProxy.insertText(" ")
-                }
-                self.spaceDragIsMoving = false
+                super.keyPressed(key)
                 return
             }
 
@@ -458,6 +431,17 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
             self.removeAllCandidateList();
             self.candidatesBanner?.reloadData()
             return
+        }
+
+        //--------------------------------------------------
+        let keyOutput = key.outputForCase(self.shiftState.uppercase())
+        let nsstrTest:NSString = keyOutput as NSString
+        let result = nsstrTest.utf8String?[0] //result = 99
+
+        //删除按钮
+        var r = Int32(result!)
+        if key.type == .backspace {
+            r = Int32(XK_BackSpace)
         }
 
 
