@@ -88,15 +88,6 @@ let indexPathFirst = IndexPath(row: 1, section: 0)
 var startTime: Date?
 
 
-//// //////////
-
-
-
-
-
-
-let kCatTypeEnabled = "kCatTypeEnabled"
-
 class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource, AGEmojiKeyboardViewDataSource, AGEmojiKeyboardViewDelegate,iRNumberBoardFatherViewProtocol{
 
     lazy var viewNumberBoardView:iRNumberBoardFatherView = {
@@ -156,14 +147,7 @@ class Catboard: KeyboardViewController,RimeNotificationDelegate, UICollectionVie
 
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        UserDefaults.standard.register(defaults: [kCatTypeEnabled: true])
-
-
-
-
-
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-
     }
 
     required init?(coder: NSCoder) {
