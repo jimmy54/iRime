@@ -1,7 +1,7 @@
 <!--
  Copyright (c) 2012-2015, Pierre-Olivier Latour
  All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
  * Redistributions of source code must retain the above copyright
@@ -12,7 +12,7 @@
  * The name of Pierre-Olivier Latour may not be used to endorse
  or promote products derived from this software without specific
  prior written permission.
- 
+
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -53,17 +53,17 @@
     <script type="text/javascript" src="js/index.js"></script>
   </head>
   <body>
-    
+
     <div class="container">
-      
+
       <div class="page-header">
         <h1>%header%</h1>
       </div>
-      
+
       %prologue%
-      
+
       <div id="alerts"></div>
-      
+
       <div class="btn-toolbar">
         <button type="button" class="btn btn-primary fileinput-button" id="upload-file">
           <span class="glyphicon glyphicon-upload"></span> %upload%
@@ -72,29 +72,32 @@
         <button type="button" class="btn btn-success" id="create-folder">
           <span class="glyphicon glyphicon-folder-close"></span> %creatFload%
         </button>
+        <button type="button" class="hide btn btn-danger" id="batch-delete">
+            <span class="glyphicon glyphicon-trash"></span> %batchDelete%
+        </button>
         <button type="button" class="btn btn-default" id="reload">
           <span class="glyphicon glyphicon-refresh"></span> %refresh%
         </button>
       </div>
-      
+
       <div class="panel panel-default uploading">
         <div class="panel-heading">%upluploadingoad%</div>
         <table class="table table-striped"><tbody id="uploads"></tbody></table>
       </div>
-      
+
       <div class="panel panel-default">
         <div class="panel-heading">
           <ol class="breadcrumb" id="path"></ol>
         </div>
-        <table class="table table-striped"><tbody id="listing"></tbody></table>
+        <table class="table table-condensed"><tbody id="listing"></tbody></table>
       </div>
-      
+
       %epilogue%
-      
+
       <p class="footer">%footer%</p>
-      
+
     </div>
-    
+
     <div class="modal fade" id="create-modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -115,7 +118,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="modal fade" id="move-modal" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -136,9 +139,12 @@
         </div>
       </div>
     </div>
-    
+
     <script type="text/x-tmpl" id="template-listing">
       <tr class="row-file">
+        <td class="column-icon">
+              <input type="checkbox" value="{%=o.path%}" />
+        </td>
         <td class="column-icon">
           {% if (o.size != null) { %}
             <button type="button" class="btn btn-default btn-xs button-download">
@@ -168,7 +174,7 @@
         </td>
       </tr>
     </script>
-    
+
     <script type="text/x-tmpl" id="template-uploads">
       <tr class="row-file">
         <td class="column-icon">
@@ -184,13 +190,13 @@
         </ts>
       </tr>
     </script>
-    
+
     <script type="text/x-tmpl" id="template-alert">
       <div class="alert alert-{%=o.level%} alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>{%=o.title%}</strong>{%=o.description%}
       </div>
     </script>
-    
+
   </body>
 </html>
