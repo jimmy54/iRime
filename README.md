@@ -39,9 +39,13 @@
  - [LevelDB](https://github.com/google/leveldb) (New BSD License)
    - [snappy](https://google.github.io/snappy/)(BSD License)
 
+## iRime文档
+- [上传方案示例文档（IOS）](./docs/tutorial.md)
+
+
 
 ## 鳴謝/Credits
-- [Rime]: [佛振](https://github.com/lotem)
+- Rime: [佛振](https://github.com/lotem)
 - 圖文教程：[xiaoqun2016](https://github.com/xiaoqun2016)
 - 在[Issues](https://github.com/jimmy54/iRime/issues)、[貼吧](http://tieba.baidu.com/f?kw=rime)、QQ羣中反饋意見的網友
 - 依賴的第三方庫等開源項目
@@ -59,5 +63,4 @@ The GNU General Public License v3.0 (GPL v3)
 >This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 > 
 >You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 
