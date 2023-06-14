@@ -22,7 +22,7 @@
 
 ## iOS平臺RIME框架底层庫：
 
-- [iRimeLib] (https://github.com/jimmy54/iRimeLib)
+- [iRimeLib](https://github.com/jimmy54/iRimeLib)
 
 
 ## 第三方庫/3rd Party Library
