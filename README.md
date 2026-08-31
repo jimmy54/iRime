@@ -48,10 +48,6 @@
 
 [Rime]: http://rime.im
 
-## 赞助
-
-[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
-
 
 ## License
 The GNU General Public License v3.0 (GPL v3)
