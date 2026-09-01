@@ -174,7 +174,10 @@ static RimeConfigController *configController = nil;
     // All schemata with ID, name and enabled flag
     if (!_schemata) {
         _schemata = [[NSMutableArray alloc] init];
+    } else {
+      [_schemata removeAllObjects];
     }
+
     for (NSString *schemaId in _enabledSchemaIds) {
         RimeConfigSchema *schema = [RimeConfigSchema schemaWithSchemaId:schemaId];
         if (schema) {

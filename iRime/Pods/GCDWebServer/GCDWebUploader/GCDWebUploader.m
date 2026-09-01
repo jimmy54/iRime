@@ -356,6 +356,7 @@
         NSString *refresh = @"刷新";
 //        NSString *epilogue = @"未尾";
         NSString *uploading = @"文件上传中";
+        NSString *batchDelete = @"批量删除";
         NSString *enterName = @"请输入名字";
         NSString *cancel = @"取消";
         NSString *move = @"移动";
@@ -377,6 +378,7 @@
                                                                   @"creatFload": creatFload,
                                                                   @"refresh": refresh,
                                                                   @"upluploadingoad": uploading,
+                                                                  @"batchDelete": batchDelete,
                                                                   @"enterName": enterName,
                                                                   @"cancel": cancel,
                                                                   @"move": move,

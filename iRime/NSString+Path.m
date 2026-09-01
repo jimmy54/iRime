@@ -13,7 +13,7 @@
 
 #define ZIP_FILE @"iRime"
 #define USER_PATH @"user"
-#define GROUP_ID @"group.Rime"
+#define GROUP_ID @"group.xqin.net"
 
 
 @implementation NSString (Path)

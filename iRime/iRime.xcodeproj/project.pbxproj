@@ -192,7 +192,6 @@
 		0C5E313E1E078FCB0012F008 /* zyenpheng.dict.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30BB1E078FCB0012F008 /* zyenpheng.dict.yaml */; };
 		0C5E313F1E078FCB0012F008 /* zyenpheng.schema.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E30BC1E078FCB0012F008 /* zyenpheng.schema.yaml */; };
 		0C5E31411E078FDB0012F008 /* RimeResource.zip in Resources */ = {isa = PBXBuildFile; fileRef = 0C5E31401E078FDB0012F008 /* RimeResource.zip */; };
-		0C5E31421E0790140012F008 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEB1E078F150012F008 /* boost.framework */; };
 		0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEC1E078F150012F008 /* libleveldb.a */; };
 		0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FED1E078F150012F008 /* liblibmarisa-trie.a */; };
 		0C5E31451E0790140012F008 /* liblibopencc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5E2FEE1E078F150012F008 /* liblibopencc.a */; };
@@ -426,8 +425,7 @@
 		886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */; };
 		886EAAC31E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */; };
 		886EAAC51E6C633200DC722C /* iRNumberBoardCentreKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */; };
-		CF88DBF61F2111D500FCA0DE /* PlaySound.m in Sources */ = {isa = PBXBuildFile; fileRef = CF88DBF51F2111D500FCA0DE /* PlaySound.m */; };
-		CF88DBF71F2111D500FCA0DE /* PlaySound.m in Sources */ = {isa = PBXBuildFile; fileRef = CF88DBF51F2111D500FCA0DE /* PlaySound.m */; };
+		B3ABD6D31F409E520035E1B4 /* boost in Frameworks */ = {isa = PBXBuildFile; fileRef = B3ABD6D21F409E520035E1B4 /* boost */; };
 		F4F9CCB5297369477E6CA790 /* libPods-Keyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */; };
 /* End PBXBuildFile section */
 
@@ -979,8 +977,8 @@
 		886EAABE1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardLeftKeysView.swift; sourceTree = "<group>"; };
 		886EAAC21E6C5D3700DC722C /* iRNumberBoardRightKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardRightKeysView.swift; sourceTree = "<group>"; };
 		886EAAC41E6C633200DC722C /* iRNumberBoardCentreKeysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iRNumberBoardCentreKeysView.swift; sourceTree = "<group>"; };
-		CF88DBF41F2111D500FCA0DE /* PlaySound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaySound.h; sourceTree = "<group>"; };
-		CF88DBF51F2111D500FCA0DE /* PlaySound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaySound.m; sourceTree = "<group>"; };
+		B3ABD6D01F409E410035E1B4 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = LibAndResource/lib; sourceTree = "<group>"; };
+		B3ABD6D21F409E520035E1B4 /* boost */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = boost; path = LibAndResource/lib/boost.framework/Versions/A/boost; sourceTree = "<group>"; };
 		E195E134834BA41048E6E55A /* Pods-Keyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Keyboard/Pods-Keyboard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1014,7 +1012,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C5E31421E0790140012F008 /* boost.framework in Frameworks */,
+				B3ABD6D31F409E520035E1B4 /* boost in Frameworks */,
 				0C1239CC1F1CF1C600AC1503 /* liblibrime.a in Frameworks */,
 				0C5E31431E0790140012F008 /* libleveldb.a in Frameworks */,
 				0C5E31441E0790140012F008 /* liblibmarisa-trie.a in Frameworks */,
@@ -1539,8 +1537,6 @@
 			children = (
 				0CDAE3851D70809E00A4FA2E /* FileManger.h */,
 				0CDAE3861D70809E00A4FA2E /* FileManger.m */,
-				CF88DBF41F2111D500FCA0DE /* PlaySound.h */,
-				CF88DBF51F2111D500FCA0DE /* PlaySound.m */,
 			);
 			path = FileManger;
 			sourceTree = "<group>";
@@ -1943,6 +1939,8 @@
 		83FBF8C154094323355A7879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3ABD6D21F409E520035E1B4 /* boost */,
+				B3ABD6D01F409E410035E1B4 /* lib */,
 				0CF9BF841F1754BE00AA7770 /* liblibrime.a */,
 				6F7EBDACB9071F9501674482 /* libPods-iRime.a */,
 				4AD1F8B2DEF809D78A0D0043 /* libPods-Keyboard.a */,
@@ -2083,7 +2081,7 @@
 				TargetAttributes = {
 					0CAD83C31D11619200DA88DB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = XU7TRD55DH;
+						DevelopmentTeam = B9F6X23RUM;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -2101,7 +2099,7 @@
 					};
 					0CAD842F1D119ABF00DA88DB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = XU7TRD55DH;
+						DevelopmentTeam = B9F6X23RUM;
 						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -2651,7 +2649,6 @@
 				0C0C948E1D7534C1004D29D9 /* SHTabBarController.m in Sources */,
 				0C0C948F1D7534C1004D29D9 /* SHUIKit.m in Sources */,
 				0C0C94901D7534C1004D29D9 /* UINavigationBar+BackgroundImage.m in Sources */,
-				CF88DBF61F2111D500FCA0DE /* PlaySound.m in Sources */,
 				0C0C94911D7534C1004D29D9 /* UIViewController+SHExtensions.m in Sources */,
 				0C0C94921D7534C1004D29D9 /* NSDictionary+KeyPath.m in Sources */,
 				0C0C94931D7534C1004D29D9 /* NSObject+DeepMutableCopy.m in Sources */,
@@ -2694,7 +2691,6 @@
 				0C6507881D59DAAB0089A6B9 /* NSString+Path.m in Sources */,
 				0CAD84E21D11A3E900DA88DB /* RimeTypeDef.m in Sources */,
 				0CAD848A1D119B1E00DA88DB /* ExtraView.swift in Sources */,
-				CF88DBF71F2111D500FCA0DE /* PlaySound.m in Sources */,
 				0CF87F581D70B16200874F4D /* SVProgressHUD.m in Sources */,
 				0CAD84881D119B1E00DA88DB /* DefaultSettings.swift in Sources */,
 				886EAABF1E68664F00DC722C /* iRNumberBoardLeftKeysView.swift in Sources */,
@@ -2877,6 +2873,7 @@
 				CODE_SIGN_ENTITLEMENTS = iRime/iRime.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B9F6X23RUM;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2908,7 +2905,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy54.iRime;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xqin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2926,6 +2923,7 @@
 				CODE_SIGN_ENTITLEMENTS = iRime/iRime.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B9F6X23RUM;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2957,7 +2955,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy54.iRime;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xqin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -3019,6 +3017,7 @@
 				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B9F6X23RUM;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3038,9 +3037,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)/LibAndResource/lib",
+					"$(PROJECT_DIR)/LibAndResource/lib/boost.framework/Versions/A",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy54.iRime.Keyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xqin.keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -3059,6 +3059,7 @@
 				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B9F6X23RUM;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3078,9 +3079,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 					"$(PROJECT_DIR)/LibAndResource/lib",
+					"$(PROJECT_DIR)/LibAndResource/lib/boost.framework/Versions/A",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jimmy54.iRime.Keyboard;
+				PRODUCT_BUNDLE_IDENTIFIER = net.xqin.keyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
