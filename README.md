@@ -29,7 +29,7 @@
 - [OpenCC](https://github.com/BYVoid/OpenCC) (Apache License 2.0)
 - [neolee/SCU](https://github.com/BYVoid/OpenCC) (Apache License 2.0)
 - [stackia/XIME](https://github.com/stackia/XIME) (GPL v3)
-- [RIME](http://rime.im)(BSD License)
+- [RIME](http://rime.im) (BSD License)
  - [Boost C++ Libraries](http://www.boost.org/) (Boost Software License)
    - [libiconv](http://www.gnu.org/software/libiconv/) (LGPL License)
  - [darts-clone](https://code.google.com/p/darts-clone/) (New BSD License)
@@ -37,7 +37,7 @@
  - [UTF8-CPP](http://utfcpp.sourceforge.net/) (Boost Software License)
  - [yaml-cpp](https://code.google.com/p/yaml-cpp/) (MIT License)
  - [LevelDB](https://github.com/google/leveldb) (New BSD License)
-   - [snappy](https://google.github.io/snappy/)(BSD License)
+   - [snappy](https://google.github.io/snappy/) (BSD License)
 
 
 ## 鳴謝/Credits
